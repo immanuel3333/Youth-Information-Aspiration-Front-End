@@ -1,5 +1,10 @@
 import React from "react";
-
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Link,
+} from "react-router-dom";
 
 function Footer() {
   return (
@@ -51,23 +56,23 @@ function Footer() {
                 <ul>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Web Design</a>
+                    <Link href="#">Web Design</Link>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Web Development</a>
+                    <Link href="#">Web Development</Link>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Product Management</a>
+                    <Link href="#">Product Management</Link>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Marketing</a>
+                    <Link href="#">Marketing</Link>
                   </li>
                   <li>
                     <i class="bx bx-chevron-right"></i>{" "}
-                    <a href="#">Graphic Design</a>
+                    <Link href="#">Graphic Design</Link>
                   </li>
                 </ul>
               </div>

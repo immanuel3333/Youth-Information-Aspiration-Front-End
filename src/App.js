@@ -6,6 +6,7 @@ function App() {
   return (
     <div>
     <Header/>
+    {/* Footer Masih belum Nampil */}
     {/* <Footer/> */}
     </div>
   );
