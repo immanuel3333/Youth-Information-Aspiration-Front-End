@@ -1,10 +1,13 @@
-
-
+import '../src/assets/css/style.css'
+import Footer from './components/footer';
+import Header from './components/header';
 
 function App() {
   return (
     <div>
-      <h1>Hello</h1>
+    <Header/>
+    {/* Footer Masih belum Nampil */}
+    {/* <Footer/> */}
     </div>
   );
 }
