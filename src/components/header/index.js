@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div>
+  
       <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
           <h1 class="logo">
@@ -89,7 +89,7 @@ function Header() {
           </nav>
         </div>
       </header>
-    </div>
+    
   );
 }
 

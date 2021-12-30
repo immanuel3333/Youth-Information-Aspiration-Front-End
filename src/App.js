@@ -1,12 +1,13 @@
 import '../src/assets/css/style.css'
+import Hero from './components';
 import Footer from './components/footer';
 import Header from './components/header';
 
 function App() {
   return (
-    <div>
+    <div className='container'>
     <Header/>
-    {/* Footer Masih belum Nampil */}
+    <Hero/>
     {/* <Footer/> */}
     </div>
   );
