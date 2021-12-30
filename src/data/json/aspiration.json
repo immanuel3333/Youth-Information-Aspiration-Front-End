@@ -1,0 +1,68 @@
+[
+  {
+    "user_id": [
+      {
+        "$oid": "61c59efbf8d0f66a57749a0b"
+      }
+    ],
+    "category_id": [
+      {
+        "$oid": "61bf326c03e43ba9cd6f85d5"
+      }
+    ],
+    "aspiration_title": "Selamatkan Mars",
+    "aspiration_image": "mars.png",
+    "aspiration_description": "Selamatkan Mars Kita Hari Ini",
+    "created_at": {
+      "$date": "2021-12-24T11:19:26.100Z"
+    },
+    "updated_at": {
+      "$date": "2021-12-24T11:19:26.100Z"
+    },
+    "__v": 0
+  },
+  {
+    "user_id": [
+      {
+        "$oid": "61c59efbf8d0f66a57749a0b"
+      }
+    ],
+    "category_id": [
+      {
+        "$oid": "61bf326c03e43ba9cd6f85d5"
+      }
+    ],
+    "aspiration_title": "Selamatkan Mars",
+    "aspiration_image": "mars.png",
+    "aspiration_description": "Selamatkan Mars Kita Hari Ini",
+    "created_at": {
+      "$date": "2021-12-24T11:19:26.100Z"
+    },
+    "updated_at": {
+      "$date": "2021-12-24T11:19:26.100Z"
+    },
+    "__v": 0
+  },
+  {
+    "user_id": [
+      {
+        "$oid": "61c59efbf8d0f66a57749a0b"
+      }
+    ],
+    "category_id": [
+      {
+        "$oid": "61bf326c03e43ba9cd6f85d5"
+      }
+    ],
+    "aspiration_title": "Selamatkan Mars",
+    "aspiration_image": "mars.png",
+    "aspiration_description": "Selamatkan Mars Kita Hari Ini",
+    "created_at": {
+      "$date": "2021-12-24T11:19:26.100Z"
+    },
+    "updated_at": {
+      "$date": "2021-12-24T11:19:26.100Z"
+    },
+    "__v": 0
+  }
+]

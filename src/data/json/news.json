@@ -1,0 +1,95 @@
+[
+  {
+    "user_id": [
+      {
+        "$oid": "61c59efbf8d0f66a57749a0b"
+      }
+    ],
+    "category_id": [
+      {
+        "$oid": "61bf326c03e43ba9cd6f85d5"
+      }
+    ],
+    "comments": [
+      {
+        "$oid": "61c1e5e29bfe7adb36e6cd19"
+      }
+    ],
+    "news_title": "Technical Assignment",
+    "news_author": "David Winalda",
+    "news_thumbnail": "mongodb.png",
+    "news_image": ["[mongoose.png, sequelize.png]"],
+    "news_description": "Deploy Technical Assignment",
+    "news_source": "Skilvul.com",
+    "status_news": 0,
+    "created_at": {
+      "$date": "2021-12-24T10:57:37.034Z"
+    },
+    "updated_at": {
+      "$date": "2021-12-24T10:57:37.034Z"
+    },
+    "__v": 0
+  },
+  {
+    "user_id": [
+      {
+        "$oid": "61c59efbf8d0f66a57749a0b"
+      }
+    ],
+    "category_id": [
+      {
+        "$oid": "61bf326c03e43ba9cd6f85d5"
+      }
+    ],
+    "comments": [
+      {
+        "$oid": "61c1e5e29bfe7adb36e6cd19"
+      }
+    ],
+    "news_title": "Technical Assignment",
+    "news_author": "David Winalda",
+    "news_thumbnail": "mongodb.png",
+    "news_image": ["[mongoose.png, sequelize.png]"],
+    "news_description": "Deploy Technical Assignment",
+    "news_source": "Skilvul.com",
+    "status_news": 0,
+    "created_at": {
+      "$date": "2021-12-24T10:57:37.034Z"
+    },
+    "updated_at": {
+      "$date": "2021-12-24T10:57:37.034Z"
+    },
+    "__v": 0
+  },
+  {
+    "user_id": [
+      {
+        "$oid": "61c59efbf8d0f66a57749a0b"
+      }
+    ],
+    "category_id": [
+      {
+        "$oid": "61bf326c03e43ba9cd6f85d5"
+      }
+    ],
+    "comments": [
+      {
+        "$oid": "61c1e5e29bfe7adb36e6cd19"
+      }
+    ],
+    "news_title": "Technical Assignment",
+    "news_author": "David Winalda",
+    "news_thumbnail": "mongodb.png",
+    "news_image": ["[mongoose.png, sequelize.png]"],
+    "news_description": "Deploy Technical Assignment",
+    "news_source": "Skilvul.com",
+    "status_news": 0,
+    "created_at": {
+      "$date": "2021-12-24T10:57:37.034Z"
+    },
+    "updated_at": {
+      "$date": "2021-12-24T10:57:37.034Z"
+    },
+    "__v": 0
+  }
+]
