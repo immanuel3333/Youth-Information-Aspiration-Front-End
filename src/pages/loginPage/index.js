@@ -1,9 +1,11 @@
 import React from "react";
 
+
 function LoginPage() {
     
     return (
-        <body className="img js-fullheight" style="background-image: url(images/bg.jpg);">
+        <div>
+		<body className="img js-fullheight" style={"background-image: url(https://i.ibb.co/d0MtG5S/4b78da0ac3c63fa6901053af55a5d0f1.jpg);"}>
 	<section className="ftco-section">
 		<div class="container">
 			<div className="row justify-content-center">
@@ -49,6 +51,7 @@ function LoginPage() {
 		</div>
 	</section>
     </body>
+	</div>
     )
 }
 
