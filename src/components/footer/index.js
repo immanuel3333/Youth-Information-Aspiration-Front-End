@@ -6,10 +6,13 @@ import {
   Link,
 } from "react-router-dom";
 
+import '../../assets/css/style.css'
+
+
 function Footer() {
   return (
-    <div>
-      <footer id="footer">
+    <footer>
+      <div id="footer">
         <div class="footer-top">
           <div className="container">
             <div className="row">
@@ -122,8 +125,9 @@ function Footer() {
             </a>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
+      
   );
 }
 
