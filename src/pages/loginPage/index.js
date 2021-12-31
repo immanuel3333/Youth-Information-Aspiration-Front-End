@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Row, Button, Col, Container } from "react-bootstrap";
 
+
 // import YIABackground from "./assets/image/YIA-Background.png";
 
 function LoginPage() {
@@ -16,12 +17,23 @@ function LoginPage() {
   
 		{/* <Container className="color-overlay d-flex justify-content-center align-items-center"> */}
 
-   
+ 
     
       
-    <div className='color-overlay'>
+    {/* <div className='color-overlay'> */}
     
-    <div className='color-overlay d-flex justify-content-center align-items-center'>
+    <Row>
+
+      <Col>
+    <div className='color-overlay d-flex justify-content-center align-items-center col-6'>
+
+    <img src='https://i.ibb.co/K0v0jrr/yia-logo.png' className='img-fluid shadow-4 ' alt='YIA-Logo' />
+    
+      </div>
+      </Col>
+
+      <Col>
+    <div className='color-overlay d-flex justify-content-center align-items-center col-6'>
 
     <Form className="form-rounded p-4">
   <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -37,9 +49,7 @@ function LoginPage() {
 
     <Form.Label className="text-email">Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted text-remind">
-      We'll never share your email with anyone else.
-    </Form.Text>
+    
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -56,17 +66,22 @@ function LoginPage() {
   <Button variant="primary" size="md">
     Sign In
   </Button>
+
+  
   <Button variant="success" size="md">
     Create an Account
   </Button>
+  
+  
 </div>
 
 </Form>
     </div>
-    </div>
+    </Col>
+    {/* </div> */}
     
-  </Container>
-// </Container>
+    </Row>
+ </Container>
 
 
 
