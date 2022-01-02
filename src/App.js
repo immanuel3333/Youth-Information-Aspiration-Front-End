@@ -2,12 +2,16 @@ import "../src/assets/css/style.css";
 import MainPage from "./pages/mainpage";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AspirationPage from "./pages/aspiration";
+import DetailAspirationPage from "./pages/detail_aspiration";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/aspiration" element={<AspirationPage />} />
+        <Route path="/detail-aspiration" element={<DetailAspirationPage />} />
       </Routes>
     </Router>
   );
