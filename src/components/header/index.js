@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function Header() {
   return (
     <header id="header" class="fixed-top">
@@ -8,7 +7,6 @@ function Header() {
         <h1 class="logo">
           <a href="index.html">YIA</a>
         </h1>
-        
         {/* <a href="index.html" class="logo">
         <img src="assets/img/logo.png" alt="" class="img-fluid"/></a> */}
         <nav id="navbar" class="navbar">
@@ -19,7 +17,7 @@ function Header() {
               </a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="#about">
+              <a class="nav-link scrollto" href="/aspiration">
                 Aspiration
               </a>
             </li>
