@@ -2,10 +2,9 @@ import React from "react";
 
 function Hero() {
   const style = {
-    left: 0,
     "object-fit": "cover",
-    "height": "500px",
-    "width" : "100%",
+    "height": "50vh", 
+    "width" : "100%"
 
   };
   return (
@@ -17,9 +16,10 @@ function Hero() {
       >
         <div class="carousel-inner">
           <div class="carousel-item active">
+          
             <img
               src={
-                "https://picsum.photos/1080/1920"
+                "https://i.ibb.co/VS6TCRJ/image.png"
               }
               style={style}
             />

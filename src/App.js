@@ -6,6 +6,7 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AspirationPage from "./pages/aspiration";
 import DetailAspirationPage from "./pages/detail_aspiration";
+import DetailNewsPage from "./pages/detail_news";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/aspiration" element={<AspirationPage />} />
         <Route path="/detail-aspiration" element={<DetailAspirationPage />} />
+        <Route path="/detail-news" element={<DetailNewsPage />} />
       </Routes>
     </Router>
   );
