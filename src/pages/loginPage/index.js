@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Form, Row, Button, Col, Container } from "react-bootstrap";
 import axios from "axios";
+import { validate } from "parsleyjs";
 
 
 // import YIABackground from "./assets/image/YIA-Background.png";
@@ -80,7 +81,12 @@ function LoginPage() {
       <Col>
     <div className='color-overlay d-flex justify-content-center align-items-center col-6'>
 
-    <Form className="form-rounded p-4">
+
+
+    <Form className="form-rounded p-4" data-parsley-validate="">
+
+
+
   <Form.Group className="mb-3" controlId="formBasicEmail">
 
   <h2 className="text-center sign-in-text">Welcome!</h2>
@@ -92,12 +98,18 @@ function LoginPage() {
 <br>
 </br>
 
+      
     <Form.Label className="text-email">Email address</Form.Label>
     <Form.Control 
     type="email" 
     onChange={(e) => setEmail(e.target.value)}
     placeholder="Enter email" 
-    required
+    // data-parsley-trigger="change"
+    data-parsley-type="email"
+    data-parsley-required
+    data-parsley-error-message="email is not valid"
+   
+
     />
     
   </Form.Group>
@@ -106,10 +118,15 @@ function LoginPage() {
     <Form.Label className="text-password">Password</Form.Label>
 
     <Form.Control 
-    type="password" 
+ 
     placeholder="Password"
+    type="password"
     onChange={(e) => setPassword(e.target.value)}
-    required
+    data-parsley-error-message="min password length 8 character"
+    minlength="8"
+    data-parsley-required
+ 
+    // data-parsley-required-message="this field is required"
     
     />
 
@@ -128,7 +145,7 @@ function LoginPage() {
     <h7 className="forgot-password">Forgot your Password?</h7>
   </Form.Group>
   <div className="d-grid gap-2">
-  <Button variant="primary" size="md"  onClick={login}>
+  <Button type="submit" variant="primary" size="md"  onSubmit={login}>
     Sign In
   </Button>
 
@@ -140,7 +157,7 @@ function LoginPage() {
   
 </div>
 
-</Form>
+  </Form>
     </div>
     </Col>
     {/* </div> */}
