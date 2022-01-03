@@ -100,16 +100,15 @@ function LoginPage() {
 
       
     <Form.Label className="text-email">Email address</Form.Label>
-    <Form.Control 
+    <Form.Control className="form-control"
     type="email" 
     onChange={(e) => setEmail(e.target.value)}
     placeholder="Enter email" 
-    // data-parsley-trigger="change"
+    data-parsley-trigger="change"
     data-parsley-type="email"
     data-parsley-required
-    data-parsley-error-message="email is not valid"
-   
-
+    data-parsley-error-message="Email is not valid"
+  
     />
     
   </Form.Group>
@@ -117,12 +116,12 @@ function LoginPage() {
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label className="text-password">Password</Form.Label>
 
-    <Form.Control 
- 
+    <input
+  className="form-control"
     placeholder="Password"
     type="password"
     onChange={(e) => setPassword(e.target.value)}
-    data-parsley-error-message="min password length 8 character"
+    data-parsley-error-message="Min password length 8 characters"
     minlength="8"
     data-parsley-required
  

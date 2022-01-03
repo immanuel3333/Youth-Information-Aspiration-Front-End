@@ -25,8 +25,9 @@ body {
 
 
 .form-rounded {
-  background-color:transparent;
+  background-color: rgba(124, 124, 124, 0.219);
   box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+  opacity: 1;
 
   
 }
@@ -59,6 +60,14 @@ body {
 .forgot-password {
   color: #00aced;
 }
+
+/* validation error message */
+input.data-parsley-error-message {
+  color: red;
+}
+
+
+
 
 a {
   color: #2487ce;
