@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { Row, Container, Col, Badge, Tabs, Tab, Sonnet } from "react-bootstrap";
+import CardNewsRecomend from "../../components/card/card_news_recomend";
 
 export default function DetailNewsPage() {
   return (
@@ -85,9 +86,9 @@ export default function DetailNewsPage() {
           <Col>
             <div className="article mx-auto justify-content-between">
               <i className="me-4 fab fa-instagram fa-2x" />
-              <i className="me-4 fab fa-instagram fa-2x" />
-              <i className="me-4 fab fa-instagram fa-2x" />
-              <i className="me-4 fab fa-instagram fa-2x" />
+              <i className="me-4 fab fa-facebook fa-2x" />
+              <i className="me-4 fab fa-linkedin fa-2x" />
+              <i className="me-4 fas fa-share-alt fa-2x" />
             </div>
 
             <div className="article" style={{ marginTop: "100px" }}>
@@ -97,13 +98,16 @@ export default function DetailNewsPage() {
                 transition={false}
                 className="justify-content-between"
               >
-                <Tab eventKey="popular" title="Popular" style={{height:"200px"}}>
-                  <h1>inin</h1>
+                <Tab eventKey="popular" title="Popular">
+                  <CardNewsRecomend />
+                  <hr />
+                  <CardNewsRecomend />
                 </Tab>
                 <Tab eventKey="recomended" title="Recomended">
-                  <h1>woiiiii</h1>
+                  <CardNewsRecomend />
+                  <hr />
+                  <CardNewsRecomend />
                 </Tab>
-                
               </Tabs>
             </div>
           </Col>

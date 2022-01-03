@@ -1,28 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch, connect } from "react-redux";
 import { Col, Card, Button, Placeholder } from "react-bootstrap";
+import { getNews } from "../../../actions/news-action";
 
-export default function CardNews() {
+export default function CardNews(props) {
+  var desc = props.description;
+  var img = props.image
+
   return (
     <Col>
       <Card
-        style={{ width: "426px", borderRadius: "", padding: "8px" }}
+        style={{
+          width: "426px",
+          height: "350px",
+          borderRadius: "",
+          padding: "8px",
+        }}
         className="my-1 card_news"
       >
         <Card.Img
-          style={{ height: "170px", borderRadius: "10px" }}
+          style={{ height: "170px", borderRadius: "10px",objectFit:"cover" }}
           variant="top"
-          src="https://img.beritasatu.com/cache/jakartaglobe/960x620-4/2018/08/myanmar-military.jpg"
+          src={img}
+          className="img-fluid"
         />
         <Card.Body style={{ padding: "0px" }} className="pt-2">
-          <Card.Title>
-            [Statement] Youth in Response to The Myanmar Military Coup
-          </Card.Title>
+          <Card.Title>{props.title}</Card.Title>
           <div class></div>
           <Card.Text style={{ fontSize: "14px" }}>
-            We, as the youth of Southeast Asia, stand in solidarity with the
+            {desc}
+            {/* We, as the youth of Southeast Asia, stand in solidarity with the
             people of Myanmar in condemnation of the Myanmar military junta and
             its security forces’ continuing lawless violence against peaceful
-            protesters and .....
+            protesters and ..... */}
           </Card.Text>
           <a href="/detail-news">Read More</a>
         </Card.Body>

@@ -8,7 +8,7 @@ import { Container } from "react-bootstrap";
 
 function MainPage() {
   return (
-    <Container fluid style={{ width: "100%", padding: "0" }} className="pr-0">
+    <Container fluid style={{ width: "100%", padding: "0"}} className="mx-0 flex-fill">
       <Header />
       <br />
       <br />
