@@ -4,6 +4,62 @@ body {
   color: #444444;
 }
 
+.background-image {
+  background-image: url("https://i.ibb.co/yQjhhHG/group-asia-young-creative-people-smart-casual-wear-smiling-arms-crossed-creative-office-workplace-di.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100vh; 
+  width: 100vw;
+  background-position: center; 
+}
+
+.color-overlay {
+  position: absolute;
+  /* background-color: rgba(0,0,0,0.2); */
+  height: 100%;
+  width: 100%;
+  mix-blend-mode: normal;
+}
+
+
+
+.form-rounded {
+  background-color:transparent;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+
+  
+}
+
+.text-email {
+  color: #ffffff;
+}
+
+.text-password {
+  color: #ffffff;
+}
+
+.text-remember {
+  color: #ffffff;
+}
+
+.text-remind {
+  color: #ffffff;
+}
+
+
+.text-center {
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-style: italic
+}
+
+
+.forgot-password {
+  color: #00aced;
+}
+
 a {
   color: #2487ce;
   text-decoration: none;
@@ -252,6 +308,8 @@ h6 {
     left: -100%;
   }
 }
+
+
 
 /**
 * Mobile Navigation 
