@@ -26,8 +26,8 @@ export default function ListNews() {
     return (
       <Row className="px-4 justify-content-center d-flex">
         <h3>Some Latest Article</h3>
-        {news.map((e) => {
-          return <CardNews key={e.__v} {...e} />;
+        {news.data.News.map((e) => {
+          return <CardNews key={e._id} {...e} />;
         })}
       </Row>
     );
