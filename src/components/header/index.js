@@ -1,14 +1,22 @@
 import React from "react";
+import logo from "../../assets/image/yia-logo.png";
 
 function Header() {
   return (
     <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-center justify-content-between">
-        <h1 class="logo">
+      <div class="container-fluid d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo">
+          <img
+            src={logo}
+            alt=""
+            className="img-fluid"
+            style={{ height: "50px !important", width: "100px", objectFit: "cover" }}
+          />
+        </a>
+        {/* <h1 class="logo">
           <a href="/">Youth Information Aspiration</a>
-        </h1>
-        {/* <a href="index.html" class="logo">
-        <img src="assets/img/logo.png" alt="" class="img-fluid"/></a> */}
+        </h1> */}
+
         <nav id="navbar" class="navbar">
           <ul>
             <li>

@@ -11,7 +11,7 @@ export default function CardNews(props) {
     <Col>
       <Card
         style={{
-          width: "426px",
+         
           height: "350px",
           borderRadius: "",
           padding: "8px",

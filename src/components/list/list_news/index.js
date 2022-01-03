@@ -10,15 +10,21 @@ export default function ListNews() {
   const newsData = useSelector((state) => state.news);
   const { news } = newsData;
 
+  if (news.length != 0) {
+    news.length = 3;
+  } else {
+    news.length = 0;
+  }
+
   useEffect(() => {
     dispatch(getNews());
   }, [dispatch]);
 
   // const {news} = props.news;
   console.log(news);
-  if (news.length != 0) {
+  if (news.length == 3) {
     return (
-      <Row className="px-4 justify-content-between">
+      <Row className="px-4 justify-content-center d-flex">
         <h3>Some Latest Article</h3>
         {news.map((e) => {
           return <CardNews key={e.__v} {...e} />;

@@ -5,7 +5,7 @@ export const getNews = () => async (dispatch) => {
   try {
 
     const res = await axios.get(
-      "https://ghibliapi.herokuapp.com/films",
+      "https://youth-information-aspiration.herokuapp.com/news",
       {
         headers:{
           'Content-Type': 'application/json',
