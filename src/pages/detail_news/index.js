@@ -3,8 +3,21 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { Row, Container, Col, Badge, Tabs, Tab, Sonnet } from "react-bootstrap";
 import CardNewsRecomend from "../../components/card/card_news_recomend";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 export default function DetailNewsPage() {
+  const newsData = useSelector((state) => state.news);
+  const { news } = newsData;
+
+
+  const {id} = useParams()
+  console.log(id);
+  const  News = news.find((res) => res._id === Number(id))
+
+  console.log(News);
+  console.log(news);
   return (
     <div>
       <Header />
@@ -17,6 +30,7 @@ export default function DetailNewsPage() {
             <div className="article">
               <div className="article-title">
                 <h2>
+                {/* {News.news_title} */}
                   [Statement] Youth in Response to The Myanmar Military Coup
                 </h2>
                 <div className="py-1 d-flex">

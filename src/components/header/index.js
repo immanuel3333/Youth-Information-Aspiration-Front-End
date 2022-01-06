@@ -1,11 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/image/yia-logo.png";
 
 function Header() {
+  const navigate = useNavigate()
+  function onFormSubmit(e) {
+    e.preventDefault();
+    const [name,category] = this.state
+    navigate('/detail-news')
+  }
   return (
     <header id="header" class="fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
           <img
             src={logo}
             alt=""
@@ -80,6 +87,7 @@ function Header() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                  onSubmit={onFormSubmit}
               />
               <li>
                 <a class="getstarted scrollto" href="#about">

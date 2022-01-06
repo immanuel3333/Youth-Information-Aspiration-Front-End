@@ -2,16 +2,22 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { Col, Card, Button, Placeholder } from "react-bootstrap";
 import { getNews } from "../../../actions/news-action";
+import { useNavigate, use } from "react-router-dom";
 
 export default function CardNews(props) {
-  var desc = props.description;
-  var img = props.image
+  let navigate = useNavigate();
+
+  var desc = props.news_description;
+  var img = props.news_image;
+
+  function handleClik() {
+    navigate(`detail-news/${1}`);
+  }
 
   return (
     <Col>
       <Card
         style={{
-         
           height: "350px",
           borderRadius: "",
           padding: "8px",
@@ -19,7 +25,7 @@ export default function CardNews(props) {
         className="my-1 card_news"
       >
         <Card.Img
-          style={{ height: "170px", borderRadius: "10px",objectFit:"cover" }}
+          style={{ height: "170px", borderRadius: "10px", objectFit: "cover" }}
           variant="top"
           src={img}
           className="img-fluid"
@@ -34,7 +40,9 @@ export default function CardNews(props) {
             its security forces’ continuing lawless violence against peaceful
             protesters and ..... */}
           </Card.Text>
-          <a href="/detail-news">Read More</a>
+          <Button variant="primary" onClick={handleClik}>
+            Read More
+          </Button>
         </Card.Body>
       </Card>
 
