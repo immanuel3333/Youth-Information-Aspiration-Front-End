@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AspirationPage from "./pages/aspiration";
 import DetailAspirationPage from "./pages/detail_aspiration";
 import DetailNewsPage from "./pages/detail_news";
+import AboutUsPage from "./pages/aboutUs"
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<SignUpPage />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/aspiration" element={<AspirationPage />} />
         <Route path="/detail-aspiration" element={<DetailAspirationPage />} />
         <Route path="/detail-news" element={<DetailNewsPage />} />

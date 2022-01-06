@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 
 function signUpPage () {
 
+
+
+
+
 return (
 
 <Container className="p-0 background-image" fluid={true}>
    
 
   
-   {/* <Container className="color-overlay d-flex justify-content-center align-items-center"> */}
 
    
 
