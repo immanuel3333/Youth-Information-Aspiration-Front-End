@@ -15,11 +15,11 @@
         "$oid": "61c1e5e29bfe7adb36e6cd19"
       }
     ],
-    "news_title": "Technical Assignment",
+    "news_title": "[Statement] Youth in Response to The Myanmar Military Coup",
     "news_author": "David Winalda",
     "news_thumbnail": "mongodb.png",
-    "news_image": "https://images.unsplash.com/photo-1641437123627-837979a33c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-    "news_description": "Deploy Technical Assignment",
+    "news_image": "https://img.beritasatu.com/cache/jakartaglobe/960x620-4/2018/08/myanmar-military.jpg",
+    "news_description": "Eget aenean tellus venenatis. Donec odio tempus. Felis arcu pretium metus nullam quam aenean sociis quis sem neque vici libero. Venenatis nullam fringilla pretium magnis aliquam nunc vulputate integer augue ultricies cras. Eget viverra feugiat cras ut. Sit natoque montes tempus ligula eget vitae pederhoncus maecenas consectetuer commodo condimentum aenean.",
     "news_source": "Skilvul.com",
     "status_news": 0,
     "created_at": {
@@ -28,7 +28,7 @@
     "updated_at": {
       "$date": "2021-12-24T10:57:37.034Z"
     },
-    "__v": 0
+    "_id": 22
   },
   {
     "user_id": [
@@ -50,7 +50,7 @@
     "news_author": "David Winalda",
     "news_thumbnail": "mongodb.png",
     "news_image": "https://images.unsplash.com/photo-1641437123627-837979a33c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-    "news_description": "Deploy Technical Assignment",
+    "news_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "news_source": "Skilvul.com",
     "status_news": 0,
     "created_at": {
@@ -59,7 +59,7 @@
     "updated_at": {
       "$date": "2021-12-24T10:57:37.034Z"
     },
-    "__v": 0
+    "_id": 222
   },
   {
     "user_id": [
@@ -81,7 +81,7 @@
     "news_author": "David Winalda",
     "news_thumbnail": "mongodb.png",
     "news_image": "https://images.unsplash.com/photo-1641437123627-837979a33c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-    "news_description": "Deploy Technical Assignment",
+    "news_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris nisi ut aliquip ex ea commodo consequat. Duis auteirure dolor in reprehenderit in voluptate velit esse cillumdolore eu fugiat nulla pariatur. Excepteur sint occaecatcupidatat non proident, sunt in culpa qui officia deseruntmollit anim id est laborum.",
     "news_source": "Skilvul.com",
     "status_news": 0,
     "created_at": {
@@ -90,6 +90,6 @@
     "updated_at": {
       "$date": "2021-12-24T10:57:37.034Z"
     },
-    "__v": 0
+    "_id": 224
   }
 ]

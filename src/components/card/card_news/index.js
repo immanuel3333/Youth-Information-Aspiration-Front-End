@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { Col, Card, Button, Placeholder } from "react-bootstrap";
 import { getNews } from "../../../actions/news-action";
-import { useNavigate, use } from "react-router-dom";
+import { useNavigate, use, Link } from "react-router-dom";
 
 export default function CardNews(props) {
   let navigate = useNavigate();
@@ -13,6 +13,8 @@ export default function CardNews(props) {
   function handleClik() {
     navigate(`detail-news/${1}`);
   }
+
+  const path = `detail-news/${props._id}`;
 
   return (
     <Col>
@@ -40,9 +42,9 @@ export default function CardNews(props) {
             its security forces’ continuing lawless violence against peaceful
             protesters and ..... */}
           </Card.Text>
-          <Button variant="primary" onClick={handleClik}>
-            Read More
-          </Button>
+          {/* <Link to={path}> */}
+            <Button variant="primary" type="submit" href={path}>Read More</Button>{" "}
+          {/* </Link> */}
         </Card.Body>
       </Card>
 

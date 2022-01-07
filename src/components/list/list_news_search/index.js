@@ -9,7 +9,7 @@ function ListNewsSearch() {
     <h3>Latest Article</h3>
       <Col >
         {news.map((res) => {
-          return <CardNews {...res} />;
+        return <CardNews {...res} key={res._id}/>;
         })}
       </Col>
     </Container>
