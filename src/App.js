@@ -19,7 +19,9 @@ function App() {
         <Route path="/aspiration" element={<AspirationPage />} />
         <Route path="/detail-aspiration" element={<DetailAspirationPage />} />
         <Route path="/detail-news/:id" element={<DetailNewsPage />} />
-        <Route path="/search" element={<SearchResult />} />
+        <Route path="/search" element={<SearchResult />}>
+          <Route path='/search/:search' element={<SearchResult/>}/>
+        </Route>
       </Routes>
     </Router>
   );
