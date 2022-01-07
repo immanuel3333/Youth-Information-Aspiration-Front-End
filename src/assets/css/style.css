@@ -127,9 +127,10 @@ body {
   font-weight: 700;
 }
 .services .service-box .read-more {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  align-items: flex-end;
   justify-content: center;
+  align-content: flex-end;
   font-weight: 600;
   font-size: 16px;
   padding: 8px 20px;
@@ -861,7 +862,22 @@ section {
 }
 
 .section-bg {
-  background-color: #f8fbfe;
+  /* background-color: #d4d4d4; */
+  background: linear-gradient(
+    90deg, #feac5e, #c779d0, #4bc0c8, #e498f1, #4eb5bb, #89c4d6, #11dbcf, #00FFFF, #0f5a5e);
+        background-size: 400% 400%;
+        animation: gradient 10s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+}
+50% {
+    background-position: 100% 50%;
+}
+100% {
+    background-position: 0% 50%;
+}
 }
 
 .section-title {
@@ -879,7 +895,7 @@ section {
 .section-title p {
   margin-bottom: 0;
   font-size: 14px;
-  color: #919191;
+  color: #000000;
 }
 
 /*--------------------------------------------------------------
@@ -1190,8 +1206,9 @@ section {
   text-align: center;
   padding: 70px 20px 80px 20px;
   transition: all ease-in-out 0.3s;
-  background: #fff;
-  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+  background: rgb(235, 235, 235);
+/* background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(39,219,252,1) 48%, rgba(69,145,145,1) 100%);
+  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05); */
 }
 .services .icon-box .icon {
   margin: 0 auto;
@@ -2103,10 +2120,14 @@ section {
   }
 }
 
+
+
+
+
 .section-title h2 {
     font-weight: 700;
     color: #20247b;
-    font-size: 45px;
+    font-size: 30px;
     margin: 0 0 15px;
     border-left: 5px solid #1e9aff;
     border-right: 5px solid #1e9aff;

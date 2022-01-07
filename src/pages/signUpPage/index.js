@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Row, Button, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 
 function signUpPage () {

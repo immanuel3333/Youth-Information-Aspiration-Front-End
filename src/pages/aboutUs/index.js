@@ -2,15 +2,16 @@ import React from "react";
 import { Card, Carousel } from "react-bootstrap";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
+
 // import { MdQuestionAnswer } from "react-icons/md";
 
 function AboutUsPage () {
-
-
+  
 
     return (
     <div>
       <div className="container-fluid-c">
+      
         <Header />
 
         <Carousel fade>
@@ -68,6 +69,8 @@ function AboutUsPage () {
         </div>
 
         <div className="row content">
+        
+        
           <div className="col-lg-6">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -102,10 +105,10 @@ function AboutUsPage () {
         <div className="row">
           <div className="col-lg-9 text-center text-lg-start">
             <h3>Our Challenge Partner</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>We really support the youth movement in Asia through a program organized by our challenge partner. Without them, we couldn't have made a platform as good as this one. So we would like to introduce you to our challenge partner, the supportive organization behind the success of this platform. ASEAN YOUTH FORUM (AYF).</p>
           </div>
           <div className="col-lg-3 cta-btn-container text-center">
-            <a className="cta-btn align-middle" href="https://aseanyouthforum.org/">Visit Us</a>
+            <a className="cta-btn align-middle" href="https://aseanyouthforum.org/">Visit Them</a>
           </div>
         </div>
 
@@ -122,7 +125,11 @@ function AboutUsPage () {
 
         <header className="section-header service-text">     
 
-          <h2 className="h2-feature"> Our Feature</h2>
+        <div className="container" data-aos="fade-up">
+        <div className="section-title">
+          <h2 className="section-title"> Our Feature</h2>
+          </div>
+          </div>
           {/* <p className="card-about-text">Veritatis et dolores facere numquam et praesentium</p> */}
       
         </header>
@@ -133,27 +140,27 @@ function AboutUsPage () {
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div className="service-box blue">
-              <i className="ri-discuss-line icon"></i>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+            <img src="https://i.ibb.co/FYcNZSr/valid-information-icon.png" alt="valid-information-icon"   className='img-fluid shadow-4 '/>
+              <h3>Valid Information</h3>
+              <p>We present a feature that provides a variety of factual information through various trusted reference sources. You don't have to worry about the correctness of the information we provide. We are committed to always providing reliable information.</p>
               <a href="#" className="read-more"><span>Read More</span> <i className="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div className="service-box orange">
-              <i className="ri-discuss-line icon"></i>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+            <img src="https://i.ibb.co/VNhSr8x/aspiration-icon.png"  alt="aspiration-icon"    className='img-fluid shadow-4 '/>
+              <h3>Aspiration</h3>
+              <p>We provide an open space for youth in ASIA to voice their concerns and strategies to achieve a better ASEAN. Youth can express their opinion on certain issues freely without coercion.</p>
               <a href="#" className="read-more"><span>Read More</span> <i className="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div className="service-box green">
-              <i className="ri-discuss-line icon"></i>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+            <img src="https://i.ibb.co/2gWCt38/discuss-group-icon.png"  alt="discussion-forum-icon"  className='img-fluid shadow-4 '/>
+              <h3>Discussion Forum</h3>
+              <p>We provide a forum for youth to discuss with other ASIA youth related to certain issues. We hope that the youth can present their arguments well.</p>
               <a href="#" className="read-more"><span>Read More</span> <i className="bi bi-arrow-right"></i></a>
             </div>
           </div>
@@ -172,42 +179,43 @@ function AboutUsPage () {
       <div className="container" data-aos="fade-up">
 
         <div className="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Our Topic Category</h2>
+          <p>We provide various kinds of information with a variety of categories, we are committed to providing factual information with these varied categories. And provide an open space for youth to voice their voices among these categories.</p>
         </div>
 
         <div className="row">
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <div className="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            <img src="https://i.ibb.co/zrsCCQk/mental-health.png" alt="mental-health" className='img-fluid shadow-4 '/>
+              <h4><a href="">Mental Health</a></h4>
+              <p>We provide a topic about mental health. We understand that mental health is very important at this time, and young in ASEAN must know the importance of mental health.</p>
             </div>
           </div>
 
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div className="icon-box">
-              <div className="icon"><i className="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            <img src="https://i.ibb.co/VJgLv5j/human-rights.png" alt="human-rights"  className='img-fluid shadow-4 '/>
+              <h4><a href="">Human Rights</a></h4>
+              <p>We hope that by providing the topic of human rights, ASEAN youth can understand, as well as voice their opinions regarding the rights of youth in ASEAN.</p>
             </div>
           </div>
 
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div className="icon-box">
-              <div className="icon"><i className="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            <img src="https://i.ibb.co/GdvXkVD/job.png" alt="job"   className='img-fluid shadow-4 '/>
+              <h4><a href="">Jobs</a></h4>
+              <p>We present an interesting topic about work. Our hope, ASEAN youth can know about the things of the world of work. At the same time can learn from the information we provide.</p>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+         <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+            <div className="icon-box">
+            <img src="https://i.ibb.co/LRJX9Pr/climate.png" alt="climate"   className='img-fluid shadow-4 '/>
+              <h4><a href="">Climate</a></h4>
+              <p>We also support ASEAN against climate change. We want youth in ASEAN to be informed about climate change and its impacts. We want to raise awareness among young people about climate change events that have occurred.</p>
             </div>
           </div>
+
 
         </div>
 
@@ -225,7 +233,11 @@ function AboutUsPage () {
         <Footer />
         </div>
      </div>
+
+
     )
+
+
 
 }
 
