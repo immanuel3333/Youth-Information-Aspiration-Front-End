@@ -23,8 +23,8 @@ function AboutUsPage () {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3><strong>READ</strong></h3>
+      <p>Get the valid information needed here.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -35,8 +35,8 @@ function AboutUsPage () {
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3><strong>EXPRESS</strong></h3>
+      <p>Express your concerns and convey your best aspirations.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -47,8 +47,8 @@ function AboutUsPage () {
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3><strong>DISCUSS</strong></h3>
+      <p>Discuss it and find a solution</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
@@ -73,23 +73,17 @@ function AboutUsPage () {
         
           <div className="col-lg-6">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            <strong>The Youth Information Aspiration (YIA)</strong> is an educational platform that aims to mobilize youth in ASEAN to obtain valid information. And provide open space for ASEAN youth to be able to voice their aspirations and concerns about certain issues in order to achieve a better ASEAN. YIA provides services for a discussion forum for ASEAN youth to provide arguments regarding issues that are happening in ASEAN.
             </p>
-            <ul>
-              <li><i className="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i className="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i className="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-            </ul>
+            
           </div>
           <div className="col-lg-6 pt-4 pt-lg-0">
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
+            <strong>Youth Information Aspiration (YIA)</strong> is part of the ASEAN Youth Forum, this platform aims to become a branch of the youth movement in ASEAN to focus engagement on important local issues. We hope that youth in ASEAN can participate in making a good impact by knowing the issues that occur in ASEAN, and voicing their opinions regarding this matter.
             </p>
-            <a href="#" className="btn-learn-more">Learn More</a>
+            {/* <a href="#" className="btn-learn-more">Learn More</a> */}
           </div>
+          
         </div>
 
       </div>
@@ -105,7 +99,7 @@ function AboutUsPage () {
         <div className="row">
           <div className="col-lg-9 text-center text-lg-start">
             <h3>Our Challenge Partner</h3>
-            <p>We really support the youth movement in Asia through a program organized by our challenge partner. Without them, we couldn't have made a platform as good as this one. So we would like to introduce you to our challenge partner, the supportive organization behind the success of this platform. ASEAN YOUTH FORUM (AYF).</p>
+            <p>We really support the youth movement in ASEAN through a program organized by our challenge partner. Without them, we couldn't have made a platform as good as this one. So we would like to introduce you to our challenge partner, the supportive organization behind the success of this platform. ASEAN YOUTH FORUM (AYF).</p>
           </div>
           <div className="col-lg-3 cta-btn-container text-center">
             <a className="cta-btn align-middle" href="https://aseanyouthforum.org/">Visit Them</a>
@@ -186,7 +180,7 @@ function AboutUsPage () {
         <div className="row">
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-            <img src="https://i.ibb.co/zrsCCQk/mental-health.png" alt="mental-health" className='img-fluid shadow-4 '/>
+            <img href="" src="https://i.ibb.co/zrsCCQk/mental-health.png" alt="mental-health" className='img-fluid shadow-4 '/>
               <h4><a href="">Mental Health</a></h4>
               <p>We provide a topic about mental health. We understand that mental health is very important at this time, and young in ASEAN must know the importance of mental health.</p>
             </div>
@@ -194,7 +188,7 @@ function AboutUsPage () {
 
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div className="icon-box">
-            <img src="https://i.ibb.co/VJgLv5j/human-rights.png" alt="human-rights"  className='img-fluid shadow-4 '/>
+            <img href="" src="https://i.ibb.co/VJgLv5j/human-rights.png" alt="human-rights"  className='img-fluid shadow-4 '/>
               <h4><a href="">Human Rights</a></h4>
               <p>We hope that by providing the topic of human rights, ASEAN youth can understand, as well as voice their opinions regarding the rights of youth in ASEAN.</p>
             </div>
@@ -202,7 +196,7 @@ function AboutUsPage () {
 
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div className="icon-box">
-            <img src="https://i.ibb.co/GdvXkVD/job.png" alt="job"   className='img-fluid shadow-4 '/>
+            <img href="" src="https://i.ibb.co/GdvXkVD/job.png" alt="job"   className='img-fluid shadow-4 '/>
               <h4><a href="">Jobs</a></h4>
               <p>We present an interesting topic about work. Our hope, ASEAN youth can know about the things of the world of work. At the same time can learn from the information we provide.</p>
             </div>
@@ -210,7 +204,7 @@ function AboutUsPage () {
 
          <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div className="icon-box">
-            <img src="https://i.ibb.co/LRJX9Pr/climate.png" alt="climate"   className='img-fluid shadow-4 '/>
+            <img href="" src="https://i.ibb.co/LRJX9Pr/climate.png" alt="climate"   className='img-fluid shadow-4 '/>
               <h4><a href="">Climate</a></h4>
               <p>We also support ASEAN against climate change. We want youth in ASEAN to be informed about climate change and its impacts. We want to raise awareness among young people about climate change events that have occurred.</p>
             </div>
@@ -225,11 +219,11 @@ function AboutUsPage () {
 
        
 
-    
+{/*     
         <br />
         <br />
         <br />
-        <br />
+        <br /> */}
         <Footer />
         </div>
      </div>

@@ -17,13 +17,7 @@ function Footer() {
               <div className="col-sm-12 col-md-6">
                 <h6>About</h6>
                 <p className="text-justify">
-                  The ASEAN Youth Forum (AYF) is a movement that represents and
-                  fights for the young people in ASEAN to voice out their
-                  concerns and strategies for ways to achieve a better ASEAN.
-                  AYF has been a platform of the youth in the ASEAN to raise
-                  their voice and claim for their rights for a sustainable,
-                  inclusive, people-centered, and youth-driven regional
-                  community.
+                The Youth Information Aspiration (YIA) is an educational platform that aims to mobilize youth in ASEAN to obtain valid information. And provide open space for ASEAN youth to be able to voice their aspirations and concerns about certain issues in order to achieve a better ASEAN. YIA provides services for a discussion forum for ASEAN youth to provide arguments regarding issues that are happening in ASEAN.
                 </p>
               </div>
 

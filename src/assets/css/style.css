@@ -893,6 +893,7 @@ section {
   color: #124265;
 }
 .section-title p {
+  text-align: center;
   margin-bottom: 0;
   font-size: 14px;
   color: #000000;
@@ -901,6 +902,9 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+
+
+
 .about .content h3 {
   font-weight: 600;
   font-size: 26px;
@@ -926,8 +930,12 @@ section {
 }
 .about .content p:last-child {
   margin-bottom: 0;
+  text-align: justify;
 }
 .about .content .btn-learn-more {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -1244,6 +1252,7 @@ section {
   transition: ease-in-out 0.3s;
 }
 .services .icon-box p {
+  text-align: justify;
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
@@ -1323,6 +1332,7 @@ section {
 }
 .cta p {
   color: #fff;
+  text-align: justify;
 }
 .cta .cta-btn {
   font-family: "Raleway", sans-serif;
