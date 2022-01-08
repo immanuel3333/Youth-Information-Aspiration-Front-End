@@ -90,7 +90,7 @@ function Header() {
                   onSubmit={onFormSubmit}
               />
               <li>
-                <a class="getstarted scrollto" href="#about">
+                <a class="getstarted scrollto" href="/login">
                   Login
                 </a>
               </li>
