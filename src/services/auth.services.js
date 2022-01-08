@@ -2,14 +2,15 @@ import axios from "axios";
 
 const API_URL = "https://youth-information-aspiration.herokuapp.com/users/";
 
-const register = (fullname, username,email,country,organitation, password) => {
+const register = (fullname, username,email,country,organization, password,user_group) => {
   return axios.post(API_URL + "register", {
     fullname,
     username,
     email,
     password,
     country,
-    organitation
+    organization,
+    user_group
   });
 };
 
