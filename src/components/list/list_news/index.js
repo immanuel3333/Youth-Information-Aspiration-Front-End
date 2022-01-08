@@ -4,6 +4,7 @@ import News from "../../../data/json/news.json";
 import { Row, Col, Spinner } from "react-bootstrap";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { getNews } from "../../../actions/news-action";
+import { useNavigate } from "react-router-dom";
 
 export default function ListNews() {
   const dispatch = useDispatch();
@@ -20,6 +21,10 @@ export default function ListNews() {
     dispatch(getNews());
   }, [dispatch]);
 
+ 
+
+  
+
   // const {news} = props.news;
   console.log(news);
   if (news.length == 3) {
@@ -27,7 +32,7 @@ export default function ListNews() {
       <Row className="px-4 justify-content-center d-flex">
         <h3>Some Latest Article</h3>
         {news.data.News.map((e) => {
-          return <CardNews key={e._id} {...e} />;
+          return <CardNews key={e.__v} {...e} />;
         })}
       </Row>
     );
