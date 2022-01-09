@@ -6,6 +6,7 @@ import Header from "../../components/header";
 import ListNewsSearch from "../../components/list/list_news_search";
 import { Container, Pagination } from "react-bootstrap";
 import CardNews from "../../components/card/card_news";
+import List_Carousel_Search from "../../components/caroussel/list_carousel";
 
 function SearchResult() {
   let active = 1;
@@ -22,14 +23,13 @@ function SearchResult() {
       <Header />
       <br />
       <br />
-      <CardNews />
       <br />
       <br />
+      <List_Carousel_Search />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
+      
+     
       <ListNewsSearch />
       <br />
       <Pagination className="mx-auto d-flex justify-content-center">

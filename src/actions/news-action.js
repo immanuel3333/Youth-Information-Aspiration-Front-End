@@ -14,7 +14,7 @@ export const getNews = () => async (dispatch) => {
     );
     dispatch({
       type: GET_NEWS,
-      payload: res.data,
+      payload: res.data.data.News,
     });
   } catch (error) {
     dispatch({
