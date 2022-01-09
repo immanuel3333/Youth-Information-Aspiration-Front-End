@@ -9,6 +9,7 @@ import DetailAspirationPage from "./pages/detail_aspiration";
 import DetailNewsPage from "./pages/detail_news";
 import SearchResult from "./pages/search_result";
 import AboutUsPage from './pages/aboutUs'
+import NotFoundPage from "./pages/not_found";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/search" element={<SearchResult />}>
           <Route path='/search/:search' element={<SearchResult/>}/>
         </Route>
+        <Route path='*' element={<NotFoundPage/>}></Route>
       </Routes>
     </Router>
   );
