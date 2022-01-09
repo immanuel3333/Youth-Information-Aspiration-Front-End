@@ -214,7 +214,7 @@ function LoginPage(props) {
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/search" />;
+    return <Navigate to="/" />;
   }
 
 
