@@ -118,11 +118,7 @@ function Header() {
                     </NavDropdown.Item>
 
                     <NavDropdown.Divider />
-                    <NavDropdown.Item
-                      className="bg"
-                      href="#action/3.4"
-                      onClick={handleLogout}
-                    >
+                    <NavDropdown.Item className="bg" onClick={handleLogout}>
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
