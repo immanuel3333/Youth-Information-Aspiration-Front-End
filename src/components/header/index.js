@@ -26,7 +26,13 @@ function Header() {
   return (
     <header id="header" class="fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
-        <Link to="/" class="logo">
+        <Link
+          to="/"
+          class="logo"
+          onClick={() => {
+            window.location.href = "/";
+          }}
+        >
           <img
             src={logo}
             alt=""
