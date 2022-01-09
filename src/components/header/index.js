@@ -1,14 +1,28 @@
-import React from "react";
-import { useNavigate,Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Button, NavDropdown } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
+import { logout } from "../../actions/auth-action";
 import logo from "../../assets/image/yia-logo.png";
 
 function Header() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   function onFormSubmit(e) {
     e.preventDefault();
-    const [name,category] = this.state
-    navigate('/detail-news')
+    const [name, category] = this.state;
+    navigate("/detail-news");
   }
+
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+
+  const handleLogout = () => {
+    setLoading(true);
+
+    dispatch(logout());
+  };
+
   return (
     <header id="header" class="fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
@@ -17,7 +31,11 @@ function Header() {
             src={logo}
             alt=""
             className="img-fluid"
-            style={{ height: "50px !important", width: "100px", objectFit: "cover" }}
+            style={{
+              height: "50px !important",
+              width: "100px",
+              objectFit: "cover",
+            }}
           />
         </Link>
         {/* <h1 class="logo">
@@ -87,12 +105,32 @@ function Header() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                  onSubmit={onFormSubmit}
+                onSubmit={onFormSubmit}
               />
               <li>
-                <Link class="getstarted scrollto" to="/login">
-                  Login
-                </Link>
+                {isLoggedIn ? (
+                  <NavDropdown title="Your Account" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">
+                      Your Name
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                      Your Aspiration
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item
+                      className="bg"
+                      href="#action/3.4"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <Link class="getstarted scrollto" to="/login">
+                    Login
+                  </Link>
+                )}
               </li>
             </form>
           </ul>
