@@ -1,33 +1,32 @@
 import React, { useEffect } from "react";
-import CardNews from "../../card/card_news";
-import News from "../../../data/json/news.json";
+import CardAspiration from "../../card/card_aspiration";
 import { Row, Col, Spinner } from "react-bootstrap";
 import { useSelector, useDispatch, connect } from "react-redux";
-import { getNews } from "../../../actions/news-action";
+import { getAspiration } from "../../../actions/aspiration-action";
 
-export default function ListNews() {
+export default function ListAspiration() {
   const dispatch = useDispatch();
-  const newsData = useSelector((state) => state.news);
-  const { news } = newsData;
+  const aspirationData = useSelector((state) => state.aspiration);
+  const { aspiration } = aspirationData;
 
-  if (news.length != 0) {
-    news.length = 3;
+  if (aspiration.length != 0) {
+    aspiration.length = 3;
   } else {
-    news.length = 0;
+    aspiration.length = 0;
   }
 
   useEffect(() => {
-    dispatch(getNews());
+    dispatch(getAspiration());
   }, [dispatch]);
 
-  // const {news} = props.news;
-  // console.log(news);
-  if (news.length == 3) {
+  // const {aspiration} = props.aspiration;
+  // console.log(aspiration);
+  if (aspiration.length == 3) {
     return (
       <Row className="px-4 justify-content-center d-flex">
         <h3>Some Latest Article</h3>
-        {news.data.News.map((e) => {
-          return <CardNews key={e._id} {...e} />;
+        {aspiration.data.Aspiration.map((e) => {
+          return <CardAspiration key={e._id} {...e} />;
         })}
       </Row>
     );
