@@ -1,4 +1,4 @@
-import { GET_NEWS } from "../../actions/news-type";
+import { GET_NEWS } from "../actions/news-type";
 
 const initialState = {
   news: [],

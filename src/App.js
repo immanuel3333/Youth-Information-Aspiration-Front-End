@@ -9,6 +9,7 @@ import AboutUsPage from "./pages/aboutUs";
 import DetailAspirationPage from "./pages/detail_aspiration";
 import DetailNewsPage from "./pages/detail_news";
 import SearchResult from "./pages/search_result";
+import AboutUsPage from './pages/aboutUs'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route exact path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<SignUpPage />} />
-        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/about" element={<AboutUsPage />} />
         <Route path="/aspiration" element={<AspirationPage />} />
         <Route path="/detail-aspiration" element={<DetailAspirationPage />} />
         <Route path="/detail-news/:id" element={<DetailNewsPage />} />
