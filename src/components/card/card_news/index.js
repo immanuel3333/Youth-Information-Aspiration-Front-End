@@ -1,18 +1,16 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch, connect } from "react-redux";
+
 import { Col, Card, Button, Placeholder, Badge } from "react-bootstrap";
-import { getNews } from "../../../actions/news-action";
 import { useNavigate, use, Link } from "react-router-dom";
 
 export default function CardNews(props) {
   let navigate = useNavigate();
 
   var desc = props.news_description;
-  var img = props.news_image;
+  // desc.slice(0,15)
 
-  function handleClik() {
-    navigate(`detail-news/${1}`);
-  }
+  var img = props.news_image;
+  var thumb = `https://youth-information-aspiration.herokuapp.com/${props.news_thumbnail}`;
 
   const path = `detail-news/${props._id}`;
 
@@ -21,30 +19,33 @@ export default function CardNews(props) {
       <Card
         style={{
           height: "350px",
-          borderRadius: "",
+          borderRadius: "16px",
           padding: "8px",
+          width: "40vh",
         }}
         className="my-1 card_news"
       >
         <Card.Img
           style={{ height: "170px", borderRadius: "10px", objectFit: "cover" }}
           variant="top"
-          src={img}
+          src={thumb}
           className="img-fluid"
         />
         <Card.Body style={{ padding: "0px" }} className="pt-2">
-          <Card.Title>{props.news_title}</Card.Title>
+          <Card.Title style={{ fontSize: "16px", fontWeight: "bold" }}>
+            {props.news_title}
+          </Card.Title>
           <Card.Text style={{ fontSize: "14px" }}>
-            {desc}
+            {/* {`${desc.slice(0,70)} ....`} */}
           </Card.Text>
-          {/* <Link to={path}> */}
-            <Button variant="primary" type="submit" href={path}>Read More</Button>{" "}
-          {/* </Link> */}
+          <Button variant="primary" type="submit" href={path}>
+            Read More
+          </Button>{" "}
         </Card.Body>
       </Card>
 
       {/* Ini Skeleton */}
-      {/* <Card style={{ width: "426px", borderRadius: "", padding: "8px" }}
+      {/* <Card style={{ width: "326px", height: "170px", borderRadius: "", padding: "8px" }}
         className="my-1 card_news">
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
