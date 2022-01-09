@@ -21,6 +21,7 @@ function CardNewsSearch(props) {
   function handleClik(){
 
     navigate(path)
+    window.location.href = path
   }
 
 
