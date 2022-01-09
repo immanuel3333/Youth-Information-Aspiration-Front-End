@@ -62,7 +62,7 @@ export default function ListNews() {
   
 // news.data.data_component.news_group_setting.news_setting
   // const {news} = props.news;
-  console.log(news);
+  // console.log(news);
   if (news.length == 3) {
     return (
       <Row className="px-4 justify-content-center d-flex">
