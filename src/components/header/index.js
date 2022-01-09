@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate,Link } from "react-router-dom";
 import logo from "../../assets/image/yia-logo.png";
+import { useSelector } from "react-redux";
+import newsJson from "../../data/json/news.json";
+
 
 function Header() {
   const navigate = useNavigate()
@@ -10,7 +13,50 @@ function Header() {
     navigate('/detail-news')
   }
 
-  const [searchTerm, setSearchTerm] = useState ("");
+  // const [searchTerm, setSearchTerm] = useState("");
+  const newsData = useSelector((state) => state.news);
+  const { news } = newsData;
+
+
+//   const [loading, setLoading] = useState(false);
+//   const [post, setPosts] = useState("");
+//   const [news, setNews] = useState("");
+//   const [searchTitle, setSearchTitle] = useState("");
+
+//   useEffect(() => {
+//     const loadPosts = async () => {
+//       setLoading(true);
+//    const response = await axios.get(
+//       "https://youth-information-aspiration.herokuapp.com/news"
+//       );
+//       setNews(response.data);
+//       setLoading(false);
+//     };
+//     loadPosts();
+    
+// },[]);
+
+const [filteredData, setFilteredData] = useState([]);
+  const [wordEntered, setWordEntered] = useState("");
+
+   const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+    const newFilter = data.filter((value) => {
+      return value.title.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    if (searchWord === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
+    }
+  };
+
+  const clearInput = () => {
+    setFilteredData([]);
+    setWordEntered("");
+  };
 
   return (
     <header id="header" class="fixed-top">
@@ -92,11 +138,49 @@ function Header() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                  onSubmit={onFormSubmit}
-                  term={searchTerm}
-                  searchKeyword={ searchHandler}
+                  onChange={handleFilter}  
               />
 
+      {filteredData.length != 0 && (
+        <div className="dataResult">
+          {filteredData.slice(0, 15).map((value, key) => {
+            return (
+              <a className="dataItem" href={value.link} target="_blank">
+                <p>{value.title} </p>
+              </a>
+            );
+          })}
+        </div>
+      )}
+
+
+                {/* {loading ? (
+                  <h4>Loading ...</h4>
+                ) : (
+                  newsJson.filter((value) => {
+                    if(searchTitle == "") {
+                      return value
+                    } else if (value.title.toLowerCase().includes(searchTitle.toLowerCase())) {
+                      return value;
+                    }
+                  })
+                )} */}
+
+
+              {/* {news.filter((val) => {
+                if (searchTerm == "") {
+                  return val
+                } else if  (val.news_title.toLowerCase().include(searchTerm.toLowerCase())) {
+                  return val 
+                };
+              }).map((val, key) => {
+                return (
+                  <div className="news" key={key}>
+                    <p>{val.news_title}</p>
+
+                  </div>
+                )
+              })} */}
 
               <li>
                 <Link class="getstarted scrollto" to="/login">

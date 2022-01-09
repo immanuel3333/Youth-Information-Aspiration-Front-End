@@ -9,7 +9,7 @@ import AboutUsPage from "./pages/aboutUs";
 import DetailAspirationPage from "./pages/detail_aspiration";
 import DetailNewsPage from "./pages/detail_news";
 import SearchResult from "./pages/search_result";
-import AboutUsPage from './pages/aboutUs'
+
 
 function App() {
   return (
