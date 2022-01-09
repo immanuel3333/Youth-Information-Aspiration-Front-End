@@ -2,19 +2,19 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { Col, Card, Button, Placeholder, Badge } from "react-bootstrap";
 import { getNews } from "../../../actions/news-action";
+import { useNavigate, use, Link } from "react-router-dom";
 
 export default function CardNews(props) {
+  let navigate = useNavigate();
+
   var desc = props.news_description;
-  var img = props.news_thumbnail;
-  var category = props.category_id;
+  var img = props.news_image;
 
-  var categorynew = [];
-
-  for (let i = 0; i < category.length; i++) {
-    var categoryI = category[i];
-    console.log(categoryI.category_name);
-    categorynew.fill(categoryI);
+  function handleClik() {
+    navigate(`detail-news/${1}`);
   }
+
+  const path = `detail-news/${props._id}`;
 
   return (
     <Col>
@@ -37,7 +37,9 @@ export default function CardNews(props) {
           <Card.Text style={{ fontSize: "14px" }}>
             {desc}
           </Card.Text>
-          <a href="/detail-news">Read More</a>
+          {/* <Link to={path}> */}
+            <Button variant="primary" type="submit" href={path}>Read More</Button>{" "}
+          {/* </Link> */}
         </Card.Body>
       </Card>
 

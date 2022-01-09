@@ -20,7 +20,7 @@ export default function (state = initialState, action) {
     case GET_ASPIRATION_BY_ID:
       return {
         ...state,
-        news: action.payload,
+        aspiration: action.payload,
         loading: false,
       };
 

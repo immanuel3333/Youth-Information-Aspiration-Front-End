@@ -1,138 +1,324 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Form, Row, Button, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 
+import Form2 from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import { isEmail } from "validator";
 
-function signUpPage () {
+import { register } from "../../actions/auth-action";
+const required = (value) => {
+  if (!value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This field is required!
+      </div>
+    );
+  }
+};
 
-return (
+const validEmail = (value) => {
+  if (!isEmail(value)) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This is not a valid email.
+      </div>
+    );
+  }
+};
 
-<Container className="p-0 background-image" fluid={true}>
-   
+const vusername = (value) => {
+  if (value.length < 3 || value.length > 20) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The username must be between 3 and 20 characters.
+      </div>
+    );
+  }
+};
 
-  
-   {/* <Container className="color-overlay d-flex justify-content-center align-items-center"> */}
+const vpassword = (value) => {
+  if (value.length < 6 || value.length > 40) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The password must be between 6 and 40 characters.
+      </div>
+    );
+  }
+};
 
-   
+function SignUpPage() {
+  const form = useRef();
+  const checkBtn = useRef();
 
+  const [username, setUsername] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [country, setCountry] = useState("");
+  const [organitation, setOrganitation] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [successful, setSuccessful] = useState(false);
 
- 
+  const { message } = useSelector((state) => state.message);
+  const dispatch = useDispatch();
 
+  const onChangeUsername = (e) => {
+    const username = e.target.value;
+    setUsername(username);
+  };
 
-<div className='color-overlay d-flex justify-content-center align-items-center'>
+  const onChangeFullname = (e) => {
+    const fullname = e.target.value;
+    setFullname(fullname);
+  };
 
-<Form className="form-rounded p-4" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"
-  data-parsley-trigger="keyup" data-parsley-validate="">
+  const onChangeCountry = (e) => {
+    const country = e.target.value;
+    setCountry(country);
+  };
 
-<Form.Group className="mb-3" controlId="formBasicEmail">
+  const onChangeOrganitation = (e) => {
+    const organitation = e.target.value;
+    setOrganitation(organitation);
+  };
 
-<h2 className="text-center sign-in-text">Welcome!</h2>
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
 
-<h7 className="text-center">Please register your account First before use our service</h7>
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
 
-<br>
-</br>
-<br>
-</br>
+  const handleRegister = (e) => {
+    e.preventDefault();
 
+    setSuccessful(false);
 
+    form.current.validateAll();
 
-<Form.Label className="text-email">Fullname</Form.Label>
-<Form.Control 
-type="text" 
-placeholder="Enter your name"
-data-parsley-error-message="This field is required" 
-data-parsley-required
+    if (checkBtn.current.context._errors.length === 0) {
+      dispatch(
+        register(
+          fullname,
+          username,
+          email,
+          country,
+          organitation,
+          password,
+          "61d9c6144be64efed0e5ec7e"
+        )
+      )
+        .then(() => {
+          setSuccessful(true);
+        })
+        .catch(() => {
+          setSuccessful(false);
+        });
+    }
+  };
 
-/>
+  return (
+    <Container className="p-0 background-image" fluid={true}>
+      <div className="color-overlay d-flex justify-content-center align-items-center">
+        <Form2 onSubmit={handleRegister} ref={form}>
+          {!successful && (
+            <div>
+              <div className="form-group">
+                <label htmlFor="fullname">FullName</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="fullname"
+                  value={fullname}
+                  onChange={onChangeFullname}
+                  validations={[required]}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="username">Username</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="username"
+                  value={username}
+                  onChange={onChangeUsername}
+                  validations={[required]}
+                />
+              </div>
 
-<Form.Label className="text-email">Username</Form.Label>
-<Form.Control 
-type="text" 
-placeholder="Enter your username" 
-data-parsley-error-message="Min username length 5 characters"
-minlength="5"
-data-parsley-required
-/>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="email"
+                  value={email}
+                  onChange={onChangeEmail}
+                  validations={[required, validEmail]}
+                />
+              </div>
 
-<Form.Label className="text-email">Email address</Form.Label>
-<Form.Control 
-type="email" 
-placeholder="Enter email"
-data-parsley-trigger="change"
-data-parsley-type="email"
-data-parsley-required
-data-parsley-error-message="Email is not valid"
- />
+              <div className="form-group">
+                <label htmlFor="country">country</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="country"
+                  value={country}
+                  onChange={onChangeCountry}
+                  validations={[required]}
+                />
+              </div>
 
-<Form.Label 
- for="password" 
+              <div className="form-group">
+                <label htmlFor="organitation">organitation</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="organitation"
+                  value={organitation}
+                  onChange={onChangeOrganitation}
+                  validations={[required]}
+                />
+              </div>
 
-className="text-password">Password</Form.Label>
-<Form.Control 
-id="password"
-name="password"
-type="password" 
-placeholder="Password" 
-data-parsley-minlength="8"
-data-parsley-errors-container=".errorspannewpassinput"
-data-parsley-required-message="Please enter your password."
-data-required="true"
-data-parsley-trigger="blur"
-data-parsley-iff="#password-confirm"
-data-parsley-iff-message=""
-/>
-<span class="errorspannewpassinput"></span>
+              <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <Input
+                  type="password"
+                  className="form-control"
+                  name="password"
+                  value={password}
+                  onChange={onChangePassword}
+                  validations={[required, vpassword]}
+                />
+              </div>
 
-<Form.Label 
-className="text-password"
+              <div className="form-group">
+                <button className="btn btn-primary btn-block">Sign Up</button>
+              </div>
+            </div>
+          )}
 
-for="password-confirm"
+          {message && (
+            <div className="form-group">
+              <div
+                className={
+                  successful ? "alert alert-success" : "alert alert-danger"
+                }
+                role="alert"
+              >
+                {message}
+              </div>
+            </div>
+          )}
+          <CheckButton style={{ display: "none" }} ref={checkBtn} />
+        </Form2>
+        {/* <Form
+          className="form-rounded p-4"
+          data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"
+          data-parsley-trigger="keyup"
+          data-parsley-validate=""
+        >
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <h2 className="text-center sign-in-text">Welcome!</h2>
 
->Confirm Password</Form.Label>
-<Form.Control 
-type="password" 
-id="password-confirm"
-name="password-confirm"
-placeholder="Password" 
-data-parsley-minlength="8"
-data-parsley-errors-container=".errorspanconfirmnewpassinput"
-data-parsley-required-message="Please re-enter your password."
-data-parsley-equalto="#password"
-data-parsley-required 
-data-required="true"
-/>
-<span class="errorspanconfirmnewpassinput"></span>
+            <h7 className="text-center">
+              Please register your account First before use our service
+            </h7>
 
+            <br></br>
+            <br></br>
 
+            <Form.Label className="text-email">Fullname</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your name"
+              data-parsley-error-message="This field is required"
+              data-parsley-required
+            />
 
-<Form.Label className="text-email">Country</Form.Label>
-<Form.Control type="text" placeholder="Enter your country" />
+            <Form.Label className="text-email">Username</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your username"
+              data-parsley-error-message="Min username length 5 characters"
+              minlength="5"
+              data-parsley-required
+            />
 
-<Form.Label className="text-email">Organization</Form.Label>
-<Form.Control type="text" placeholder="Enter your organization" />
-</Form.Group>
+            <Form.Label className="text-email">Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              data-parsley-trigger="change"
+              data-parsley-type="email"
+              data-parsley-required
+              data-parsley-error-message="Email is not valid"
+            />
 
-<br>
-</br>
-<div className="d-grid gap-4">
-<Button  type="submit" variant="success" size="lg">
-Create an Account
-</Button>
-<div  className="text-center">
-<h6>Already Have an Account?</h6>
-<Link to="/login">Sign In</Link>
-</div>
-</div>
+            <Form.Label for="password" className="text-password">
+              Password
+            </Form.Label>
+            <Form.Control
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              data-parsley-minlength="8"
+              data-parsley-errors-container=".errorspannewpassinput"
+              data-parsley-required-message="Please enter your password."
+              data-required="true"
+              data-parsley-trigger="blur"
+              data-parsley-iff="#password-confirm"
+              data-parsley-iff-message=""
+            />
+            <span class="errorspannewpassinput"></span>
 
-</Form>
-</div>
+            <Form.Label className="text-password" for="password-confirm">
+              Confirm Password
+            </Form.Label>
+            <Form.Control
+              type="password"
+              id="password-confirm"
+              name="password-confirm"
+              placeholder="Password"
+              data-parsley-minlength="8"
+              data-parsley-errors-container=".errorspanconfirmnewpassinput"
+              data-parsley-required-message="Please re-enter your password."
+              data-parsley-equalto="#password"
+              data-parsley-required
+              data-required="true"
+            />
+            <span class="errorspanconfirmnewpassinput"></span>
 
+            <Form.Label className="text-email">Country</Form.Label>
+            <Form.Control type="text" placeholder="Enter your country" />
 
+            <Form.Label className="text-email">Organization</Form.Label>
+            <Form.Control type="text" placeholder="Enter your organization" />
+          </Form.Group>
 
-
-</Container>
-)
+          <br></br>
+          <div className="d-grid gap-4">
+            <Button type="submit" variant="success" size="lg">
+              Create an Account
+            </Button>
+            <div className="text-center">
+              <h6>Already Have an Account?</h6>
+              <Link to="/login">Sign In</Link>
+            </div>
+          </div>
+        </Form> */}
+      </div>
+    </Container>
+  );
 }
 
-export default signUpPage;
+export default SignUpPage;

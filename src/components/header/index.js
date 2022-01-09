@@ -1,18 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button, NavDropdown } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
+import { logout } from "../../actions/auth-action";
 import logo from "../../assets/image/yia-logo.png";
 
 function Header() {
+  const navigate = useNavigate();
+  function onFormSubmit(e) {
+    e.preventDefault();
+    const [name, category] = this.state;
+    navigate("/detail-news");
+  }
+
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+
+  const handleLogout = () => {
+    setLoading(true);
+
+    dispatch(logout());
+  };
+
   return (
     <header id="header" class="fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo">
+        <Link to="/" class="logo">
           <img
             src={logo}
             alt=""
             className="img-fluid"
-            style={{ height: "50px !important", width: "100px", objectFit: "cover" }}
+            style={{
+              height: "50px !important",
+              width: "100px",
+              objectFit: "cover",
+            }}
           />
-        </a>
+        </Link>
         {/* <h1 class="logo">
           <a href="/">Youth Information Aspiration</a>
         </h1> */}
@@ -20,59 +45,71 @@ function Header() {
         <nav id="navbar" class="navbar">
           <ul>
             <li>
-              <a class="nav-link scrollto active" href="#hero">
+              <Link
+                class="nav-link scrollto active"
+                to="/"
+                onClick={() => {
+                  window.location.href = "/";
+                }}
+              >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a class="nav-link scrollto" href="/aspiration">
+              <Link
+                class="nav-link scrollto"
+                to="/aspiration"
+                onClick={() => {
+                  window.location.href = "/aspiration";
+                }}
+              >
                 Aspiration
-              </a>
+              </Link>
             </li>
 
             <li class="dropdown">
-              <a href="#">
+              <Link to="#">
                 <span>Article Category</span> <i class="bi bi-chevron-down"></i>
-              </a>
+              </Link>
               <ul>
                 <li>
-                  <a href="#">Human Right</a>
+                  <Link to="/search/humanright">Human Right</Link>
                 </li>
                 {/* <li class="dropdown">
-                    <a href="#">
+                    <a to="#">
                       <span>Deep Drop Down</span>{" "}
                       <i class="bi bi-chevron-right"></i>
                     </a>
                     <ul>
                       <li>
-                        <a href="#">Deep Drop Down 1</a>
+                        <a to="#">Deep Drop Down 1</a>
                       </li>
                       <li>
-                        <a href="#">Deep Drop Down 2</a>
+                        <a to="#">Deep Drop Down 2</a>
                       </li>
                       <li>
-                        <a href="#">Deep Drop Down 3</a>
+                        <a to="#">Deep Drop Down 3</a>
                       </li>
                       <li>
-                        <a href="#">Deep Drop Down 4</a>
+                        <a to="#">Deep Drop Down 4</a>
                       </li>
                       <li>
-                        <a href="#">Deep Drop Down 5</a>
+                        <a to="#">Deep Drop Down 5</a>
                       </li>
                     </ul>
                   </li> */}
                 <li>
-                  <a href="#">Mental Health</a>
+                  <Link to="/search/mentalhealth">Mental Health</Link>
                 </li>
                 <li>
-                  <a href="#">Jobs</a>
+                  <Link to="/search/jobs">Jobs</Link>
                 </li>
               </ul>
             </li>
             <li>
-              <a class="nav-link scrollto" href="#about">
+              <Link class="nav-link scrollto" to="/about">
                 About
-              </a>
+              </Link>
             </li>
             <form class="d-flex ms-4">
               <input
@@ -80,11 +117,28 @@ function Header() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onSubmit={onFormSubmit}
               />
               <li>
-                <a class="getstarted scrollto" href="#about">
-                  Login
-                </a>
+                {isLoggedIn ? (
+                  <NavDropdown title="Your Account" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">
+                      Your Name
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                      Your Aspiration
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item className="bg" onClick={handleLogout}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <Link class="getstarted scrollto" to="/login">
+                    Login
+                  </Link>
+                )}
               </li>
             </form>
           </ul>

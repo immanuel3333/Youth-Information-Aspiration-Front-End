@@ -53,11 +53,11 @@ input:focus {
 .dataItem p {
   margin-left: 10px;
 }
-a {
+.link {
   text-decoration: none;
 }
 
-a:hover {
+.link:hover {
   background-color: lightgrey;
 }
 

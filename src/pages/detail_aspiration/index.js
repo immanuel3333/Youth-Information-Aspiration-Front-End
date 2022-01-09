@@ -18,7 +18,8 @@ function DetailAspirationPage() {
   useEffect(() => {
     dispatch(getAspirationById(id));
   }, [dispatch]);
-  console.log(aspiration);
+  // console.log(aspiration);
+
   return (
     <div>
       <div className="container-fluid-c">
@@ -27,12 +28,12 @@ function DetailAspirationPage() {
         <br />
         <br />
         <br />
-        <div className="text-center">
+        <div className="">
           <h1>Aspiration Discussion</h1>
         </div>
         <div className="container row">
           <div className="col-md-4">
-            <CardDetailAspirasi />
+            <CardDetailAspirasi data={aspiration} />
           </div>
           <div className="col-md-8">
             <AspirationDiscussion />

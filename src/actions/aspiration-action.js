@@ -41,7 +41,7 @@ export const getAspirationById = (id) => async (dispatch) => {
     );
     dispatch({
       type: GET_ASPIRATION_BY_ID,
-      payload: res.data.data.News,
+      payload: res.data.data.Aspiration,
     });
   } catch (error) {
     dispatch({

@@ -19,15 +19,14 @@ export default function CardAspiration(props) {
         </div>
         <div className="d-flex justify-content-between">
           <p>Deskripsi Aspirasi :</p>
-          <button
-            className="w-full button h-8 bg-gray-400 text-white hover:bg-gray-800"
+          <Button
+            variant="outline-primary"
             onClick={() => {
               navigate(`/detail-aspiration/${props._id}`);
             }}
           >
-            {" "}
-            Detail
-          </button>
+            Join
+          </Button>
         </div>
         <div className="py-1 d-flex justify-content-between">
           <Card.Text>{props.aspiration_description}</Card.Text>

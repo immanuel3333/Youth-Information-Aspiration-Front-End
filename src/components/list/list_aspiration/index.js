@@ -20,7 +20,7 @@ export default function ListAspiration() {
   }, [dispatch]);
 
   // const {aspiration} = props.aspiration;
-  // console.log(aspiration);
+  console.log(aspiration);
   if (aspiration.length == 3) {
     return (
       <Row className="px-4 justify-content-center d-flex">
