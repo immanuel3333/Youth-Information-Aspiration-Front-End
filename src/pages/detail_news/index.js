@@ -30,9 +30,8 @@ export default function DetailNewsPage() {
     dispatch(getNewsById(id));
   }, [dispatch]);
 
-  // console.log(news);
-
-  // console.log(news.data.News);
+  var thumb = `https://youth-information-aspiration.herokuapp.com/${news.news_thumbnail}`;
+  
   if (news != null || news.data != undefined) {
     return (
       <div>
@@ -62,7 +61,7 @@ export default function DetailNewsPage() {
                 </div>
 
                 <img
-                  src={news.news_image}
+                  src={thumb}
                   style={{
                     borderRadius: "8px",
                     height: "400px",
@@ -94,9 +93,13 @@ export default function DetailNewsPage() {
                   className="justify-content-between"
                 >
                   <Tab eventKey="popular" title="Popular">
-                    <CardNewsRecomend />
-                    <hr />
-                    <CardNewsRecomend />
+                    
+                    {
+                      (news.data != undefined) ? news.data.News.map((e)=>{
+                      return <CardNewsRecomend key={e._v} {...e}/>
+                    
+                    }) : <div></div>
+                    }
                   </Tab>
                   <Tab eventKey="recomended" title="Recomended">
                     <CardNewsRecomend />
