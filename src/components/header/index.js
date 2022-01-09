@@ -1,61 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate,Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Button, NavDropdown } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
+import { logout } from "../../actions/auth-action";
 import logo from "../../assets/image/yia-logo.png";
 import { useSelector } from "react-redux";
 import newsJson from "../../data/json/news.json";
 
 
 function Header() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   function onFormSubmit(e) {
     e.preventDefault();
-    const [name,category] = this.state
-    navigate('/detail-news')
+    const [name, category] = this.state;
+    navigate("/detail-news");
   }
 
-  // const [searchTerm, setSearchTerm] = useState("");
-  const newsData = useSelector((state) => state.news);
-  const { news } = newsData;
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
+  const handleLogout = () => {
+    setLoading(true);
 
-//   const [loading, setLoading] = useState(false);
-//   const [post, setPosts] = useState("");
-//   const [news, setNews] = useState("");
-//   const [searchTitle, setSearchTitle] = useState("");
-
-//   useEffect(() => {
-//     const loadPosts = async () => {
-//       setLoading(true);
-//    const response = await axios.get(
-//       "https://youth-information-aspiration.herokuapp.com/news"
-//       );
-//       setNews(response.data);
-//       setLoading(false);
-//     };
-//     loadPosts();
-    
-// },[]);
-
-const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
-
-   const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === "") {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
-    }
-  };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
+    dispatch(logout());
   };
 
   return (
@@ -66,7 +34,11 @@ const [filteredData, setFilteredData] = useState([]);
             src={logo}
             alt=""
             className="img-fluid"
-            style={{ height: "50px !important", width: "100px", objectFit: "cover" }}
+            style={{
+              height: "50px !important",
+              width: "100px",
+              objectFit: "cover",
+            }}
           />
         </Link>
         {/* <h1 class="logo">
@@ -138,7 +110,7 @@ const [filteredData, setFilteredData] = useState([]);
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                  onChange={handleFilter}  
+                onSubmit={onFormSubmit}
               />
 
       {filteredData.length != 0 && (
@@ -183,9 +155,25 @@ const [filteredData, setFilteredData] = useState([]);
               })} */}
 
               <li>
-                <Link class="getstarted scrollto" to="/login">
-                  Login
-                </Link>
+                {isLoggedIn ? (
+                  <NavDropdown title="Your Account" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">
+                      Your Name
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                      Your Aspiration
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item className="bg" onClick={handleLogout}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <Link class="getstarted scrollto" to="/login">
+                    Login
+                  </Link>
+                )}
               </li>
             </form>
           </ul>

@@ -3,12 +3,13 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { Button, NavDropdown } from "react-bootstrap";
 import MyVerticallyCenteredModal from "../../components/modal/modal_aspiration";
-import CardAspirasi from "../../components/card/card_aspirasi";
-import SearchAspirasi from "../../components/search/search_aspirasi";
+import SearchAspiration from "../../components/search/search_aspirasi";
+import ListAspiration from "../../components/list/list_aspiration";
 
 <MyVerticallyCenteredModal />;
 
 function AspirationPage() {
+  // console.log(aspiration);
   const [modalShow, setModalShow] = React.useState(false);
   return (
     <div>
@@ -25,7 +26,7 @@ function AspirationPage() {
         <div className="container">
           <div className="row">
             <div className="col-8">
-              <SearchAspirasi />
+              <SearchAspiration />
             </div>
             <div className="col-3">
               <NavDropdown title="Categories" id="collasible-nav-dropdown">
@@ -45,10 +46,7 @@ function AspirationPage() {
             </div>
           </div>
           <div className="row py-4">
-            <CardAspirasi />
-            <CardAspirasi />
-            <CardAspirasi />
-            <CardAspirasi />
+            <ListAspiration />
           </div>
         </div>
         <br />

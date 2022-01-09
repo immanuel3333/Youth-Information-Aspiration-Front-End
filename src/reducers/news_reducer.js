@@ -1,4 +1,4 @@
-import { GET_NEWS } from "../actions/news-type";
+import { GET_NEWS, GET_NEWS_BY_ID } from "../actions/news-type";
 
 const initialState = {
   news: [],
@@ -13,6 +13,13 @@ export default function (state = initialState, action) {
         news: action.payload,
         loading: false,
       };
+
+      case GET_NEWS_BY_ID:
+        return {
+          ...state,
+          news: action.payload,
+        loading: false,
+        }
  
     default: return state
   }
