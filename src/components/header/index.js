@@ -9,6 +9,9 @@ function Header() {
     const [name,category] = this.state
     navigate('/detail-news')
   }
+
+  const [searchTerm, setSearchTerm] = useState ("");
+
   return (
     <header id="header" class="fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
@@ -81,6 +84,8 @@ function Header() {
                 About
               </a>
             </li>
+
+
             <form class="d-flex ms-4">
               <input
                 class="form-control me-2"
@@ -88,7 +93,11 @@ function Header() {
                 placeholder="Search"
                 aria-label="Search"
                   onSubmit={onFormSubmit}
+                  term={searchTerm}
+                  searchKeyword={ searchHandler}
               />
+
+
               <li>
                 <a class="getstarted scrollto" href="#about">
                   Login

@@ -5,6 +5,7 @@ import SignUpPage from "./pages/signUpPage";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AspirationPage from "./pages/aspiration";
+import AboutUsPage from "./pages/aboutUs";
 import DetailAspirationPage from "./pages/detail_aspiration";
 import DetailNewsPage from "./pages/detail_news";
 import SearchResult from "./pages/search_result";
