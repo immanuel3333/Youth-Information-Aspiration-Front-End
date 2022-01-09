@@ -29,13 +29,14 @@ function SearchAspiration() {
   //   );
   // }
 
+  // console.log(aspiration);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = aspiration.filter((value) => {
+    const newFilter = aspiration.data.Aspiration.filter((value) => {
       return value.aspiration_title
         .toLowerCase()
         .includes(searchWord.toLowerCase());
@@ -76,14 +77,22 @@ function SearchAspiration() {
           placeholder="enter the aspiration title"
           value={wordEntered}
           onChange={handleFilter}
-        /> */}
+        />
+        <div className="searchIcon">
+          {filteredData.length === 0 ? (
+            <SearchIcon />
+          ) : (
+            <SearchOffIcon id="clearBtn" onClick={clearInput} />
+          )}
+        </div> */}
       </div>
       {filteredData.length != 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
+            // console.log(value);
             return (
-              <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.title} </p>
+              <a className="dataItem" href={value}>
+                <p>{value.aspiration_title} </p>
               </a>
             );
           })}
