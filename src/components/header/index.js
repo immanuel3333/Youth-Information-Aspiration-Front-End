@@ -14,6 +14,26 @@ function Header() {
   }
 
   const { isLoggedIn } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth.user);
+
+  const userTrue = user.msg;
+  console.log(userTrue);
+
+  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+    <a
+      href=""
+      ref={ref}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(e);
+      }}
+    >
+      {/* Render custom icon here */}
+      &#x25bc;
+      {children}
+    </a>
+  ));
+
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
@@ -127,9 +147,21 @@ function Header() {
               />
               <li>
                 {isLoggedIn ? (
-                  <NavDropdown title="Your Account" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Your Name
+                  <NavDropdown
+                    title={
+                      <span>
+                        <i
+                          className="far fa-user-circle d-flex flex-column"
+                          
+                          style={{ fontSize: "24px" }}
+                        ></i>
+                        
+                      </span>
+                    }
+                    id="basic-nav-dropdown"
+                  >
+                    <NavDropdown.Item href="/profile">
+                      {userTrue.username}
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">
                       Your Aspiration
