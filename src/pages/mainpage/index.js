@@ -11,7 +11,7 @@ function MainPage() {
     <Container
       fluid
       style={{ width: "100%", padding: "0" }}
-      className="mx-0 flex-fill"
+      className="mx-0"
     >
       <Header />
       <br />

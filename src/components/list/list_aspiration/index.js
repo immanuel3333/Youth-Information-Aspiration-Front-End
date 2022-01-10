@@ -23,7 +23,7 @@ export default function ListAspiration() {
   console.log(aspiration);
   if (aspiration.length == 3) {
     return (
-      <Row className="px-4 justify-content-center d-flex">
+      <Row className="px-4 m-0 justify-content-center d-flex">
         <h3>Some Latest Article</h3>
         {aspiration.data.Aspiration.map((e) => {
           return <CardAspiration key={e._id} {...e} />;
