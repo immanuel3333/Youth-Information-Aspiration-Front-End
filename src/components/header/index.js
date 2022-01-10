@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { logout } from "../../actions/auth-action";
 import logo from "../../assets/image/yia-logo.png";
-import { useSelector } from "react-redux";
 import newsJson from "../../data/json/news.json";
 
 
@@ -25,6 +24,29 @@ function Header() {
 
     dispatch(logout());
   };
+
+  // const [filteredData, setFilteredData] = useState([]);
+  // const [wordEntered, setWordEntered] = useState("");
+
+  // const handleFilter = (event) => {
+  //   const searchWord = event.target.value;
+  //   setWordEntered(searchWord);
+  //   const newFilter = data.filter((value) => {
+  //     return value.title.toLowerCase().includes(searchWord.toLowerCase());
+  //   });
+
+  //   if (searchWord === "") {
+  //     setFilteredData([]);
+  //   } else {
+  //     setFilteredData(newFilter);
+  //   }
+  // };
+
+  // const clearInput = () => {
+  //   setFilteredData([]);
+  //   setWordEntered("");
+  // };
+
 
   return (
     <header id="header" class="fixed-top">
@@ -110,10 +132,14 @@ function Header() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                onSubmit={onFormSubmit}
+                value={wordEntered}
+                onSubmit={handleFilter}
               />
 
-      {filteredData.length != 0 && (
+      
+
+                  
+      {/* {filteredData.length != 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
@@ -123,7 +149,7 @@ function Header() {
             );
           })}
         </div>
-      )}
+      )} */}
 
 
                 {/* {loading ? (

@@ -9,12 +9,7 @@ import AboutUsPage from "./pages/aboutUs";
 import DetailAspirationPage from "./pages/detail_aspiration";
 import DetailNewsPage from "./pages/detail_news";
 import SearchResult from "./pages/search_result";
-<<<<<<< HEAD
-
-=======
-import AboutUsPage from './pages/aboutUs'
 import NotFoundPage from "./pages/not_found";
->>>>>>> 7b27de29bfa7dac49cfd08e6635d0a5887b5bf39
 
 function App() {
   return (
