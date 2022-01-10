@@ -11,7 +11,7 @@ import "../../assets/css/style.css";
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="container">
+      <div className="container d-flex">
         <div className="row">
           <div className="col-sm-12 col-md-6">
             <h6>About</h6>

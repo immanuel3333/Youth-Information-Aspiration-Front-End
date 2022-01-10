@@ -3,12 +3,12 @@ import React from "react";
 function Hero() {
   const style = {
     "object-fit": "cover",
-    "height": "50vh", 
-    "width" : "100%"
-
+    "height": "55vh", 
+    "width" : "100%",
+    "border-radius" : "10px"
   };
   return (
-    <div className="container-fluid w-100">
+    <div className="container-fluid p-0">
       <div
         id="carouselExampleSlidesOnly"
         class="carousel slide"
