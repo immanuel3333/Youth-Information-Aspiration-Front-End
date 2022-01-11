@@ -28,7 +28,7 @@ function DetailAspirationPage() {
         <br />
         <br />
         <br />
-        <div className="">
+        <div className="text-center">
           <h1>Aspiration Discussion</h1>
         </div>
         <div className="container row">

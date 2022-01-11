@@ -18,7 +18,7 @@ export const getAspiration = () => async (dispatch) => {
     );
     dispatch({
       type: GET_ASPIRATION,
-      payload: res.data,
+      payload: res.data.data.Aspiration,
     });
   } catch (error) {
     dispatch({

@@ -9,35 +9,25 @@ export default function ListAspiration() {
   const aspirationData = useSelector((state) => state.aspiration);
   const { aspiration } = aspirationData;
 
-  if (aspiration.length != 0) {
-    aspiration.length = 3;
-  } else {
-    aspiration.length = 0;
-  }
-
+  // console.log();
   useEffect(() => {
     dispatch(getAspiration());
   }, [dispatch]);
 
   // const {aspiration} = props.aspiration;
-  console.log(aspiration);
-  if (aspiration.length == 3) {
-    return (
-      <Row className="px-4 justify-content-center d-flex">
-        <h3>Some Latest Article</h3>
-        {aspiration.data.Aspiration.map((e) => {
+  // console.log(aspiration);
+  return (
+    <Row className="px-4 justify-content-center d-flex">
+      <h3>Some Latest Article</h3>
+      {aspiration ? (
+        aspiration.map((e) => {
           return <CardAspiration key={e._id} {...e} />;
-        })}
-      </Row>
-    );
-  } else {
-    return (
-      <Row className="px-4 justify-content-between">
-        <h3>Some Latest Article</h3>
+        })
+      ) : (
         <Spinner animation="border" role="status" className="mx-auto">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
-      </Row>
-    );
-  }
+      )}
+    </Row>
+  );
 }

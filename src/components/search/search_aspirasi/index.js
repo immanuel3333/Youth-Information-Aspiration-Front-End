@@ -31,14 +31,14 @@ function SearchAspiration() {
   //   );
   // }
 
-  console.log(aspiration);
+  // console.log(aspiration);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = aspiration.data.Aspiration.filter((value) => {
+    const newFilter = aspiration.filter((value) => {
       return value.aspiration_title
         .toLowerCase()
         .includes(searchWord.toLowerCase());
