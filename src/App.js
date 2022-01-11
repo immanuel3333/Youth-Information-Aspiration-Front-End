@@ -10,6 +10,7 @@ import DetailAspirationPage from "./pages/detail_aspiration";
 import DetailNewsPage from "./pages/detail_news";
 import SearchResult from "./pages/search_result";
 import NotFoundPage from "./pages/not_found";
+import ProfilePage from "./pages/profilePage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/aspiration" element={<AspirationPage />} />
         <Route path="/detail-aspiration" element={<DetailAspirationPage />} />
         <Route path="/detail-news/:id" element={<DetailNewsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search" element={<SearchResult />}>
           <Route path='/search/:search' element={<SearchResult/>}/>
         </Route>

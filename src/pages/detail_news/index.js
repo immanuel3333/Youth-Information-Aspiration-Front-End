@@ -78,7 +78,7 @@ export default function DetailNewsPage() {
               </div>
             </Col>
             <Col>
-              <div className="article mx-auto justify-content-between">
+              <div className="article icon-sosmed mx-auto justify-content-between">
                 <i className="me-4 fab fa-instagram fa-2x" />
                 <i className="me-4 fab fa-facebook fa-2x" />
                 <i className="me-4 fab fa-linkedin fa-2x" />

@@ -132,8 +132,8 @@ function Header() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                value={wordEntered}
-                onSubmit={handleFilter}
+                  // value={wordEntered}
+                // onSubmit={handleFilter}
               />
 
       
