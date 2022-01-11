@@ -170,11 +170,7 @@ function Header() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-<<<<<<< HEAD
-                  // value={wordEntered}
-=======
                 // value={wordEntered}
->>>>>>> 460a3afc269da3b782b09bf4f5672c4cf506ec6f
                 // onSubmit={handleFilter}
               />
 
