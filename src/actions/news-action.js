@@ -1,16 +1,15 @@
 import axios from "axios";
-import { GET_NEWS, NEWS_ERROR,GET_NEWS_BY_ID } from "./news-type";
+import { GET_NEWS, NEWS_ERROR, GET_NEWS_BY_ID } from "./news-type";
 
 export const getNews = () => async (dispatch) => {
   try {
-
     const res = await axios.get(
       "https://youth-information-aspiration.herokuapp.com/news",
       {
-        headers:{
-          'Content-Type': 'application/json',
+        headers: {
+          "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
-        }
+        },
       }
     );
     dispatch({
@@ -25,17 +24,15 @@ export const getNews = () => async (dispatch) => {
   }
 };
 
-
 export const getNewsById = (id) => async (dispatch) => {
   try {
-
     const res = await axios.get(
       `https://youth-information-aspiration.herokuapp.com/news/${id}`,
       {
-        headers:{
-          'Content-Type': 'application/json',
+        headers: {
+          "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
-        }
+        },
       }
     );
     dispatch({

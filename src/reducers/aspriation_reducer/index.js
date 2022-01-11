@@ -1,4 +1,7 @@
-import { GET_ASPIRATION } from "../../actions/aspiration-type";
+import {
+  GET_ASPIRATION,
+  GET_ASPIRATION_BY_ID,
+} from "../../actions/aspiration-type";
 
 const initialState = {
   aspiration: [],
@@ -10,7 +13,14 @@ export default function (state = initialState, action) {
     case GET_ASPIRATION:
       return {
         ...state,
-        news: action.payload,
+        aspiration: action.payload,
+        loading: false,
+      };
+
+    case GET_ASPIRATION_BY_ID:
+      return {
+        ...state,
+        aspiration: action.payload,
         loading: false,
       };
 

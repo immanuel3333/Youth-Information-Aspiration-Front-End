@@ -16,6 +16,26 @@ function Header() {
   }
 
   const { isLoggedIn } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth.user);
+
+  const userTrue = user.msg;
+  console.log(userTrue);
+
+  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+    <a
+      href=""
+      ref={ref}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(e);
+      }}
+    >
+      {/* Render custom icon here */}
+      &#x25bc;
+      {children}
+    </a>
+  ));
+
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
@@ -51,7 +71,13 @@ function Header() {
   return (
     <header id="header" class="fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
-        <Link to="/" class="logo">
+        <Link
+          to="/"
+          class="logo"
+          onClick={() => {
+            window.location.href = "/";
+          }}
+        >
           <img
             src={logo}
             alt=""
@@ -70,12 +96,24 @@ function Header() {
         <nav id="navbar" class="navbar">
           <ul>
             <li>
-              <Link class="nav-link scrollto active" to="/">
+              <Link
+                class="nav-link scrollto active"
+                to="/"
+                onClick={() => {
+                  window.location.href = "/";
+                }}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link class="nav-link scrollto" to="/aspiration">
+              <Link
+                class="nav-link scrollto"
+                to="/aspiration"
+                onClick={() => {
+                  window.location.href = "/aspiration";
+                }}
+              >
                 Aspiration
               </Link>
             </li>
@@ -132,7 +170,11 @@ function Header() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+<<<<<<< HEAD
                   // value={wordEntered}
+=======
+                // value={wordEntered}
+>>>>>>> 460a3afc269da3b782b09bf4f5672c4cf506ec6f
                 // onSubmit={handleFilter}
               />
 
@@ -182,9 +224,21 @@ function Header() {
 
               <li>
                 {isLoggedIn ? (
-                  <NavDropdown title="Your Account" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Your Name
+                  <NavDropdown
+                    title={
+                      <span>
+                        <i
+                          className="far fa-user-circle d-flex flex-column"
+                          
+                          style={{ fontSize: "24px" }}
+                        ></i>
+                        
+                      </span>
+                    }
+                    id="basic-nav-dropdown"
+                  >
+                    <NavDropdown.Item href="/profile">
+                      {userTrue.username}
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">
                       Your Aspiration

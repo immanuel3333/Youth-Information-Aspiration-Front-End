@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, Button, Badge } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function CardAspiration(props) {
-  console.log(props);
+  // console.log(props);
+  let navigate = useNavigate();
   return (
     <Card className="my-1">
       <Card.Header as="h5">{props.aspiration_title}</Card.Header>
@@ -17,9 +19,14 @@ export default function CardAspiration(props) {
         </div>
         <div className="d-flex justify-content-between">
           <p>Deskripsi Aspirasi :</p>
-          <Button type="submit" href="/detail-aspiration">
+          <Button
+            variant="outline-primary"
+            onClick={() => {
+              navigate(`/detail-aspiration/${props._id}`);
+            }}
+          >
             Join
-          </Button>{" "}
+          </Button>
         </div>
         <div className="py-1 d-flex justify-content-between">
           <Card.Text>{props.aspiration_description}</Card.Text>

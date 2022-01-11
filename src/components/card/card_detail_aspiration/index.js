@@ -1,22 +1,38 @@
 import React from "react";
 import { Card, Button, Badge } from "react-bootstrap";
 
-export default function CardDetailAspirasi() {
+export default function CardDetailAspirasi(props) {
+  console.log(props);
   return (
     <Card style={{ width: "18rem" }}>
       <div className="row text-center">
-        <div className="col-6">John Malik</div>
+        {props.data.user_id ? (
+          props.data.user_id.map((e) => {
+            return <div className="col-6">{e.fullname}</div>;
+          })
+        ) : (
+          <p></p>
+        )}
+
         <div className="col-6">25/100</div>
       </div>
       <div className="row text-center">
         <div className="col-4">
-          <p className="px-1" style={{ fontSize: "10px" }}>
-            Human Right
-          </p>
+          {props.data.category_id ? (
+            props.data.category_id.map((e) => {
+              return (
+                <p className="px-1" style={{ fontSize: "10px" }}>
+                  {e.category_name}
+                </p>
+              );
+            })
+          ) : (
+            <p></p>
+          )}
         </div>
         <div className="col-4">
           <p className="px-1" style={{ fontSize: "10px" }}>
-            3.14 AM
+            {props.data.created_at}
           </p>
         </div>
         <div className="col-4">
@@ -25,11 +41,8 @@ export default function CardDetailAspirasi() {
           </p>
         </div>
       </div>
-      <Card.Title>Deal with logical fallacy Organization</Card.Title>
-      <Card.Text>
-        Logical Fallacy or logical error is a reason or argument that is wrong
-        and produces a misconception. how about you?
-      </Card.Text>
+      <Card.Title>{props.data.aspiration_title}</Card.Title>
+      <Card.Text>{props.data.aspiration_description}</Card.Text>
     </Card>
   );
 }

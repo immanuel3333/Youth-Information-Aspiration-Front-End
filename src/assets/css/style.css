@@ -9,9 +9,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
-  height: 100vh; 
+  height: 100vh;
   width: 100vw;
-  background-position: center; 
+  background-position: center;
 }
 
 /* About Us Section */
@@ -20,7 +20,6 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .about {
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
@@ -82,20 +81,18 @@ body {
 }
 /* About Us Section */
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 460a3afc269da3b782b09bf4f5672c4cf506ec6f
 /* Card Feature */
 /* # Services
---------------------------------------------------------------*/ */
-
-
-
-
-.h2-feature {
+--------------------------------------------------------------*/
+*/ .h2-feature {
   text-align: center;
   font-weight: bold;
-  
 }
 
 .service-text {
@@ -219,7 +216,9 @@ body {
 .services .service-box.pink:hover {
   background: #f51f9c;
 }
-.services .service-box:hover h3, .services .service-box:hover p, .services .service-box:hover .read-more {
+.services .service-box:hover h3,
+.services .service-box:hover p,
+.services .service-box:hover .read-more {
   color: #fff;
 }
 .services .service-box:hover .icon {
@@ -231,7 +230,6 @@ body {
 
 /* Challenge Partner CTA Secton */
 .cta {
- 
   /* background: linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)), url("../image/YIA-Background.png") fixed center center; */
   background-size: cover;
   padding: 120px 0;
@@ -282,7 +280,6 @@ body {
 
 /* Challenge Partner CTA Section */
 
-
 /* Topic Category */
 .services .icon-box {
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
@@ -327,27 +324,22 @@ body {
 }
 /* Topic Category */
 
-
-
-
-
 /* /* .color-overlay {
   position: absolute;
   background-color: rgba(0,0,0,0.2); */
-  .color-overlay {
-    position: absolute;
-    /* background-color: rgba(0,0,0,0.2); */
+.color-overlay {
+  position: absolute;
+  /* background-color: rgba(0,0,0,0.2); */
   height: 100%;
   width: 100%;
   mix-blend-mode: normal;
-} 
-
-
+}
 
 .form-rounded {
   background-color: rgba(124, 124, 124, 0.219);
-  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
   opacity: 1;
+<<<<<<< HEAD
 }
 
 /* Profile Section */
@@ -370,6 +362,8 @@ body {
   justify-content: center;
   align-items: center;
   
+=======
+>>>>>>> 460a3afc269da3b782b09bf4f5672c4cf506ec6f
 }
 
 
@@ -398,14 +392,12 @@ body {
   color: #ffffff;
 }
 
-
-.text-center {
+/* .text-center {
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-style: italic
-}
-
+} */
 
 .forgot-password {
   color: #00aced;
@@ -415,9 +407,6 @@ body {
 data-parsley {
   color: red;
 }
-
-
-
 
 a {
   color: #2487ce;
@@ -668,8 +657,6 @@ h6 {
   }
 }
 
-
-
 /**
 * Mobile Navigation 
 */
@@ -895,20 +882,30 @@ section {
 .section-bg {
   /* background-color: #d4d4d4; */
   background: linear-gradient(
-    90deg, #feac5e, #c779d0, #4bc0c8, #e498f1, #4eb5bb, #89c4d6, #11dbcf, #00FFFF, #0f5a5e);
-        background-size: 400% 400%;
-        animation: gradient 10s ease infinite;
+    90deg,
+    #feac5e,
+    #c779d0,
+    #4bc0c8,
+    #e498f1,
+    #4eb5bb,
+    #89c4d6,
+    #11dbcf,
+    #00ffff,
+    #0f5a5e
+  );
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
 }
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
-}
-50% {
+  }
+  50% {
     background-position: 100% 50%;
-}
-100% {
+  }
+  100% {
     background-position: 0% 50%;
-}
+  }
 }
 
 .section-title {
@@ -933,8 +930,6 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-
-
 
 .about .content h3 {
   font-weight: 600;
@@ -1246,7 +1241,7 @@ section {
   padding: 70px 20px 80px 20px;
   transition: all ease-in-out 0.3s;
   background: rgb(235, 235, 235);
-/* background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(39,219,252,1) 48%, rgba(69,145,145,1) 100%);
+  /* background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(39,219,252,1) 48%, rgba(69,145,145,1) 100%);
   box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05); */
 }
 .services .icon-box .icon {
@@ -1352,7 +1347,8 @@ section {
 --------------------------------------------------------------*/
 .cta {
   /* background: #2487ce; */
-   background-image: url("https://i.ibb.co/n7wzfPZ/cta-cover-1.png"), linear-gradient(#89c4d6, #d13531);
+  background-image: url("https://i.ibb.co/n7wzfPZ/cta-cover-1.png"),
+    linear-gradient(#89c4d6, #d13531);
   background-size: cover;
   padding: 60px 0;
 }
@@ -1992,11 +1988,9 @@ section {
   }
 }
 
-
 /*--------------------------------------------------------------
 # Carousel
 --------------------------------------------------------------*/
-
 
 /* Article Style */
 
@@ -2062,7 +2056,7 @@ section {
   font-weight: 600;
   margin-bottom: 15px;
 }
-.article-content p{
+.article-content p {
   font-size: 16px;
 }
 .article .article-content blockquote {
@@ -2100,7 +2094,7 @@ section {
   margin-bottom: 25px;
   font-size: 22px;
 }
-.article-img{
+.article-img {
   border-radius: 8px;
 }
 
@@ -2172,88 +2166,83 @@ section {
   }
 }
 
-
-
-
-
 .section-title h2 {
-    font-weight: 700;
-    color: #20247b;
-    font-size: 30px;
-    margin: 0 0 15px;
-    border-left: 5px solid #1e9aff;
-    border-right: 5px solid #1e9aff;
-    padding-left: 15px;
+  font-weight: 700;
+  color: #20247b;
+  font-size: 30px;
+  margin: 0 0 15px;
+  border-left: 5px solid #1e9aff;
+  border-right: 5px solid #1e9aff;
+  padding-left: 15px;
 }
 .section-title {
-    padding-bottom: 45px;
+  padding-bottom: 45px;
 }
 .contact-form .send {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .px-btn {
-    padding: 0 50px 0 20px;
-    line-height: 60px;
-    position: relative;
-    display: inline-block;
-    color: #20247b;
-    background: none;
-    border: none;
+  padding: 0 50px 0 20px;
+  line-height: 60px;
+  position: relative;
+  display: inline-block;
+  color: #20247b;
+  background: none;
+  border: none;
 }
 .px-btn:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 30px;
-    background: transparent;
-    border: 1px solid rgba(252, 83, 86, 0.6);
-    border-right: 1px solid transparent;
-    -moz-transition: ease all 0.35s;
-    -o-transition: ease all 0.35s;
-    -webkit-transition: ease all 0.35s;
-    transition: ease all 0.35s;
-    width: 60px;
-    height: 60px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 30px;
+  background: transparent;
+  border: 1px solid rgba(252, 83, 86, 0.6);
+  border-right: 1px solid transparent;
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+  width: 60px;
+  height: 60px;
 }
 .px-btn .arrow {
-    width: 13px;
-    height: 2px;
-    background: currentColor;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    right: 25px;
+  width: 13px;
+  height: 2px;
+  background: currentColor;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 25px;
 }
 .px-btn .arrow:after {
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid currentColor;
-    border-top: 2px solid currentColor;
-    content: "";
-    position: absolute;
-    top: -3px;
-    right: 0;
-    display: inline-block;
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: 0;
+  display: inline-block;
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 /* Article End */
 
 /* News*/
-.card_news{
+.card_news {
   width: 426;
   height: 370;
-  border: #0A2B28 1px;
+  border: #0a2b28 1px;
 }
-
 
 /*--------------------------------------------------------------
 # Footer New

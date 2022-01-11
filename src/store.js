@@ -7,10 +7,18 @@ const initialState = {};
 
 const middleware = [thunk];
 
+
+const composeEnhancers = composeWithDevTools({
+  realtime: true,
+  name: 'redux-yia',
+  hostname: 'localhost',
+  port: 3000 // the port your remotedev server is running at
+})
+
 const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeEnhancers(applyMiddleware(...middleware))
 );
 
 export default store;

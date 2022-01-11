@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "../../components";
+import Hero from "../../components/hero";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import ListAspiration from "../../components/list/list_aspiration";
@@ -11,7 +11,7 @@ function MainPage() {
     <Container
       fluid
       style={{ width: "100%", padding: "0" }}
-      className="mx-0 flex-fill"
+      className="mx-0"
     >
       <Header />
       <br />

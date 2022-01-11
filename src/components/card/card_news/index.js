@@ -36,7 +36,7 @@ export default function CardNews(props) {
             {props.news_title}
           </Card.Title>
           <Card.Text style={{ fontSize: "14px" }}>
-            {/* {`${desc.slice(0,70)} ....`} */}
+            {`${desc.slice(0,70)} ....`}
           </Card.Text>
           <Button variant="primary" type="submit" href={path}>
             Read More

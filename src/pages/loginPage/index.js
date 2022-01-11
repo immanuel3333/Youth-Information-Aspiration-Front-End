@@ -176,8 +176,6 @@ function LoginPage(props) {
   const { isLoggedIn } = useSelector((state) => state.auth);
   const { message } = useSelector((state) => state.message);
 
-
-
   const dispatch = useDispatch();
 
   const onChangeUsername = (e) => {
@@ -202,8 +200,9 @@ function LoginPage(props) {
         .then(() => {
           props.history.push("/");
           window.location.reload();
-        }).then((res)=>{
-            console.log(res.data);
+        })
+        .then((res) => {
+          console.log(res.data);
         })
         .catch(() => {
           setLoading(false);
@@ -214,9 +213,8 @@ function LoginPage(props) {
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/search" />;
+    return <Navigate to="/" />;
   }
-
 
   return (
     <div className="col-md-12">
