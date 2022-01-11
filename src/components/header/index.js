@@ -6,38 +6,27 @@ import { logout } from "../../actions/auth-action";
 import logo from "../../assets/image/yia-logo.png";
 import newsJson from "../../data/json/news.json";
 
-
 function Header() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [newsList, setNewsList] = useState();
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth.user);
+  const news = useSelector((state) => state.news);
+  let userTrue;
+
+  if (isLoggedIn) {
+    userTrue = user.msg;
+  } else {
+    userTrue = "belum login";
+  }
+
   function onFormSubmit(e) {
     e.preventDefault();
     const [name, category] = this.state;
     navigate("/detail-news");
   }
-
-  const { isLoggedIn } = useSelector((state) => state.auth);
-  const user = useSelector((state) => state.auth.user);
-
-  const userTrue = user.msg;
-  console.log(userTrue);
-
-  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-    <a
-      href=""
-      ref={ref}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick(e);
-      }}
-    >
-      {/* Render custom icon here */}
-      &#x25bc;
-      {children}
-    </a>
-  ));
-
-  const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
 
   const handleLogout = () => {
     setLoading(true);
@@ -46,7 +35,27 @@ function Header() {
   };
 
   // const [filteredData, setFilteredData] = useState([]);
-  // const [wordEntered, setWordEntered] = useState("");
+  const [wordEntered, setWordEntered] = useState("");
+
+  const onChangeSearch = (e) => {
+    const word = e.target.value;
+    setWordEntered(word);
+    console.log(word);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+  };
+
+  const updateInput = async (input) => {
+    const filtered = news.filter((country) => {
+      return country.name.toLowerCase().includes(input.toLowerCase());
+    });
+    setWordEntered(input);
+    setNewsList(filtered);
+
+    console.log(newsList);
+  };
 
   // const handleFilter = (event) => {
   //   const searchWord = event.target.value;
@@ -66,7 +75,6 @@ function Header() {
   //   setFilteredData([]);
   //   setWordEntered("");
   // };
-
 
   return (
     <header id="header" class="fixed-top">
@@ -163,21 +171,17 @@ function Header() {
               </Link>
             </li>
 
-
             <form class="d-flex ms-4">
               <input
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                // value={wordEntered}
-                // onSubmit={handleFilter}
+                onChange={onChangeSearch}
+                onSubmit={updateInput}
               />
 
-      
-
-                  
-      {/* {filteredData.length != 0 && (
+              {/* {filteredData.length != 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
@@ -189,8 +193,7 @@ function Header() {
         </div>
       )} */}
 
-
-                {/* {loading ? (
+              {/* {loading ? (
                   <h4>Loading ...</h4>
                 ) : (
                   newsJson.filter((value) => {
@@ -202,11 +205,10 @@ function Header() {
                   })
                 )} */}
 
-
               {/* {news.filter((val) => {
-                if (searchTerm == "") {
+                if (newsList == "") {
                   return val
-                } else if  (val.news_title.toLowerCase().include(searchTerm.toLowerCase())) {
+                } else if  (val.news_title.toLowerCase().include(newsList.toLowerCase())) {
                   return val 
                 };
               }).map((val, key) => {
@@ -224,11 +226,9 @@ function Header() {
                     title={
                       <span>
                         <i
-                          className="far fa-user-circle d-flex flex-column"
-                          
+                          className="far fa-user-circle"
                           style={{ fontSize: "24px" }}
                         ></i>
-                        
                       </span>
                     }
                     id="basic-nav-dropdown"
