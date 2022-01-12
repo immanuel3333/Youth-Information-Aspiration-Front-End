@@ -178,19 +178,31 @@ function Header() {
               </Link>
             </li>
 
-            <Form className="d-flex ms-4">
-              <FormControl
+            <div className="search">
+            <div className="searchInputs">
+              <div className="inputWithIcon">
+            <i class="fas fa-search"></i>
+              <input
+                
                 type="text"
                 placeholder="Enter the aspiration title..."
                 value={wordEntered}
                 onChange={handleFilter}
+                id="clearBtn" 
+                onClick={clearInput}
               />
-              <div className="searchIcon">
+              </div>
+              
+              {/* <div className="searchIcon">
                 {filteredData.length === 0 ? (
-                  <SearchIcon />
+                  ""
                 ) : (
-                  <SearchOffIcon id="clearBtn" onClick={clearInput} />
+                  <SearchOffIcon  />
                 )}
+               
+               </div> */}
+              </div>
+
                 {filteredData.length != 0 ? (
                 <div className="dataResult">
                   {filteredData.slice(0, 15).map((value, key) => {
@@ -202,7 +214,9 @@ function Header() {
                           navigate(`/detail-news/${value._id}`);
                         }}
                       >
-                        <p>{`${value.news_title.slice(0, 10)} ....`} </p>
+                        
+                        <p>{`${value.news_title.slice(0, 35)} ....`} </p>
+                        
                       </div>
                     );
                   })}
@@ -258,7 +272,7 @@ function Header() {
                         <i
                           className="far fa-user-circle"
                           style={{ fontSize: "24px" }}
-                        ></i>
+                        >{userTrue.image}</i>
                       </span>
                     }
                     id="basic-nav-dropdown"
@@ -281,7 +295,7 @@ function Header() {
                   </Link>
                 )}
               </li>
-            </Form>
+            
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

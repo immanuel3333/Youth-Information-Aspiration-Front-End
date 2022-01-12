@@ -368,6 +368,129 @@ body {
 /* Profile Section */
 
 
+/* Search Bar Section */
+.searchInputs {
+  margin: auto;
+  display: flex;
+}
+
+
+.search input {
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-right: 10px;
+  background-color: white;
+  border: 1;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: #cacaca;
+ 
+  font-size: 15px;
+  padding: 6px;
+  height: 30px;
+  width: 300px;
+}
+input[type="text"] {
+  width: 300px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon i {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  padding: 9px 8px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.inputWithIcon input[type="text"]:focus + i {
+  color: dodgerBlue;
+}
+
+.inputWithIcon.inputIconBg i {
+  background-color: #aaa;
+  color: #fff;
+  padding: 9px 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.inputWithIcon.inputIconBg input[type="text"]:focus + i {
+  color: #fff;
+  background-color: dodgerBlue;
+}
+
+
+.searchIcon {
+  height: 40px;
+  width: 30px;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+}
+
+input:focus {
+  outline: none;
+}
+.searchIcon svg {
+  font-size: 35px;
+  background-color: transparent;
+  padding-left: 5px;
+}
+
+.dataResult {
+  margin-top: 5px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.dataItem p {
+  margin-left: 10px;
+}
+
+#clearBtn {
+  cursor: pointer;
+}
+/* Search Bar Section */
+
+
+
 .text-email {
   color: #ffffff;
 }
@@ -560,6 +683,7 @@ h6 {
 }
 .navbar a,
 .navbar a:focus {
+  margin-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
