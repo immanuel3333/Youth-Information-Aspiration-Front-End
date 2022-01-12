@@ -122,7 +122,7 @@ function ProfilePage() {
             id="password"
             name="password"
             type="password"
-            value={userTrue.password}
+            // value={userTrue.password}
             placeholder="Password"
             data-parsley-minlength="8"
             data-parsley-errors-container=".errorspannewpassinput"
