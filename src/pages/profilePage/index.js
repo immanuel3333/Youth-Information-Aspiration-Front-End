@@ -20,16 +20,20 @@
 
   return (
 
-  <div>
-  <Header />
+ 
+  
      <Container className="p-0 background-image-profile" fluid={true}>
-
+       <Header />
      <br />
         <br />
 
         <div className='color-overlay d-flex justify-content-center align-items-center'>
 
-           <Form className="form-rounded1 p-4">
+           <Form 
+           className="form-rounded1 p-4" 
+           data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"
+           data-parsley-trigger="keyup" data-parsley-validate
+           >
 
 
 
@@ -155,15 +159,17 @@
                       <br>
                     </br>
                   <div className="d-grid gap-4">
-                  <Button  type="submit" variant="info" size="lg">UPDATE
+                  <Button  type="submit" variant="info" size="lg" 
+                  onClick={() => navigate.push(`/users/:id${userTrue.user.id}`)}>UPDATE
               </Button>
            </div>
           </Form>
         </div>
 
+        <Footer />
   </Container>
+    
 
-  </div>
   )
   }
 
