@@ -1,19 +1,23 @@
 import React, { useState } from "react";
-import { Button, NavDropdown } from "react-bootstrap";
+import { Button, NavDropdown, Form, FormControl } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { logout } from "../../actions/auth-action";
 import logo from "../../assets/image/yia-logo.png";
 import newsJson from "../../data/json/news.json";
+import "../search/search_aspirasi/SearchBar.css";
+import SearchIcon from "@mui/icons-material/Search";
+import SearchOffIcon from "@mui/icons-material/SearchOff";
 
 function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [newsList, setNewsList] = useState();
+
   const { isLoggedIn } = useSelector((state) => state.auth);
   const user = useSelector((state) => state.auth.user);
-  const news = useSelector((state) => state.news);
+  const { news } = useSelector((state) => state.news);
   let userTrue;
 
   if (isLoggedIn) {
@@ -34,47 +38,50 @@ function Header() {
     dispatch(logout());
   };
 
+  
+
+  // const onChangeSearch = (e) => {
+  //   const word = e.target.value;
+  //   setWordEntered(word);
+  //   console.log(word);
+  // };
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  // };
+
+  // const updateInput = async (input) => {
+  //   const filtered = news.filter((country) => {
+  //     return country.name.toLowerCase().includes(input.toLowerCase());
+  //   });
+  //   setWordEntered(input);
+  //   setNewsList(filtered);
+
+  //   console.log(filtered);
+  // };
+
   // const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
 
-  const onChangeSearch = (e) => {
-    const word = e.target.value;
-    setWordEntered(word);
-    console.log(word);
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-  };
-
-  const updateInput = async (input) => {
-    const filtered = news.filter((country) => {
-      return country.name.toLowerCase().includes(input.toLowerCase());
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+    const newFilter = news.filter((value) => {
+      return value.news_title.toLowerCase().includes(searchWord.toLowerCase());
     });
-    setWordEntered(input);
-    setNewsList(filtered);
 
-    console.log(filtered);
+    if (searchWord === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
+    }
   };
 
-  // const handleFilter = (event) => {
-  //   const searchWord = event.target.value;
-  //   setWordEntered(searchWord);
-  //   const newFilter = data.filter((value) => {
-  //     return value.title.toLowerCase().includes(searchWord.toLowerCase());
-  //   });
-
-  //   if (searchWord === "") {
-  //     setFilteredData([]);
-  //   } else {
-  //     setFilteredData(newFilter);
-  //   }
-  // };
-
-  // const clearInput = () => {
-  //   setFilteredData([]);
-  //   setWordEntered("");
-  // };
+  const clearInput = () => {
+    setFilteredData([]);
+    setWordEntered("");
+  };
 
   return (
     <header id="header" class="fixed-top">
@@ -171,15 +178,37 @@ function Header() {
               </Link>
             </li>
 
-            <form class="d-flex ms-4">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onChange={onChangeSearch}
-                onSubmit={updateInput}
+            <Form className="d-flex ms-4">
+              <FormControl
+                type="text"
+                placeholder="Enter the aspiration title..."
+                value={wordEntered}
+                onChange={handleFilter}
               />
+              <div className="searchIcon">
+                {filteredData.length === 0 ? (
+                  <SearchIcon />
+                ) : (
+                  <SearchOffIcon id="clearBtn" onClick={clearInput} />
+                )}
+                {filteredData.length != 0 ? (
+                <div className="dataResult">
+                  {filteredData.slice(0, 15).map((value, key) => {
+                    // console.log(value);
+                    return (
+                      <div
+                        className="dataItem link"
+                        onClick={() => {
+                          navigate(`/detail-news/${value._id}`);
+                        }}
+                      >
+                        <p>{`${value.news_title.slice(0, 10)} ....`} </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : <div></div>}
+              </div>
 
               {/* {filteredData.length != 0 && (
         <div className="dataResult">
@@ -219,6 +248,7 @@ function Header() {
                   </div>
                 )
               })} */}
+              
 
               <li>
                 {isLoggedIn ? (
@@ -251,7 +281,7 @@ function Header() {
                   </Link>
                 )}
               </li>
-            </form>
+            </Form>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
