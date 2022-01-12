@@ -673,6 +673,7 @@ h6 {
 }
 .navbar ul {
   margin: 0;
+  position: static;
   padding: 0;
   display: flex;
   list-style: none;

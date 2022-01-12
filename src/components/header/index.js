@@ -185,7 +185,7 @@ function Header() {
               <input
                 
                 type="text"
-                placeholder="Enter the aspiration title..."
+                placeholder="Search"
                 value={wordEntered}
                 onChange={handleFilter}
                 id="clearBtn" 
