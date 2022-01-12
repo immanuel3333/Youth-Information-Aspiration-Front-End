@@ -54,7 +54,7 @@ function Header() {
     setWordEntered(input);
     setNewsList(filtered);
 
-    console.log(newsList);
+    console.log(filtered);
   };
 
   // const handleFilter = (event) => {

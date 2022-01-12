@@ -31,7 +31,7 @@ export default function DetailNewsPage() {
   }, [dispatch]);
 
   var thumb = `https://youth-information-aspiration.herokuapp.com/${news.news_thumbnail}`;
-  
+
   if (news != null || news.data != undefined) {
     return (
       <div>
@@ -69,16 +69,25 @@ export default function DetailNewsPage() {
                   }}
                   className="img-fluid"
                 />
+                {/* <iframe width="670" height="377" src="https://www.youtube.com/embed/VjqitFFSFxM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen/> */}
 
                 <div className="article-content mt-4">
                   <p>{news.news_description}</p>
+                  {news.news_video != null ? (
+                    <div
+                      className="mx-auto d-flex justify-content-center"
+                      dangerouslySetInnerHTML={{ __html: news.news_video }}
+                    ></div>
+                  ) : (
+                    <div></div>
+                  )}
 
                   <blockquote></blockquote>
                 </div>
               </div>
             </Col>
             <Col>
-              <div className="article icon-sosmed mx-auto justify-content-between">
+              <div className="article icon-sosmed mx-auto justify-content-around d-flex">
                 <i className="me-4 fab fa-instagram fa-2x" />
                 <i className="me-4 fab fa-facebook fa-2x" />
                 <i className="me-4 fab fa-linkedin fa-2x" />
@@ -93,13 +102,13 @@ export default function DetailNewsPage() {
                   className="justify-content-between"
                 >
                   <Tab eventKey="popular" title="Popular">
-                    
-                    {
-                      (news.data != undefined) ? news.data.News.map((e)=>{
-                      return <CardNewsRecomend key={e._v} {...e}/>
-                    
-                    }) : <div></div>
-                    }
+                    {news.data != undefined ? (
+                      news.data.News.map((e) => {
+                        return <CardNewsRecomend key={e._v} {...e} />;
+                      })
+                    ) : (
+                      <div></div>
+                    )}
                   </Tab>
                   <Tab eventKey="recomended" title="Recomended">
                     <CardNewsRecomend />

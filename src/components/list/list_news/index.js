@@ -27,12 +27,15 @@ export default function ListNews() {
   console.log(news);
   if (news.length == 3) {
     return (
-      <Row className="px-5 m-0 justify-content-center d-flex">
+      <div className="justify-content-center d-flex mx-auto">
+        <Row className="m-0">
         <h3>Some Latest Article</h3>
         {news.map((e) => {
           return <CardNews key={e.__v} {...e} />;
         })}
       </Row>
+      </div>
+      
     );
   } else {
     return (
