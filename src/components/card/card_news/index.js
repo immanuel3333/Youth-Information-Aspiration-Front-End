@@ -7,6 +7,7 @@ export default function CardNews(props) {
   let navigate = useNavigate();
 
   var desc = props.news_description;
+  var title = props.news_title;
   // desc.slice(0,15)
 
   var img = props.news_image;
@@ -33,12 +34,12 @@ export default function CardNews(props) {
         />
         <Card.Body style={{ padding: "0px" }} className="pt-2">
           <Card.Title style={{ fontSize: "16px", fontWeight: "bold" }}>
-            {props.news_title}
+            {`${title.slice(0, 80)} ....`}
           </Card.Title>
           <Card.Text style={{ fontSize: "14px" }}>
-            {/* {`${desc.slice(0,70)} ....`} */}
+            {`${desc.slice(0, 70)} ....`}
           </Card.Text>
-          <Button variant="primary" type="submit" href={path}>
+          <Button variant="success" type="submit" href={path}>
             Read More
           </Button>{" "}
         </Card.Body>

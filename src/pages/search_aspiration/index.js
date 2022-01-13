@@ -12,20 +12,20 @@ import { getAspirationByCategory } from "../../actions/aspiration-action";
 function CategorySearchPage() {
   const dispatch = useDispatch();
   const aspirationData = useSelector((state) => state.aspiration);
-  const { category_name } = useParams();
+  const { category_id } = useParams();
 
   const { aspiration } = aspirationData;
   useEffect(() => {
-    dispatch(getAspirationByCategory(category_name));
+    dispatch(getAspirationByCategory(category_id));
   }, [dispatch]);
   let navigate = useNavigate();
 
   console.log(aspiration);
-  const getName = aspiration.user_id
-    ? aspiration.user_id.map((e) => {
-        return e.username;
-      })
-    : console.log("error");
+  // const getName = aspiration.user_id
+  //   ? aspiration.user_id.map((e) => {
+  //       return e.username;
+  //     })
+  //   : console.log("error");
 
   // const getUsername = getName.map((e, index) => {
   //   return e.username;
@@ -48,7 +48,7 @@ function CategorySearchPage() {
               <div>94/100</div>
             </div>
             <div className="row py-1">
-              <div className="col-md-2">{getName}</div>
+              <div className="col-md-2"></div>
               <div className="col-md-2">12.04</div>
               <div className="col-md-2">27 Agustus 2021</div>
             </div>

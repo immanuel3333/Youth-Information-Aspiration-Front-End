@@ -18,12 +18,17 @@ function DropdownCategoryAspiration(props) {
   const getCategoryName = props.category_id.map((e) => {
     return e.category_name;
   });
+
+  const getCategoryId = props.category_id.map((e) => {
+    return e._id;
+  });
   // console.log(getCategoryName);
+  // console.log(getCategoryId);
 
   return (
     <NavDropdown.Item
       onClick={() => {
-        navigate(`/searchAspiration/${getCategoryName}`);
+        navigate(`/searchAspiration/${getCategoryId}`);
       }}
     >
       {getCategoryName}

@@ -13,9 +13,7 @@ export default function ListAspiration() {
   useEffect(() => {
     dispatch(getAspiration());
   }, [dispatch]);
-  // console.log(aspiration);
-  // const {aspiration} = props.aspiration;
-  // console.log(aspiration);
+
   return (
     <Row className="px-4 justify-content-center d-flex">
       <h3>Some Latest Article</h3>

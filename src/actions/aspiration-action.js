@@ -53,10 +53,10 @@ export const getAspirationById = (id) => async (dispatch) => {
   }
 };
 
-export const getAspirationByCategory = (category_name) => async (dispatch) => {
+export const getAspirationByCategory = (category_id) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://youth-information-aspiration.herokuapp.com/aspirations/category/${category_name}`,
+      `https://youth-information-aspiration.herokuapp.com/aspirations/category/${category_id}`,
       {
         headers: {
           "Content-Type": "application/json",

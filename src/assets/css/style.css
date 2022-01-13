@@ -322,7 +322,7 @@ body {
   position: absolute;
   background-color: rgba(0,0,0,0.2); */
 .color-overlay {
-  position: absolute;
+  /* position: absolute; */
   /* background-color: rgba(0,0,0,0.2); */
   height: 100%;
   width: 100%;
@@ -334,6 +334,38 @@ body {
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.2);
   opacity: 1;
 }
+
+/* Profile Section */
+.background-image-profile {
+  background-image: url("https://i.ibb.co/3M3Hhmc/background-profile2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100%; 
+  width: 100%;
+  /* background-position: center;  */
+}
+
+.text-center-profile {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.form-rounded1 {
+  background-color: rgba(138, 198, 238, 0.418);
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+  width: 700px;
+  height: 1000px;
+}
+/* Profile Section */
+
 
 .text-email {
   color: #ffffff;
@@ -1953,6 +1985,10 @@ section {
 
 /* Article Style */
 
+
+
+
+
 .article {
   box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
   border-radius: 5px;
@@ -2052,6 +2088,13 @@ section {
 .article-img {
   border-radius: 8px;
 }
+
+.article .icon-sosmed {
+    display: flex;
+    justify-content: space-around;
+  
+}
+
 
 /* Contact Us
 ---------------------*/

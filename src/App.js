@@ -6,12 +6,13 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import AspirationPage from "./pages/aspiration";
+import AboutUsPage from "./pages/aboutUs";
 import DetailAspirationPage from "./pages/detail_aspiration";
 import DetailNewsPage from "./pages/detail_news";
 import SearchResult from "./pages/search_result";
-import AboutUsPage from "./pages/aboutUs";
 import NotFoundPage from "./pages/not_found";
 import CategorySearchPage from "./pages/search_aspiration";
+import ProfilePage from "./pages/profilePage";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <Route path="/aspiration" element={<AspirationPage />} />
         <Route path="/searchAspiration" element={<CategorySearchPage />}>
           <Route
-            path="/searchAspiration/:category_name"
+            path="/searchAspiration/:category_id"
             element={<CategorySearchPage />}
           />
         </Route>
@@ -34,6 +35,7 @@ function App() {
         />
         <Route path="/detail-news" element={<DetailNewsPage />} />
         <Route path="/detail-news/:id" element={<DetailNewsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search" element={<SearchResult />}>
           <Route path="/search/:search" element={<SearchResult />} />
         </Route>

@@ -1,21 +1,36 @@
 import React, { useState } from "react";
-import { Button, NavDropdown } from "react-bootstrap";
+import { Button, NavDropdown, Form, FormControl } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { logout } from "../../actions/auth-action";
 import logo from "../../assets/image/yia-logo.png";
+import newsJson from "../../data/json/news.json";
+import "../search/search_aspirasi/SearchBar.css";
+import SearchIcon from "@mui/icons-material/Search";
+import SearchOffIcon from "@mui/icons-material/SearchOff";
 
 function Header() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [newsList, setNewsList] = useState();
+
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth.user);
+  const { news } = useSelector((state) => state.news);
+  let userTrue;
+
+  if (isLoggedIn) {
+    userTrue = user.msg;
+  } else {
+    userTrue = "belum login";
+  }
+
   function onFormSubmit(e) {
     e.preventDefault();
     const [name, category] = this.state;
     navigate("/detail-news");
   }
-
-  const { isLoggedIn } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
 
   const handleLogout = () => {
     setLoading(true);
@@ -23,10 +38,61 @@ function Header() {
     dispatch(logout());
   };
 
+  
+
+  // const onChangeSearch = (e) => {
+  //   const word = e.target.value;
+  //   setWordEntered(word);
+  //   console.log(word);
+  // };
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  // };
+
+  // const updateInput = async (input) => {
+  //   const filtered = news.filter((country) => {
+  //     return country.name.toLowerCase().includes(input.toLowerCase());
+  //   });
+  //   setWordEntered(input);
+  //   setNewsList(filtered);
+
+  //   console.log(filtered);
+  // };
+
+  // const [filteredData, setFilteredData] = useState([]);
+  const [wordEntered, setWordEntered] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+    const newFilter = news.filter((value) => {
+      return value.news_title.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    if (searchWord === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
+    }
+  };
+
+  const clearInput = () => {
+    setFilteredData([]);
+    setWordEntered("");
+  };
+
   return (
     <header id="header" class="fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
-        <Link to="/" class="logo">
+        <Link
+          to="/"
+          class="logo"
+          onClick={() => {
+            window.location.href = "/";
+          }}
+        >
           <img
             src={logo}
             alt=""
@@ -111,19 +177,94 @@ function Header() {
                 About
               </Link>
             </li>
-            <form class="d-flex ms-4">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onSubmit={onFormSubmit}
+
+            <Form className="d-flex ms-4">
+              <FormControl
+                type="text"
+                placeholder="Enter the aspiration title..."
+                value={wordEntered}
+                onChange={handleFilter}
               />
+              <div className="searchIcon">
+                {filteredData.length === 0 ? (
+                  <SearchIcon />
+                ) : (
+                  <SearchOffIcon id="clearBtn" onClick={clearInput} />
+                )}
+                {filteredData.length != 0 ? (
+                <div className="dataResult">
+                  {filteredData.slice(0, 15).map((value, key) => {
+                    // console.log(value);
+                    return (
+                      <div
+                        className="dataItem link"
+                        onClick={() => {
+                          navigate(`/detail-news/${value._id}`);
+                        }}
+                      >
+                        <p>{`${value.news_title.slice(0, 10)} ....`} </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : <div></div>}
+              </div>
+
+              {/* {filteredData.length != 0 && (
+        <div className="dataResult">
+          {filteredData.slice(0, 15).map((value, key) => {
+            return (
+              <a className="dataItem" href={value.link} target="_blank">
+                <p>{value.title} </p>
+              </a>
+            );
+          })}
+        </div>
+      )} */}
+
+              {/* {loading ? (
+                  <h4>Loading ...</h4>
+                ) : (
+                  newsJson.filter((value) => {
+                    if(searchTitle == "") {
+                      return value
+                    } else if (value.title.toLowerCase().includes(searchTitle.toLowerCase())) {
+                      return value;
+                    }
+                  })
+                )} */}
+
+              {/* {news.filter((val) => {
+                if (newsList == "") {
+                  return val
+                } else if  (val.news_title.toLowerCase().include(newsList.toLowerCase())) {
+                  return val 
+                };
+              }).map((val, key) => {
+                return (
+                  <div className="news" key={key}>
+                    <p>{val.news_title}</p>
+
+                  </div>
+                )
+              })} */}
+              
+
               <li>
                 {isLoggedIn ? (
-                  <NavDropdown title="Your Account" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Your Name
+                  <NavDropdown
+                    title={
+                      <span>
+                        <i
+                          className="far fa-user-circle"
+                          style={{ fontSize: "24px" }}
+                        ></i>
+                      </span>
+                    }
+                    id="basic-nav-dropdown"
+                  >
+                    <NavDropdown.Item href="/profile">
+                      {userTrue.username}
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">
                       Your Aspiration
@@ -140,7 +281,7 @@ function Header() {
                   </Link>
                 )}
               </li>
-            </form>
+            </Form>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
