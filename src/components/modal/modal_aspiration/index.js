@@ -13,12 +13,15 @@ function MyVerticallyCenteredModal(props) {
   const jobs = "61da99f7ce377a948db46e44";
   const climate = "61da9a36ce377a948db46e48";
 
+  let user_login = JSON.parse(localStorage.getItem("user"));
   const [state, setState] = useState({
+    user_id: user_login.msg._id,
     aspiration_title: "",
     category_id: "",
     aspiration_description: "",
   });
 
+  // console.log(user_login.msg._id);
   let dispatch = useDispatch();
   const { aspiration_title, aspiration_description, category_id } = state;
 

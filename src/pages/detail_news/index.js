@@ -52,7 +52,6 @@ export default function DetailNewsPage() {
     setComment(comment);
   };
 
-
   useEffect(() => {
     dispatch(getNewsById(id));
     // dispatch(getComment());
