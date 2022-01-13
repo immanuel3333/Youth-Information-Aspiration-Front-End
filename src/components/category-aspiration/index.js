@@ -1,30 +1,26 @@
 import React, { useEffect } from "react";
 import { NavDropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getAspiration,
-  getAspirationByCategory,
-} from "../../actions/aspiration-action";
 import DropdownCategoryAspiration from "../dropdown-aspiration";
+import { getCategory } from "../../actions/category-action";
 
 function CategoryAspiration() {
-  const aspirationData = useSelector((state) => state.aspiration);
-  const { aspiration } = aspirationData;
   const dispatch = useDispatch();
+  const categoryData = useSelector((state) => state.category);
+  const { category } = categoryData;
+
+  useEffect(() => {
+    dispatch(getCategory());
+  }, [dispatch]);
+
   let navigate = useNavigate();
 
-  // const getCategoryName = aspiration.user_id.map((e) => {
-  //   return e;
-  // });
-
-  // console.log(aspiration);
-  // console.log(getCategoryName);
+  // console.log(category);
   return (
     <div className="col-3">
       <NavDropdown title="Categories" id="collasible-nav-dropdown">
-        {aspiration.map((e) => {
+        {category.map((e) => {
           return <DropdownCategoryAspiration key={e._id} {...e} />;
         })}
       </NavDropdown>

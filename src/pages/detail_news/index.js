@@ -164,7 +164,9 @@ export default function DetailNewsPage() {
                                 </Card.Body>
                               </Card>
                             ) : (
-                              <div><h1>Gada Coment cuy</h1></div>
+                              <div>
+                                <h1>Gada Coment cuy</h1>
+                              </div>
                             )}
                           </Row>
                         )}
