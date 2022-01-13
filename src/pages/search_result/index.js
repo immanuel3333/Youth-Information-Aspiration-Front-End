@@ -28,8 +28,7 @@ function SearchResult() {
       <List_Carousel_Search />
       <br />
       <br />
-      
-     
+
       <ListNewsSearch />
       <br />
       <Pagination className="mx-auto d-flex justify-content-center">

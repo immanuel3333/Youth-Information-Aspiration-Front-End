@@ -8,6 +8,7 @@ import ListAspiration from "../../components/list/list_aspiration";
 import CategoryAspiration from "../../components/category-aspiration";
 import { useSelector, useDispatch } from "react-redux";
 import { getAspiration } from "../../actions/aspiration-action";
+import { ToastContainer } from "react-toastify";
 
 <MyVerticallyCenteredModal />;
 
@@ -24,6 +25,7 @@ function AspirationPage() {
 
   return (
     <div>
+      <ToastContainer />
       <div className="container-fluid">
         <Header />
         <br />

@@ -13,7 +13,7 @@ export default function ListAspiration() {
   useEffect(() => {
     dispatch(getAspiration());
   }, [dispatch]);
-
+  // console.log(aspiration);
   // const {aspiration} = props.aspiration;
   // console.log(aspiration);
   return (

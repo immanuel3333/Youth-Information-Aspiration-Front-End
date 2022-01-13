@@ -7,29 +7,28 @@ import {
   getAspiration,
   getAspirationByCategory,
 } from "../../actions/aspiration-action";
-import DropdownCategoryAspiration from "../dropdown-aspiration";
 
-function CategoryAspiration() {
+function DropdownCategoryAspiration(props) {
   const aspirationData = useSelector((state) => state.aspiration);
   const { aspiration } = aspirationData;
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  // console.log(props);
 
-  // const getCategoryName = aspiration.user_id.map((e) => {
-  //   return e;
-  // });
-
-  // console.log(aspiration);
+  const getCategoryName = props.category_id.map((e) => {
+    return e.category_name;
+  });
   // console.log(getCategoryName);
+
   return (
-    <div className="col-3">
-      <NavDropdown title="Categories" id="collasible-nav-dropdown">
-        {aspiration.map((e) => {
-          return <DropdownCategoryAspiration key={e._id} {...e} />;
-        })}
-      </NavDropdown>
-    </div>
+    <NavDropdown.Item
+      onClick={() => {
+        navigate(`/searchAspiration/${getCategoryName}`);
+      }}
+    >
+      {getCategoryName}
+    </NavDropdown.Item>
   );
 }
 
-export default CategoryAspiration;
+export default DropdownCategoryAspiration;

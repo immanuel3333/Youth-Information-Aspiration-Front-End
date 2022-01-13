@@ -18,7 +18,6 @@ function DetailAspirationPage() {
   useEffect(() => {
     dispatch(getAspirationById(id));
   }, [dispatch]);
-  // console.log(aspiration);
 
   return (
     <div>

@@ -1,6 +1,8 @@
 import {
   GET_ASPIRATION,
+  GET_ASPIRATION_BY_CATEGORY,
   GET_ASPIRATION_BY_ID,
+  POST_ASPIRATION_CREATE,
 } from "../../actions/aspiration-type";
 
 const initialState = {
@@ -21,6 +23,19 @@ export default function (state = initialState, action) {
       return {
         ...state,
         aspiration: action.payload,
+        loading: false,
+      };
+
+    case GET_ASPIRATION_BY_CATEGORY:
+      return {
+        ...state,
+        aspiration: action.payload,
+        loading: false,
+      };
+
+    case POST_ASPIRATION_CREATE:
+      return {
+        ...state,
         loading: false,
       };
 
