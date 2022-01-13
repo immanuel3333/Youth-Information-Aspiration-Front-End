@@ -8,15 +8,20 @@ import { getAspirationById } from "../../actions/aspiration-action";
 import { useDispatch, useSelector } from "react-redux";
 import io from "socket.io-client";
 
-function DetailAspirationPage() {
-  const socket = io("http://localhost");
+function DetailAspirationPage(socket) {
+  // let user_login = JSON.parse(localStorage.getItem("user"));
+  // console.log(user_login.token);
+  // const socket = io("http://localhost:3000", {
+  //   query: {
+  //     token: user_login.token,
+  //   },
+  // });
+  // console.log(props);
   const dispatch = useDispatch();
 
   const aspirationData = useSelector((state) => state.aspiration);
   const { id } = useParams();
-
   const { aspiration } = aspirationData;
-
   useEffect(() => {
     dispatch(getAspirationById(id));
   }, [dispatch]);
@@ -38,7 +43,7 @@ function DetailAspirationPage() {
             <CardDetailAspirasi data={aspiration} />
           </div>
           <div className="col-md-8">
-            <AspirationDiscussion />
+            <AspirationDiscussion socket={socket} />
           </div>
         </div>
         <br />
