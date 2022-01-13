@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
-import { Button, NavDropdown } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import MyVerticallyCenteredModal from "../../components/modal/modal_aspiration";
 import SearchAspiration from "../../components/search/search_aspirasi";
 import ListAspiration from "../../components/list/list_aspiration";
+import CategoryAspiration from "../../components/category-aspiration";
+import { useSelector, useDispatch } from "react-redux";
+import { getAspiration } from "../../actions/aspiration-action";
+import { ToastContainer } from "react-toastify";
 
 <MyVerticallyCenteredModal />;
 
 function AspirationPage() {
-  // console.log(aspiration);
-  const [modalShow, setModalShow] = React.useState(false);
+  const dispatch = useDispatch();
+  const aspirationData = useSelector((state) => state.aspiration);
+  const { aspiration } = aspirationData;
+
+  useEffect(() => {
+    dispatch(getAspiration());
+  }, [dispatch]);
+
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <div>
+      <ToastContainer />
       <div className="container-fluid">
         <Header />
         <br />
@@ -28,13 +41,7 @@ function AspirationPage() {
             <div className="col-8">
               <SearchAspiration />
             </div>
-            <div className="col-3">
-              <NavDropdown title="Categories" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">
-                  Human Right
-                </NavDropdown.Item>
-              </NavDropdown>
-            </div>
+            <CategoryAspiration />
             <div className="col-1">
               <Button variant="primary" onClick={() => setModalShow(true)}>
                 Add
