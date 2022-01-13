@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import {
@@ -10,6 +10,7 @@ import {
   Tab,
   Button,
   Spinner,
+  Form,
   Card,
   Offcanvas,
 } from "react-bootstrap";
@@ -19,41 +20,85 @@ import newsJson from "../../data/json/news.json";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getNewsById } from "../../actions/news-action";
-import { getComment, getCommentById } from "../../actions/comment-action";
+import {
+  deleteComment,
+  getComment,
+  getCommentById,
+  postComment,
+} from "../../actions/comment-action";
 import CardComment from "../../components/card/card_comment";
 
 export default function DetailNewsPage() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  let userTrue;
+  const userTrue = JSON.parse(localStorage.getItem("user"));
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
-
+  const form = useRef();
+  const checkBtn = useRef();
   const newsData = useSelector((state) => state.news);
   const commentData = useSelector((state) => state.comments);
   const { id } = useParams();
-
   const { news } = newsData;
   const { comments } = commentData;
+  const [comment, setComment] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { isLoggedIn } = useSelector((state) => state.auth);
+
+  const onChangeComment = (e) => {
+    const comment = e.target.value;
+    setComment(comment);
+  };
+
 
   useEffect(() => {
     dispatch(getNewsById(id));
     // dispatch(getComment());
-    dispatch(getCommentById(`${news._id}`));
+    dispatch(getCommentById(`${id}`));
   }, [dispatch]);
 
-  console.log(comments);
-  console.log(user.token);
+  const handlePostComment = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    dispatch(postComment(userTrue.msg._id, comment, id))
+      .then(() => {
+        window.location.reload();
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  };
+
+  const handleDelete = () => {
+    setLoading(true);
+
+    dispatch(deleteComment(news._id))
+      .then(() => {
+        window.location.reload();
+        console.log("delete SUcces");
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  };
 
   var thumb = `https://youth-information-aspiration.herokuapp.com/${news.news_thumbnail}`;
 
   if (
     news != null ||
     (news.data != undefined && comments != null) ||
-    comments != undefined
+    comments != undefined ||
+    comments.user_id.length != undefined ||
+    comments.user_id.length != null
   ) {
     return (
       <div>
@@ -114,58 +159,149 @@ export default function DetailNewsPage() {
                   </Button>
                   <Offcanvas show={show} onHide={handleClose} placement="end">
                     <Offcanvas.Header closeButton>
-                      <Offcanvas.Title>All Comment ()</Offcanvas.Title>
+                      <Offcanvas.Title>
+                        All Comment `{comments.length}`
+                      </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                       <Col>
+                        {isLoggedIn ? (
+                          <Form onSubmit={handlePostComment}>
+                            <Form.Group
+                              className="mb-3"
+                              controlId="exampleForm.ControlTextarea1"
+                            >
+                              <Form.Label>What are your thoughts?</Form.Label>
+                              <Form.Control
+                                as="textarea"
+                                rows={4}
+                                value={comment}
+                                onChange={onChangeComment}
+                              />
+                            </Form.Group>
+                            <Form.Group className="mb-3">
+                              <Button
+                                variant="success"
+                                onClick={handlePostComment}
+                              >
+                                Add Comment
+                              </Button>
+                            </Form.Group>
+                          </Form>
+                        ) : (
+                          <div></div>
+                        )}
+
                         {comments.length > 1 ? (
                           comments.map((res) => {
-                            return <CardComment {...res} key={res._id} />;
+                            return (
+                              <Row>
+                                <Card
+                                  style={{
+                                    borderRadius: "16px",
+                                    padding: "12px",
+                                  }}
+                                  className="mb-3 justify-content-between flex-row "
+                                >
+                                  <Card.Img
+                                    style={{
+                                      height: "40px",
+                                      width: "40px",
+                                      borderRadius: "10px",
+                                      objectFit: "cover",
+                                    }}
+                                    variant="left"
+                                    src="https://kapantech.com/public/img/testi.png"
+                                    className="img-fluid me-3"
+                                  />
+                                  <Card.Body style={{ padding: "0px" }}>
+                                    <Card.Title
+                                      style={{
+                                        fontSize: "16px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      {res.user_id != null ||
+                                      res.user_id != undefined
+                                        ? res.user_id.map((e) => e.username)
+                                        : "loading ..."}
+                                    </Card.Title>
+                                    <Card.Text style={{ fontSize: "10px" }}>
+                                      {res.created_at != null ||
+                                      res.created_at != undefined
+                                        ? res.created_at.slice(0, 10)
+                                        : "kosong"}
+                                    </Card.Text>
+                                    <Card.Text style={{ fontSize: "14px" }}>
+                                      {res.comment_description}
+                                    </Card.Text>
+
+                                    {res.user_id != null ||
+                                    res.user_id != undefined ||
+                                    res.user_id.length != undefined ||
+                                    userTrue != "belum login"
+                                      ? res.user_id.map((e) =>
+                                          userTrue.msg.username ===
+                                          e.username ? (
+                                            <Button
+                                              size="sm"
+                                              onClick={handleDelete}
+                                            >
+                                              Delete Comment
+                                            </Button>
+                                          ) : (
+                                            <div></div>
+                                          )
+                                        )
+                                      : "loading ..."}
+                                  </Card.Body>
+                                </Card>
+                              </Row>
+                            );
                           })
                         ) : (
                           <Row>
-                            {comments.length === 1 ? (
-                              <Card
+                            <Card
+                              style={{
+                                borderRadius: "16px",
+                                padding: "12px",
+                              }}
+                              className="mb-3 justify-content-between flex-row "
+                            >
+                              <Card.Img
                                 style={{
-                                  borderRadius: "16px",
-                                  padding: "12px",
+                                  height: "40px",
+                                  width: "40px",
+                                  borderRadius: "10px",
+                                  objectFit: "cover",
                                 }}
-                                className="mb-3 justify-content-between flex-row "
-                              >
-                                <Card.Img
+                                variant="left"
+                                src="https://kapantech.com/public/img/testi.png"
+                                className="img-fluid me-3"
+                              />
+                              <Card.Body style={{ padding: "0px" }}>
+                                <Card.Title
                                   style={{
-                                    height: "40px",
-                                    width: "40px",
-                                    borderRadius: "10px",
-                                    objectFit: "cover",
+                                    fontSize: "16px",
+                                    fontWeight: "bold",
                                   }}
-                                  variant="left"
-                                  src="https://kapantech.com/public/img/testi.png"
-                                  className="img-fluid me-3"
-                                />
-                                <Card.Body style={{ padding: "0px" }}>
-                                  <Card.Title
-                                    style={{
-                                      fontSize: "16px",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    {/* {comments.user_id[0].username} */}
-                                  </Card.Title>
-                                  <Card.Text style={{ fontSize: "10px" }}>
-                                    {comments.created_at != null ||
-                                    comments.created_at != undefined
-                                      ? comments.created_at.slice(0, 10)
-                                      : "kosong"}
-                                  </Card.Text>
-                                  <Card.Text style={{ fontSize: "14px" }}>
-                                    {comments.comment_description}
-                                  </Card.Text>
-                                </Card.Body>
-                              </Card>
-                            ) : (
-                              <div><h1>Gada Coment cuy</h1></div>
-                            )}
+                                >
+                                  {comments.user_id != null ||
+                                  comments.user_id != undefined
+                                    ? comments.user_id.map((e) => e.username)
+                                    : ""}
+                                </Card.Title>
+                                <Card.Text style={{ fontSize: "10px" }}>
+                                  {comments.created_at != null ||
+                                  comments.created_at != undefined
+                                    ? comments.created_at.slice(0, 10)
+                                    : ""}
+                                </Card.Text>
+                                <Card.Text style={{ fontSize: "14px" }}>
+                                  {comments.comment_description}
+                                </Card.Text>
+                              </Card.Body>
+                            </Card>
                           </Row>
                         )}
                       </Col>
