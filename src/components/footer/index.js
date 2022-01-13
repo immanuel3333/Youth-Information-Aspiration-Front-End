@@ -30,11 +30,17 @@ function Footer() {
             <h6>Categories</h6>
             <ul class="footer-links">
               <li>
-                <Link to="/search/ham">HAM</Link>
+                <Link to="/search/ham">Human Right</Link>
               </li>
               <li>
-                <Link to="/search/jobs">JOBS</Link>
+                <Link to="/search/jobs">Jobs</Link>
               </li>
+              {/* <li>
+                <Link to="/search/jobs">Mental Health</Link>
+              </li>
+              <li>
+                <Link to="/search/jobs">Climate</Link>
+              </li> */}
               {/* f */}
             </ul>
           </div>

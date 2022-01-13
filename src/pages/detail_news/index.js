@@ -21,6 +21,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNewsById } from "../../actions/news-action";
 import { getComment, getCommentById } from "../../actions/comment-action";
 import CardComment from "../../components/card/card_comment";
+import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, LinkedinShareButton,  TelegramShareButton, EmailShareButton } from "react-share";
+import { FacebookIcon, TwitterIcon, WhatsappIcon, LinkedinIcon,TelegramIcon, EmailIcon } from "react-share";
+
 
 export default function DetailNewsPage() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -176,10 +179,60 @@ export default function DetailNewsPage() {
             </Col>
             <Col>
               <div className="article icon-sosmed mx-auto justify-content-around d-flex">
-                <i className="me-4 fab fa-instagram fa-2x" />
-                <i className="me-4 fab fa-facebook fa-2x" />
-                <i className="me-4 fab fa-linkedin fa-2x" />
-                <i className="me-4 fas fa-share-alt fa-2x" />
+                <FacebookShareButton
+                 url= "https://www.google.com/"
+                quote={"Hey share this to your friend"}
+                hashtag="#YIA"                
+                >
+                <FacebookIcon logoFillColor="white" round={true} size={35}></FacebookIcon>
+                </FacebookShareButton>
+
+
+                <TwitterShareButton
+                url="https://www.google.com/"
+                quote={"Hey share this to your friend"}
+                hashtag="#YIA"
+                >
+                <TwitterIcon logoFillColor="white" round={true} size={35}>                 
+                </TwitterIcon>
+                </TwitterShareButton>
+
+                <WhatsappShareButton
+                url="https://www.google.com/"
+                quote={"Hey share this to your friend"}
+                hashtag="#YIA"
+                >
+                  <WhatsappIcon logoFillColor="white" round={true} size={35}>
+                  </WhatsappIcon>
+                </WhatsappShareButton>        
+                
+                <LinkedinShareButton
+                url="https://www.google.com/"
+                quote={"Hey share this to your friend"}
+                hashtag="#YIA"
+                >
+                  <LinkedinIcon logoFillColor="white" round={true} size={35}>
+                  </LinkedinIcon>
+                </LinkedinShareButton> 
+
+                <TelegramShareButton
+                url="https://www.google.com/"
+                quote={"Hey share this to your friend"}
+                hashtag="#YIA"
+                >
+                  <TelegramIcon logoFillColor="white" round={true} size={35}>
+                  </TelegramIcon>
+                </TelegramShareButton> 
+
+                <EmailShareButton
+                url="https://www.google.com/"
+                quote={"Hey share this to your friend"}
+                hashtag="#YIA"
+                >
+                  <EmailIcon logoFillColor="white" round={true} size={35}>
+                  </EmailIcon>
+                </EmailShareButton> 
+
               </div>
 
               <div className="article" style={{ marginTop: "100px" }}>
