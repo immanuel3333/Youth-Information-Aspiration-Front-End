@@ -1103,6 +1103,28 @@ section {
   text-decoration: none;
 }
 
+/* Register Page */
+.logo-register {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-in-text {
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+.sign-in-text2 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* Register Page */
+
 /*--------------------------------------------------------------
 # Counts
 --------------------------------------------------------------*/
