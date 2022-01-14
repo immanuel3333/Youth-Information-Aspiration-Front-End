@@ -12,7 +12,7 @@ export default function CardAspiration(props) {
     return e.category_name;
   });
   // console.log(props);
-  console.log(getCategoryName);
+  // console.log(getCategoryName);
   return (
     <Card className="my-1">
       <Card.Header as="h5">{props.aspiration_title}</Card.Header>
