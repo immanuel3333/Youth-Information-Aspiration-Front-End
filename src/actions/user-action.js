@@ -10,24 +10,22 @@ export const updateUserById =
     password,
     country,
     organization,
-    file,
+    image,
     user_group
   ) =>
   async (dispatch) => {
     try {
-      let formData = new FormData();
-      formData.append("file", file);
+      
       const res = await axios.put(
         `https://youth-information-aspiration.herokuapp.com/users/${id}`,
         {
-          id,
           fullname,
           username,
           email,
           password,
           country,
           organization,
-          formData,
+          image,
           user_group,
           headers: {
             "Content-Type": "multipart/form-data",

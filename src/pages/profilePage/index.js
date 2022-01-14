@@ -15,18 +15,18 @@ function ProfilePage() {
   // console.log(userStorage.user_group[0]);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(updateUserById(userId, userStorage));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(updateUserById(userId, userStorage));
+  // }, [dispatch]);
 
-  const [state, setState] = useState({
-    fullname: "",
-    username: "",
-    email: "",
-    password: "",
-    user_group: userStorage.user_group[0],
-    country: "",
-  });
+  // const [state, setState] = useState({
+  //   fullname: "",
+  //   username: "",
+  //   email: "",
+  //   password: "",
+  //   user_group: userStorage.user_group[0],
+  //   country: "",
+  // });
 
   // const { fullname, username, email, password, image, country, organization } =
   //   state;
@@ -69,17 +69,24 @@ function ProfilePage() {
     setPassword(password);
   };
 
-  const handleInputChange = (e) => {
-    let { name, value } = e.target;
-    setState({ ...state, [name]: value });
-    console.log(state);
-  };
-
+  // const handleInputChange = (e) => {
+  //   let { name, value } = e.target;
+  //   setState({ ...state, [name]: value });
+  //   console.log(state);
+  // };
   const selectFile = (event) => {
     setSelectedFiles(event.target.files);
-    console.log(selectedFiles);
+    
   };
+  let formData = new FormData(selectFile[0]);
 
+  
+  formData.append("image", selectFile[0]);
+  console.log(selectedFiles[0]);
+
+
+
+console.log(formData);
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(
@@ -91,7 +98,7 @@ function ProfilePage() {
         password,
         country,
         organization,
-        selectedFiles,
+        selectedFiles[0],
         "61d9c6144be64efed0e5ec7e"
       )
     );
