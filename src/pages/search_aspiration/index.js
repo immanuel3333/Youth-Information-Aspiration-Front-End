@@ -20,7 +20,7 @@ function CategorySearchPage() {
 
   let navigate = useNavigate();
 
-  // console.log(aspiration);
+  console.log(aspirationData);
 
   return (
     <div>
@@ -31,17 +31,22 @@ function CategorySearchPage() {
         <br />
         <br />
         {aspiration.map((e) => {
+          const categoryName = e.category_id.map((event) => {
+            return event.category_name;
+          });
+          const username = e.user_id.map((event) => {
+            return event.username;
+          });
           return (
             <Card className="my-1">
               <Card.Header as="h5">{e.aspiration_title}</Card.Header>
               <Card.Body>
                 <div className="py-1 d-flex justify-content-between">
-                  <Badge bg="secondary"></Badge> <div>94/100</div>
+                  <Badge bg="secondary">{categoryName}</Badge>
                 </div>
                 <div className="row py-1">
-                  <div className="col-md-2">{}</div>
-                  <div className="col-md-2">12.04</div>
-                  <div className="col-md-2">27 Agustus 2021</div>
+                  <div className="col-md-4">{username}</div>
+                  <div className="col-md-4">{e.created_at.slice(0, 10)}</div>
                 </div>
                 <div className="d-flex justify-content-between">
                   <p>Deskripsi Aspirasi :</p>
@@ -55,7 +60,9 @@ function CategorySearchPage() {
                   </Button>
                 </div>
                 <div className="py-1 d-flex justify-content-between">
-                  <Card.Text>{e.aspiration_description}</Card.Text>
+                  <Card.Text>
+                    {e.aspiration_description.slice(0, 50)}...
+                  </Card.Text>
                   <div>30</div>
                 </div>
               </Card.Body>

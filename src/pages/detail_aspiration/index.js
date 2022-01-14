@@ -14,9 +14,7 @@ function DetailAspirationPage() {
 
   const aspirationData = useSelector((state) => state.aspiration);
   const { id } = useParams();
-
   const { aspiration } = aspirationData;
-
   useEffect(() => {
     dispatch(getAspirationById(id));
   }, [dispatch]);

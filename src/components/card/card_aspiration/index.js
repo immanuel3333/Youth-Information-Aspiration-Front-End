@@ -8,19 +8,21 @@ export default function CardAspiration(props) {
   const getName = props.user_id.map((e) => {
     return e;
   });
+  const getCategoryName = props.category_id.map((e) => {
+    return e.category_name;
+  });
   // console.log(props);
-  // console.log(getName[0].username);
+  // console.log(getCategoryName);
   return (
     <Card className="my-1">
       <Card.Header as="h5">{props.aspiration_title}</Card.Header>
       <Card.Body>
         <div className="py-1 d-flex justify-content-between">
-          <Badge bg="secondary">{props.category_name}</Badge> <div>94/100</div>
+          <Badge bg="secondary">{getCategoryName}</Badge>
         </div>
         <div className="row py-1">
           <div className="col-md-2">{getName[0].username}</div>
-          <div className="col-md-2">12.04</div>
-          <div className="col-md-2">27 Agustus 2021</div>
+          <div className="col-md-2">{props.created_at.slice(0, 10)}</div>
         </div>
         <div className="d-flex justify-content-between">
           <p>Deskripsi Aspirasi :</p>
@@ -34,8 +36,7 @@ export default function CardAspiration(props) {
           </Button>
         </div>
         <div className="py-1 d-flex justify-content-between">
-          <Card.Text>{props.aspiration_description}</Card.Text>
-          <div>30</div>
+          <Card.Text>{props.aspiration_description.slice(0, 50)}...</Card.Text>
         </div>
       </Card.Body>
     </Card>

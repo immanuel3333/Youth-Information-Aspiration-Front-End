@@ -13,6 +13,7 @@ import SearchResult from "./pages/search_result";
 import NotFoundPage from "./pages/not_found";
 import CategorySearchPage from "./pages/search_aspiration";
 import ProfilePage from "./pages/profilePage";
+import React from "react";
 import CRUD_Admin_News from "./pages/admin/crud_news";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/admin/news" element={<CRUD_Admin_News />} />
         <Route path="/search" element={<SearchResult />}>
-          <Route path="/search/:search" element={<SearchResult />} />
+          <Route path="/search/:category_id" element={<SearchResult />} />
         </Route>
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>

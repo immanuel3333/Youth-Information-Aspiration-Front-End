@@ -13,7 +13,13 @@ function MyVerticallyCenteredModal(props) {
   const jobs = "61da99f7ce377a948db46e44";
   const climate = "61da9a36ce377a948db46e48";
 
-  let user_login = JSON.parse(localStorage.getItem("user"));
+  var user_login = JSON.parse(localStorage.getItem("user"));
+  // if (JSON.parse(localStorage.getItem("user")) === "undefined") {
+  //   console.log("belum login");
+  // }else{
+  //   user_login = JSON.parse(localStorage.getItem("user")) === "undefined"
+  // }
+
   const [state, setState] = useState({
     user_id: user_login.msg._id,
     aspiration_title: "",

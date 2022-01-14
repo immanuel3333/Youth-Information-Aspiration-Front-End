@@ -16,6 +16,7 @@ function AspirationPage() {
   const dispatch = useDispatch();
   const aspirationData = useSelector((state) => state.aspiration);
   const { aspiration } = aspirationData;
+  // console.log(aspiration);
 
   useEffect(() => {
     dispatch(getAspiration());

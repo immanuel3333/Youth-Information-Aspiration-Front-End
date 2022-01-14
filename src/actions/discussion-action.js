@@ -1,16 +1,16 @@
 import axios from "axios";
 import {
-  GET_COMMENT,
-  COMMENT_ERROR,
-  GET_COMMENT_BY_NEWS_ID,
-  POST_COMMENT,
-} from "./comment-type";
+  GET_DISCUSSION,
+  DISCUSSION_ERROR,
+  GET_DISCUSSION_BY_ASPIRATION_ID,
+  POST_DISCUSSION,
+} from "./discussion-type";
 const user = JSON.parse(localStorage.getItem("user"));
 
-export const getComment = () => async (dispatch) => {
+export const getDiscussion = () => async (dispatch) => {
   try {
     const res = await axios.get(
-      "https://youth-information-aspiration.herokuapp.com/comments",
+      "https://youth-information-aspiration.herokuapp.com/discussions",
       {
         headers: {
           "Content-Type": "application/json",
@@ -19,21 +19,21 @@ export const getComment = () => async (dispatch) => {
       }
     );
     dispatch({
-      type: GET_COMMENT,
-      payload: res.data.data.Comment,
+      type: GET_DISCUSSION,
+      payload: res.data.data.Discussion,
     });
   } catch (error) {
     dispatch({
-      type: COMMENT_ERROR,
+      type: DISCUSSION_ERROR,
       payload: console.log(error.message),
     });
   }
 };
 
-export const getCommentById = (id) => async (dispatch) => {
+export const getDiscussionByAspirationId = (id) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://youth-information-aspiration.herokuapp.com/comments/news/${id}`,
+      `https://youth-information-aspiration.herokuapp.com/discussions/aspirations/${id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -42,26 +42,26 @@ export const getCommentById = (id) => async (dispatch) => {
       }
     );
     dispatch({
-      type: GET_COMMENT_BY_NEWS_ID,
-      payload: res.data.data.Comment,
+      type: GET_DISCUSSION_BY_ASPIRATION_ID,
+      payload: res.data.data.Discussion,
     });
   } catch (error) {
     dispatch({
-      type: COMMENT_ERROR,
+      type: DISCUSSION_ERROR,
       payload: console.log(error.message),
     });
   }
 };
 
-export const postComment =
-  (user_id, comment_description, news_id) => async (dispatch) => {
+export const postDiscussion =
+  (user_id, discussion_description, aspiration_id) => async (dispatch) => {
     try {
       const res = await axios.post(
-        `https://youth-information-aspiration.herokuapp.com/comments`,
+        `https://youth-information-aspiration.herokuapp.com/discussions`,
         {
           user_id,
-          news_id,
-          comment_description,
+          aspiration_id,
+          discussion_description,
         },
         {
           headers: {
@@ -72,21 +72,21 @@ export const postComment =
         }
       );
       dispatch({
-        type: POST_COMMENT,
-        payload: res.data.data.Comment,
+        type: POST_DISCUSSION,
+        payload: res.data.data.Discussion,
       });
     } catch (error) {
       dispatch({
-        type: COMMENT_ERROR,
+        type: DISCUSSION_ERROR,
         payload: console.log(error.message),
       });
     }
   };
 
-export const deleteComment = (id) => async (dispatch) => {
+export const deleteDiscussion = (id) => async (dispatch) => {
   try {
     const res = await axios.delete(
-      `https://youth-information-aspiration.herokuapp.com/comments/${id}`,
+      `https://youth-information-aspiration.herokuapp.com/discussions/aspirations/${id}`,
 
       {
         headers: {
@@ -97,12 +97,12 @@ export const deleteComment = (id) => async (dispatch) => {
       }
     );
     dispatch({
-      type: POST_COMMENT,
-      payload: res.data.data.Comment,
+      type: POST_DISCUSSION,
+      payload: res.data.data.Discussion,
     });
   } catch (error) {
     dispatch({
-      type: COMMENT_ERROR,
+      type: DISCUSSION_ERROR,
       payload: console.log(error.message),
     });
   }

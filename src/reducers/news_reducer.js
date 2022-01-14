@@ -1,4 +1,8 @@
-import { GET_NEWS, GET_NEWS_BY_ID } from "../actions/news-type";
+import {
+  GET_NEWS,
+  GET_NEWS_BY_ID,
+  GET_NEWS_BY_CATEGORY_ID,
+} from "../actions/news-type";
 
 const initialState = {
   news: [],
@@ -14,13 +18,21 @@ export default function (state = initialState, action) {
         loading: false,
       };
 
-      case GET_NEWS_BY_ID:
-        return {
-          ...state,
-          news: action.payload,
+    case GET_NEWS_BY_ID:
+      return {
+        ...state,
+        news: action.payload,
         loading: false,
-        }
- 
-    default: return state
+      };
+
+    case GET_NEWS_BY_CATEGORY_ID:
+      return {
+        ...state,
+        news: action.payload,
+        loading: false,
+      };
+
+    default:
+      return state;
   }
 }

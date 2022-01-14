@@ -17,6 +17,7 @@ import {
 import CardNewsRecomend from "../../components/card/card_news_recomend";
 import { useParams } from "react-router-dom";
 import newsJson from "../../data/json/news.json";
+import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getNewsById } from "../../actions/news-action";
@@ -30,14 +31,18 @@ import CardComment from "../../components/card/card_comment";
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, LinkedinShareButton,  TelegramShareButton, EmailShareButton } from "react-share";
 import { FacebookIcon, TwitterIcon, WhatsappIcon, LinkedinIcon,TelegramIcon, EmailIcon } from "react-share";
 
+// import { ToastContainer } from "react-toastify";
+// import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 export default function DetailNewsPage() {
+  const navigate = useNavigate();
   const userTrue = JSON.parse(localStorage.getItem("user"));
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+
   const dispatch = useDispatch();
   const form = useRef();
   const checkBtn = useRef();
@@ -49,7 +54,20 @@ export default function DetailNewsPage() {
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const { isLoggedIn } = useSelector((state) => state.auth);
-
+  const handleShow = () => {
+    if (isLoggedIn) {
+      setShow(true);
+    } else {
+      Swal.fire({
+        position: "top-center",
+        icon: "warning",
+        title: "Login First!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      navigate("/login");
+    }
+  };
   const onChangeComment = (e) => {
     const comment = e.target.value;
     setComment(comment);
@@ -60,6 +78,8 @@ export default function DetailNewsPage() {
     // dispatch(getComment());
     dispatch(getCommentById(`${id}`));
   }, [dispatch]);
+
+  // console.log(commentData);
 
   const handlePostComment = (e) => {
     e.preventDefault();
@@ -77,10 +97,10 @@ export default function DetailNewsPage() {
       });
   };
 
-  const handleDelete = () => {
-    setLoading(true);
-
-    dispatch(deleteComment(news._id))
+  const handleDelete = (e) => {
+    // setLoading(true);
+    // console.log(e);
+    dispatch(deleteComment(e))
       .then(() => {
         window.location.reload();
         console.log("delete SUcces");
@@ -104,6 +124,7 @@ export default function DetailNewsPage() {
   ) {
     return (
       <div>
+        {/* <ToastContainer /> */}
         <Header />
         <br />
         <br />
@@ -191,11 +212,59 @@ export default function DetailNewsPage() {
                             </Form.Group>
                           </Form>
                         ) : (
-                          <div></div>
+                          comments.map((res) => {
+                            console.log(res);
+                            return (
+                              <Row>
+                                <Card
+                                  style={{
+                                    borderRadius: "16px",
+                                    padding: "12px",
+                                  }}
+                                  className="mb-3 justify-content-between flex-row "
+                                >
+                                  <Card.Img
+                                    style={{
+                                      height: "40px",
+                                      width: "40px",
+                                      borderRadius: "10px",
+                                      objectFit: "cover",
+                                    }}
+                                    variant="left"
+                                    src="https://kapantech.com/public/img/testi.png"
+                                    className="img-fluid me-3"
+                                  />
+                                  <Card.Body style={{ padding: "0px" }}>
+                                    <Card.Title
+                                      style={{
+                                        fontSize: "16px",
+                                        fontWeight: "bold",
+                                      }}
+                                    >
+                                      {res.user_id != null ||
+                                      res.user_id != undefined
+                                        ? res.user_id.map((e) => e.username)
+                                        : "loading ..."}
+                                    </Card.Title>
+                                    <Card.Text style={{ fontSize: "10px" }}>
+                                      {res.created_at != null ||
+                                      res.created_at != undefined
+                                        ? res.created_at.slice(0, 10)
+                                        : "kosong"}
+                                    </Card.Text>
+                                    <Card.Text style={{ fontSize: "14px" }}>
+                                      {res.comment_description}
+                                    </Card.Text>
+                                  </Card.Body>
+                                </Card>
+                              </Row>
+                            );
+                          })
                         )}
 
                         {comments.length > 1 ? (
                           comments.map((res) => {
+                            // console.log(res.user_id);
                             return (
                               <Row>
                                 <Card
@@ -241,13 +310,16 @@ export default function DetailNewsPage() {
                                     {res.user_id != null ||
                                     res.user_id != undefined ||
                                     res.user_id.length != undefined ||
-                                    userTrue != "belum login"
-                                      ? res.user_id.map((e) =>
+                                    userTrue != "belum login" ? (
+                                      isLoggedIn ? (
+                                        res.user_id.map((e) =>
                                           userTrue.msg.username ===
                                           e.username ? (
                                             <Button
                                               size="sm"
-                                              onClick={handleDelete}
+                                              onClick={() =>
+                                                handleDelete(res._id)
+                                              }
                                             >
                                               Delete Comment
                                             </Button>
@@ -255,7 +327,12 @@ export default function DetailNewsPage() {
                                             <div></div>
                                           )
                                         )
-                                      : "loading ..."}
+                                      ) : (
+                                        <div></div>
+                                      )
+                                    ) : (
+                                      "loading ..."
+                                    )}
                                   </Card.Body>
                                 </Card>
                               </Row>

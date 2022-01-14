@@ -2,22 +2,25 @@ import React from "react";
 import { Card, Button, Badge } from "react-bootstrap";
 
 export default function CardDetailAspirasi(props) {
-  console.log(props);
+  console.log(typeof props.data.created_at);
   return (
     <Card style={{ width: "18rem" }}>
-      <div className="row text-center">
+      <div className="row text-center pb-3">
         {props.data.user_id ? (
           props.data.user_id.map((e) => {
-            return <div className="col-6">{e.fullname}</div>;
+            return (
+              <div style={{ fontSize: "14px" }}>
+                <b>Created by:</b>
+                {e.fullname}
+              </div>
+            );
           })
         ) : (
           <p></p>
         )}
-
-        <div className="col-6">25/100</div>
       </div>
       <div className="row text-center">
-        <div className="col-4">
+        <div className="col-6">
           {props.data.category_id ? (
             props.data.category_id.map((e) => {
               return (
@@ -30,14 +33,9 @@ export default function CardDetailAspirasi(props) {
             <p></p>
           )}
         </div>
-        <div className="col-4">
+        <div className="col-6">
           <p className="px-1" style={{ fontSize: "10px" }}>
             {props.data.created_at}
-          </p>
-        </div>
-        <div className="col-4">
-          <p className="px-1" style={{ fontSize: "10px" }}>
-            27 Agustus 2021
           </p>
         </div>
       </div>
