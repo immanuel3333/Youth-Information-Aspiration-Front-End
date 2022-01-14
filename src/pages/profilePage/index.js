@@ -16,6 +16,12 @@ function ProfilePage() {
   } else {
     userTrue = "belum login";
   }
+  const [state, setState] = useState({
+    user_id: user.msg._id,
+    aspiration_title: "",
+    category_id: "",
+    aspiration_description: "",
+  });
 
   return (
     <Container className="p-0 background-image-profile mx-auto" fluid={true}>
@@ -122,7 +128,6 @@ function ProfilePage() {
             id="password"
             name="password"
             type="password"
-            value={userTrue.password}
             placeholder="Password"
             data-parsley-minlength="8"
             data-parsley-errors-container=".errorspannewpassinput"
