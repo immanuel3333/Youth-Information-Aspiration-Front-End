@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../components/footer";
 import news from "../../data/json/news.json";
 
@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { getNewsByCategoryId } from "../../actions/news-action";
+import ReactPaginate from "react-paginate";
 
 function SearchResult() {
   const dispatch = useDispatch();
@@ -18,30 +19,30 @@ function SearchResult() {
   const { category_id } = useParams();
 
   const { news } = newsData;
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const newsPerPage = 3;
+  const pagesVisited = pageNumber * newsPerPage;
+
+  const displayNews = news.slice(pagesVisited, pagesVisited + newsPerPage);
 
   useEffect(() => {
     dispatch(getNewsByCategoryId(category_id));
   }, [dispatch]);
 
-  // console.log(`ini token ${category_id}`);
 
-  let navigate = useNavigate();
+  const pageCount = Math.ceil(news.length / newsPerPage);
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
 
-  let active = 1;
-  let items = [];
-  for (let number = 1; number <= news.length; number++) {
-    items.push(
-      <Pagination.Item key={number} active={number === active}>
-        {number}
-      </Pagination.Item>
-    );
-  }
+console.log(`${news} ======================================== ini` );
 
   return (
-    <Container>
+    <Container fluid className="m-0 p-0">
       <Header />
       <br />
-      <br />
+
       <br />
       <br />
       <List_Carousel_Search />
@@ -50,9 +51,6 @@ function SearchResult() {
 
       <ListNewsSearch data={news} />
       <br />
-      <Pagination className="mx-auto d-flex justify-content-center">
-        {items}
-      </Pagination>
       <br />
       <Footer />
     </Container>
