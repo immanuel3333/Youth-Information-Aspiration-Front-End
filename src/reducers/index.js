@@ -6,6 +6,7 @@ import aspirationReducer from "./aspriation_reducer";
 import commentReducer from "./comment_reducer";
 import categoryReducer from "./category_reducer";
 import discussionReducer from "./discussion_reducer";
+import userReducer from "./user_reducer";
 
 export default combineReducers({
   news: newsReducer,
@@ -13,6 +14,7 @@ export default combineReducers({
   aspiration: aspirationReducer,
   category: categoryReducer,
   discussion: discussionReducer,
+  user: userReducer,
   auth,
   message,
 });
