@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Button, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteComment } from "../../../actions/comment-action";
 
 function CardComment(props) {
-  let user = [];
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  let userTrue;
+  const user = useSelector((state) => state.auth.user);
 
-  // if(props.user_id.length > 1){
-  //   for (let i = 0; i < props.user_id.length; i++) {
-  //     user = props.user_id[i];
-      
-  //   }
-  // }else{
-  //   user = props.user_id
-  // }
-  
+  const { isLoggedIn } = useSelector((state) => state.auth);
 
+  if (isLoggedIn) {
+    userTrue = user.msg;
+  } else {
+    userTrue = "belum login";
+  }
 
-  console.log(`${user.username} ======================= `);
+  const handleDelete = () => {
+    setLoading(true);
+
+    dispatch(deleteComment(props._id))
+      .then(() => {
+        window.location.reload();
+        console.log("delete SUcces");
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  };
+
+  console.log(`${props.user_id[0].username} ======================= `);
   return (
     <Row>
       <Card
@@ -38,7 +56,9 @@ function CardComment(props) {
         />
         <Card.Body style={{ padding: "0px" }}>
           <Card.Title style={{ fontSize: "16px", fontWeight: "bold" }}>
-            {props.username}
+            {props.user_id != null || props.user_id != undefined
+              ? props.user_id.map((e) => e.username)
+              : "loading ..."}
           </Card.Title>
           <Card.Text style={{ fontSize: "10px" }}>
             {props.created_at != null || props.created_at != undefined
@@ -48,6 +68,21 @@ function CardComment(props) {
           <Card.Text style={{ fontSize: "14px" }}>
             {props.comment_description}
           </Card.Text>
+
+          {props.user_id != null ||
+          props.user_id != undefined ||
+          props.user_id.length != undefined ||
+          userTrue != "belum login"
+            ? props.user_id.map((e) =>
+                userTrue.msg.username === e.username ? (
+                  <Button size="sm" onClick={handleDelete}>
+                    Delete Comment
+                  </Button>
+                ) : (
+                  <div></div>
+                )
+              )
+            : "loading ..."}
         </Card.Body>
       </Card>
     </Row>

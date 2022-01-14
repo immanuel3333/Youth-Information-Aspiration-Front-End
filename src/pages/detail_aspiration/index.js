@@ -6,8 +6,10 @@ import Header from "../../components/header";
 import { useParams } from "react-router";
 import { getAspirationById } from "../../actions/aspiration-action";
 import { useDispatch, useSelector } from "react-redux";
+// import io from "socket.io-client";
 
 function DetailAspirationPage() {
+  // const socket = io("http://localhost");
   const dispatch = useDispatch();
 
   const aspirationData = useSelector((state) => state.aspiration);
@@ -18,6 +20,7 @@ function DetailAspirationPage() {
   useEffect(() => {
     dispatch(getAspirationById(id));
   }, [dispatch]);
+  // console.log(aspiration);
 
   return (
     <div>
