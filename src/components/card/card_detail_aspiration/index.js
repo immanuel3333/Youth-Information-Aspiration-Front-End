@@ -39,7 +39,9 @@ export default function CardDetailAspirasi(props) {
           </p>
         </div>
       </div>
-      <Card.Title>{props.data.aspiration_title}</Card.Title>
+      <Card.Title className="text-center py-4">
+        {props.data.aspiration_title}
+      </Card.Title>
       <Card.Text>{props.data.aspiration_description}</Card.Text>
     </Card>
   );
