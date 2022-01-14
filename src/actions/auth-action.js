@@ -84,3 +84,39 @@ import {
       type: LOGOUT,
     });
   };
+
+  export const updateProfile = (fullname,username, email,country,organization, password,user_group) => (dispatch) => {
+    return AuthService.register(fullname,username, email,country,organization, password,user_group).then(
+      (response) => {
+        dispatch({
+          type: UPDATEPROFILE_SUCCESS,
+        });
+  
+        dispatch({
+          type: SET_MESSAGE,
+          payload: response.data.message,
+        });
+  
+        return Promise.resolve();
+      },
+      (error) => {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+  
+        dispatch({
+          type: UPDATEPROFILE_FAIL,
+        });
+  
+        dispatch({
+          type: SET_MESSAGE,
+          payload: message,
+        });
+  
+        return Promise.reject();
+      }
+    );
+  };

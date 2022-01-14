@@ -14,6 +14,7 @@ function Header() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [newsList, setNewsList] = useState();
+  
 
   const { isLoggedIn } = useSelector((state) => state.auth);
   const user = useSelector((state) => state.auth.user);
@@ -84,7 +85,7 @@ function Header() {
   };
 
   return (
-    <header id="header" class="fixed-top">
+    <header id="header" className="fixed-top header-nav">
       <div class="container-fluid d-flex align-items-center justify-content-between">
         <Link
           to="/"
