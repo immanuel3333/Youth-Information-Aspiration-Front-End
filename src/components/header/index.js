@@ -8,6 +8,7 @@ import newsJson from "../../data/json/news.json";
 import "../search/search_aspirasi/SearchBar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import SearchOffIcon from "@mui/icons-material/SearchOff";
+import Swal from "sweetalert2";
 
 function Header() {
   const navigate = useNavigate();
@@ -37,8 +38,6 @@ function Header() {
 
     dispatch(logout());
   };
-
-  
 
   // const onChangeSearch = (e) => {
   //   const word = e.target.value;
@@ -76,6 +75,16 @@ function Header() {
     } else {
       setFilteredData(newFilter);
     }
+  };
+
+  const handleLogin = async () => {
+    Swal.fire({
+      position: "top-center",
+      icon: "warning",
+      title: "Login First!",
+      showConfirmButton: false,
+      timer: 2000,
+    });
   };
 
   const clearInput = () => {
@@ -121,17 +130,29 @@ function Header() {
                 Home
               </Link>
             </li>
-            <li>
-              <Link
-                class="nav-link scrollto"
-                to="/aspiration"
-                onClick={() => {
-                  window.location.href = "/aspiration";
-                }}
-              >
-                Aspiration
-              </Link>
-            </li>
+            {isLoggedIn ? (
+              <li>
+                <Link
+                  class="nav-link scrollto"
+                  to="/aspiration"
+                  onClick={() => {
+                    window.location.href = "/aspiration";
+                  }}
+                >
+                  Aspiration
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  class="nav-link scrollto"
+                  to="/login"
+                  onClick={handleLogin}
+                >
+                  Aspiration
+                </Link>
+              </li>
+            )}
 
             <li class="dropdown">
               <Link to="#">
@@ -192,22 +213,24 @@ function Header() {
                   <SearchOffIcon id="clearBtn" onClick={clearInput} />
                 )}
                 {filteredData.length != 0 ? (
-                <div className="dataResult">
-                  {filteredData.slice(0, 15).map((value, key) => {
-                    // console.log(value);
-                    return (
-                      <div
-                        className="dataItem link"
-                        onClick={() => {
-                          navigate(`/detail-news/${value._id}`);
-                        }}
-                      >
-                        <p>{`${value.news_title.slice(0, 10)} ....`} </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : <div></div>}
+                  <div className="dataResult">
+                    {filteredData.slice(0, 15).map((value, key) => {
+                      // console.log(value);
+                      return (
+                        <div
+                          className="dataItem link"
+                          onClick={() => {
+                            navigate(`/detail-news/${value._id}`);
+                          }}
+                        >
+                          <p>{`${value.news_title.slice(0, 10)} ....`} </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
 
               {/* {filteredData.length != 0 && (
@@ -248,7 +271,6 @@ function Header() {
                   </div>
                 )
               })} */}
-              
 
               <li>
                 {isLoggedIn ? (

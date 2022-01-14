@@ -8,14 +8,18 @@ export default function CardAspiration(props) {
   const getName = props.user_id.map((e) => {
     return e;
   });
+  const getCategoryName = props.category_id.map((e) => {
+    return e.category_name;
+  });
   // console.log(props);
-  // console.log(getName[0].username);
+  console.log(getCategoryName);
   return (
     <Card className="my-1">
       <Card.Header as="h5">{props.aspiration_title}</Card.Header>
       <Card.Body>
         <div className="py-1 d-flex justify-content-between">
-          <Badge bg="secondary">{props.category_name}</Badge> <div>94/100</div>
+          <Badge bg="secondary">{getCategoryName}</Badge>
+          <div>94/100</div>
         </div>
         <div className="row py-1">
           <div className="col-md-2">{getName[0].username}</div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Button, Badge } from "react-bootstrap";
 
 export default function CardDetailAspirasi(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <Card style={{ width: "18rem" }}>
       <div className="row text-center">
