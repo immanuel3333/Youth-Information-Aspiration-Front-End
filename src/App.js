@@ -14,33 +14,9 @@ import NotFoundPage from "./pages/not_found";
 import CategorySearchPage from "./pages/search_aspiration";
 import ProfilePage from "./pages/profilePage";
 import React from "react";
-import io from "socket.io-client";
-import { toast } from "react-toastify";
+import CRUD_Admin_News from "./pages/admin/crud_news";
 
 function App() {
-  const [socket, setSocket] = React.useState(null);
-
-  const setupSocket = () => {
-    const newSocket = io("https://youth-information-aspiration.herokuapp.com");
-
-    newSocket.on("disconnect", () => {
-      setSocket(null);
-      setTimeout(setupSocket, 3000);
-      toast.warning("error", "Socket Disconnected!");
-    });
-
-    newSocket.on("connect", () => {
-      toast.success("success", "Socket Connected!");
-    });
-
-    setSocket(newSocket);
-  };
-
-  React.useEffect(() => {
-    setupSocket();
-    //eslint-disable-next-line
-  }, []);
-
   return (
     <Router>
       <Routes>
@@ -57,11 +33,12 @@ function App() {
         </Route>
         <Route
           path="/detail-aspiration/:id"
-          element={<DetailAspirationPage socket={socket} />}
+          element={<DetailAspirationPage />}
         />
         <Route path="/detail-news" element={<DetailNewsPage />} />
         <Route path="/detail-news/:id" element={<DetailNewsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/admin/news" element={<CRUD_Admin_News />} />
         <Route path="/search" element={<SearchResult />}>
           <Route path="/search/:search" element={<SearchResult />} />
         </Route>
