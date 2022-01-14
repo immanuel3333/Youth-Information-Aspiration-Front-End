@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Button, Badge } from "react-bootstrap";
 
 export default function CardDetailAspirasi(props) {
-  console.log(typeof props.data.created_at);
+  // console.log(typeof props.data.created_at);
   return (
     <Card style={{ width: "18rem" }}>
       <div className="row text-center pb-3">
