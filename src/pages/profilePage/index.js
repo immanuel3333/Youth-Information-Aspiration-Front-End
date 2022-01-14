@@ -114,7 +114,7 @@ function ProfilePage() {
   function updateUser() {
     let item = { fullname, username, organization, email, password };
     console.warn("item", item);
-    fetch(`/users/${user._id}`, {
+    fetch(`https://youth-information-aspiration.herokuapp.com/users/${user._id}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",
@@ -169,7 +169,7 @@ function ProfilePage() {
                   alignItems: "center",
                 }}
               >
-                <input type="file" name="file" />
+                <input type="file" name="file" value={userTrue.image}/>
               </div>
               <br></br>
               <br></br>

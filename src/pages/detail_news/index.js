@@ -315,7 +315,7 @@ export default function DetailNewsPage() {
             <Col>
               <div className="article icon-sosmed mx-auto justify-content-around d-flex">
                 <FacebookShareButton
-                 url= "https://www.google.com/"
+                 url= "https://www.google.com"
                 quote={"Hey share this to your friend"}
                 hashtag="#YIA"                
                 >
