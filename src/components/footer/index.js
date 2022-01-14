@@ -30,11 +30,17 @@ function Footer() {
             <h6>Categories</h6>
             <ul class="footer-links">
               <li>
-                <Link to="/search/ham">HAM</Link>
+                <Link to="/search/ham">Human Right</Link>
               </li>
               <li>
-                <Link to="/search/jobs">JOBS</Link>
+                <Link to="/search/jobs">Jobs</Link>
               </li>
+              {/* <li>
+                <Link to="/search/jobs">Mental Health</Link>
+              </li>
+              <li>
+                <Link to="/search/jobs">Climate</Link>
+              </li> */}
               {/* f */}
             </ul>
           </div>
@@ -50,22 +56,22 @@ function Footer() {
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="social-icons">
                   <li>
-                    <Link class="facebook" to="www.facebook.com">
+                    <Link class="facebook" to="https://www.facebook.com/ASEANYouthForum/">
                       <i class="fa fa-facebook"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link class="twitter" to="www.facebook.com">
+                    <Link class="twitter" to="https://twitter.com/AYF_ASEAN">
                       <i class="fa fa-twitter"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link class="dribbble" to="www.facebook.com">
+                    <Link class="dribbble" to="https://aseanyouthforum.org/">
                       <i class="fa fa-dribbble"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link class="linkedin" to="www.facebook.com">
+                    <Link class="linkedin" to="https://www.linkedin.com/company/asean-youth-forum/">
                       <i class="fa fa-linkedin"></i>
                     </Link>
                   </li>
