@@ -12,29 +12,55 @@
   list-style: none;
   display: flex;
   justify-content: center;
+  /* color: black; */
+  background-color: #fff;
 }
 
 .paginationBttns a {
   padding: 5px;
   margin-left: 10px;
   border-radius: 8px;
-  border: 1px solid #2b2eff;
-  color: #2b2eff;
+  border: 1px solid #1e56ab;
+  color: black;
   cursor: pointer;
   text-decoration: none;
 }
 
 .paginationBttns a:hover {
   color: white;
-  background-color: #2b2eff;
+  background-color: #1e56ab;
 }
 
 .paginationActive a {
   color: white;
-  background-color: #2b2eff;
+  background-color: #1e56ab;
+}
+.paginationActive a:hover {
+  color: white;
+  background-color: white;
 }
 
+.nextBttn{
+  color: black;
+  background-color:white;
+}
+.nextBttn:hover{
+  color: white;
+  background-color:#1e56ab;
+}
+
+.previousBttn{
+  color: black;
+  background-color:white;
+}
+.previousBttn:hover{
+  color: black;
+  background-color:#1e56ab;
+}
+
+
+
 .paginationDisabled a {
-  color: grey;
-  background-color: grey;
+  color: black;
+  background-color: white;
 }
