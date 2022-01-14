@@ -1,55 +1,49 @@
 import React, { useState } from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Container } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function List_Carousel_Search() {
+  const dispatch = useDispatch();
+  const newsData = useSelector((state) => state.news);
+
+  const { news } = newsData;
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
+
+  // const path = `/detail-news/${props._id}`;
+  // <a href={`/detail-news/${e._id}`}>
+
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          style={{ height: "360px", borderRadius: "12px" }}
-          src="https://images.unsplash.com/photo-1641437123627-837979a33c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          style={{ height: "360px", borderRadius: "12px" }}
-          src="https://images.unsplash.com/photo-1641437123627-837979a33c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
-          alt="Second slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          style={{ height: "360px", borderRadius: "12px" }}
-          src="https://images.unsplash.com/photo-1641437123627-837979a33c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <Container>
+      <Carousel activeIndex={index} onSelect={handleSelect}>
+        {news.map((e) => {
+          return (
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                style={{
+                  height: "35vh",
+                  borderRadius: "12px",
+                  objectFit: "cover",
+                }}
+                src={`https://youth-information-aspiration.herokuapp.com/${e.news_thumbnail}`}
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                {/* <p>{e.comment_description}</p> */}
+              </Carousel.Caption>
+              <h3 style={{ color: "black", marginTop: "16px" }}>
+                {e.news_title}
+              </h3>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
+    </Container>
   );
 }
 

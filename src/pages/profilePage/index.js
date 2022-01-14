@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Row, Button, Col, Container } from "react-bootstrap";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
@@ -6,21 +6,107 @@ import { useDispatch, useSelector } from "react-redux";
 // import CheckButton from "react-validation/build/button";
 import { useNavigate, Navigate } from "react-router-dom";
 import { updateUserById } from "../../actions/user-action";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 function ProfilePage() {
   const userStorage = JSON.parse(localStorage.getItem("user")).msg;
   const userId = userStorage._id;
-  // console.log(userId);
+  // console.log(userStorage.user_group[0]);
   const dispatch = useDispatch();
-  // const userData = useSelector((state) => state.user);
-  // const { user } = userData;
 
-  useEffect(() => {
-    dispatch(updateUserById(userId));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(updateUserById(userId, userStorage));
+  // }, [dispatch]);
+
+  // const [state, setState] = useState({
+  //   fullname: "",
+  //   username: "",
+  //   email: "",
+  //   password: "",
+  //   user_group: userStorage.user_group[0],
+  //   country: "",
+  // });
+
+  // const { fullname, username, email, password, image, country, organization } =
+  //   state;
+
+  const [selectedFiles, setSelectedFiles] = useState("");
+  const [username, setUsername] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [country, setCountry] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onChangeUsername = (e) => {
+    const username = e.target.value;
+    setUsername(username);
+  };
+
+  const onChangeFullname = (e) => {
+    const fullname = e.target.value;
+    setFullname(fullname);
+  };
+
+  const onChangeCountry = (e) => {
+    const country = e.target.value;
+    setCountry(country);
+  };
+
+  const onChangeOrganitation = (e) => {
+    const organitation = e.target.value;
+    setOrganization(organitation);
+  };
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  // const handleInputChange = (e) => {
+  //   let { name, value } = e.target;
+  //   setState({ ...state, [name]: value });
+  //   console.log(state);
+  // };
+  const selectFile = (event) => {
+    setSelectedFiles(event.target.files);
+    
+  };
+  let formData = new FormData(selectFile[0]);
+
+  
+  formData.append("image", selectFile[0]);
+  console.log(selectedFiles[0]);
+
+
+
+console.log(formData);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(
+      updateUserById(
+        userId,
+        fullname,
+        username,
+        email,
+        password,
+        country,
+        organization,
+        selectedFiles[0],
+        "61d9c6144be64efed0e5ec7e"
+      )
+    );
+  };
 
   return (
     <Container className="p-0 background-image-profile mx-auto" fluid={true}>
+      <ToastContainer />
       <Header />
 
       <br />
@@ -30,11 +116,13 @@ function ProfilePage() {
 
       <br />
 
-      <Form className="form-rounded1 p-4 color-overlay mx-auto">
+      <Form
+        className="form-rounded1 p-4 color-overlay mx-auto"
+        onSubmit={handleSubmit}
+      >
         <div>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <h1 className="text-center-profile">PROFILE</h1>
-
             <div
               className="img-profile"
               style={{
@@ -54,7 +142,7 @@ function ProfilePage() {
                 alignItems: "center",
               }}
             >
-              <input type="file" name="file" />
+              <input type="file" name="image" onChange={selectFile} />
             </div>
             <br></br>
             <br></br>
@@ -65,9 +153,10 @@ function ProfilePage() {
                   <Form.Label className="text-email">Fullname</Form.Label>
                   <Form.Control
                     type="text"
+                    name="fullname"
+                    value={fullname}
+                    onChange={onChangeFullname}
                     placeholder="Enter your name"
-                    data-parsley-error-message="This field is required"
-                    data-parsley-required
                   />
                 </div>
               </Col>
@@ -76,10 +165,10 @@ function ProfilePage() {
                   <Form.Label className="text-email">Username</Form.Label>
                   <Form.Control
                     type="text"
+                    name="username"
+                    value={username}
+                    onChange={onChangeUsername}
                     placeholder="Enter your username"
-                    data-parsley-error-message="Min username length 5 characters"
-                    minlength="5"
-                    data-parsley-required
                   />
                 </div>
               </Col>
@@ -88,13 +177,22 @@ function ProfilePage() {
             <Row>
               <Col>
                 <Form.Label className="text-email">Country</Form.Label>
-                <Form.Control type="text" placeholder="Enter your country" />
+                <Form.Control
+                  type="text"
+                  name="country"
+                  value={country}
+                  onChange={onChangeCountry}
+                  placeholder="Enter your country"
+                />
               </Col>
 
               <Col>
                 <Form.Label className="text-email">Organization</Form.Label>
                 <Form.Control
                   type="text"
+                  name="organization"
+                  value={organization}
+                  onChange={onChangeOrganitation}
                   placeholder="Enter your organization"
                 />
               </Col>
@@ -103,11 +201,10 @@ function ProfilePage() {
             <Form.Label className="text-email">Email address</Form.Label>
             <Form.Control
               type="email"
+              name="email"
+              value={email}
+              onChange={onChangeEmail}
               placeholder="Enter email"
-              data-parsley-trigger="change"
-              data-parsley-type="email"
-              data-parsley-required
-              data-parsley-error-message="Email is not valid"
             />
 
             <Form.Label for="password" className="text-password">
@@ -116,41 +213,13 @@ function ProfilePage() {
             <Form.Control
               id="password"
               name="password"
-              type="password"
-              // value={userTrue.password}
-              placeholder="Password"
-              data-parsley-minlength="8"
-              data-parsley-errors-container=".errorspannewpassinput"
-              data-parsley-required-message="Please enter your password."
-              data-required="true"
-              data-parsley-trigger="blur"
-              data-parsley-iff="#password-confirm"
-              data-parsley-iff-message=""
+              value={password}
+              onChange={onChangePassword}
             />
-            <span class="errorspannewpassinput"></span>
-
-            <Form.Label className="text-password" for="password-confirm">
-              Confirm Password
-            </Form.Label>
-            <Form.Control
-              type="password"
-              id="password-confirm"
-              name="password-confirm"
-              placeholder="Password"
-              data-parsley-minlength="8"
-              data-parsley-errors-container=".errorspanconfirmnewpassinput"
-              data-parsley-required-message="Please re-enter your password."
-              data-parsley-equalto="#password"
-              data-parsley-required
-              data-required="true"
-            />
-            <span class="errorspanconfirmnewpassinput"></span>
           </Form.Group>
           <br></br>
-          <div className="d-grid gap-4">
-            <Button type="submit" variant="info" size="lg" onClick={__dirname}>
-              UPDATE
-            </Button>
+          <div className="d-flex justify-content-between px-3 pb-4">
+            <Button as="input" type="submit" value="Send" />{" "}
           </div>
         </div>
       </Form>

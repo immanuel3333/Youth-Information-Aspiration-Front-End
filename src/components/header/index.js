@@ -10,6 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import SearchOffIcon from "@mui/icons-material/SearchOff";
 import Swal from "sweetalert2";
 import { getCategory } from "../../actions/category-action";
+import { getNews } from "../../actions/news-action";
 
 function Header() {
   const navigate = useNavigate();
@@ -99,6 +100,7 @@ function Header() {
 
   useEffect(() => {
     dispatch(getCategory());
+    // dispatch(getNews());
   }, [dispatch]);
   // console.log(category);
 

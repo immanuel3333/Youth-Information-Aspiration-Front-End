@@ -1103,6 +1103,28 @@ section {
   text-decoration: none;
 }
 
+/* Register Page */
+.logo-register {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-in-text {
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+.sign-in-text2 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* Register Page */
+
 /*--------------------------------------------------------------
 # Counts
 --------------------------------------------------------------*/
@@ -1353,6 +1375,45 @@ section {
   background-color: #2487ce;
 }
 
+
+/* Text Carousel Home Page */
+.text-carousel-centered {
+  position: absolute;
+  top: 40px;
+  left: 50px;
+}
+
+.text-carousel-centered .h2-text{
+  color: white;
+  font-size: 50px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+
+.text-carousel-centered .h3-text{
+  color: white;
+  font-size: 22px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.text-carousel-centered .feature-carousel{
+  color: white;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  left: 50px;
+}
+
+
+
+
+.button-read-more {
+  border-radius: 15px;
+}
+
+
+/* Text Carousel Home Page */
+
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
@@ -1467,7 +1528,7 @@ section {
 --------------------------------------------------------------*/
 .cta {
   /* background: #2487ce; */
-  background-image: url("https://i.ibb.co/ygLh8xG/930345.jpg"),
+  background-image: url("https://i.ibb.co/1X4vvqq/70292.jpg"),
     linear-gradient(#89c4d6, #d13531);
   background-size: cover;
   padding: 60px 0;

@@ -137,7 +137,7 @@ function AboutUsPage () {
             <img src="https://i.ibb.co/FYcNZSr/valid-information-icon.png" alt="valid-information-icon"   className='img-fluid shadow-4 '/>
               <h3>Valid Information</h3>
               <p>We present a feature that provides a variety of factual information through various trusted reference sources. You don't have to worry about the correctness of the information we provide. We are committed to always providing reliable information.</p>
-              <a href="#" className="read-more"><span>Read More</span> <i className="bi bi-arrow-right"></i></a>
+              
             </div>
           </div>
 
@@ -146,7 +146,7 @@ function AboutUsPage () {
             <img src="https://i.ibb.co/VNhSr8x/aspiration-icon.png"  alt="aspiration-icon"    className='img-fluid shadow-4 '/>
               <h3>Aspiration</h3>
               <p>We provide an open space for youth in ASIA to voice their concerns and strategies to achieve a better ASEAN. Youth can express their opinion on certain issues freely without coercion.</p>
-              <a href="#" className="read-more"><span>Read More</span> <i className="bi bi-arrow-right"></i></a>
+              
             </div>
           </div>
 
@@ -155,7 +155,7 @@ function AboutUsPage () {
             <img src="https://i.ibb.co/2gWCt38/discuss-group-icon.png"  alt="discussion-forum-icon"  className='img-fluid shadow-4 '/>
               <h3>Discussion Forum</h3>
               <p>We provide a forum for youth to discuss with other ASIA youth related to certain issues. We hope that the youth can present their arguments well.</p>
-              <a href="#" className="read-more"><span>Read More</span> <i className="bi bi-arrow-right"></i></a>
+             
             </div>
           </div>
 
@@ -181,7 +181,7 @@ function AboutUsPage () {
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
             <img href="" src="https://i.ibb.co/zrsCCQk/mental-health.png" alt="mental-health" className='img-fluid shadow-4 '/>
-              <h4><a href="">Mental Health</a></h4>
+              <h4>Mental Health</h4>
               <p>We provide a topic about mental health. We understand that mental health is very important at this time, and young in ASEAN must know the importance of mental health.</p>
             </div>
           </div>
@@ -189,7 +189,7 @@ function AboutUsPage () {
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div className="icon-box">
             <img href="" src="https://i.ibb.co/VJgLv5j/human-rights.png" alt="human-rights"  className='img-fluid shadow-4 '/>
-              <h4><a href="">Human Rights</a></h4>
+              <h4>Human Rights</h4>
               <p>We hope that by providing the topic of human rights, ASEAN youth can understand, as well as voice their opinions regarding the rights of youth in ASEAN.</p>
             </div>
           </div>
@@ -197,7 +197,7 @@ function AboutUsPage () {
           <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div className="icon-box">
             <img href="" src="https://i.ibb.co/GdvXkVD/job.png" alt="job"   className='img-fluid shadow-4 '/>
-              <h4><a href="">Jobs</a></h4>
+              <h4>Jobs</h4>
               <p>We present an interesting topic about work. Our hope, ASEAN youth can know about the things of the world of work. At the same time can learn from the information we provide.</p>
             </div>
           </div>
@@ -205,7 +205,7 @@ function AboutUsPage () {
          <div className="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div className="icon-box">
             <img href="" src="https://i.ibb.co/LRJX9Pr/climate.png" alt="climate"   className='img-fluid shadow-4 '/>
-              <h4><a href="">Climate</a></h4>
+              <h4>Climate</h4>
               <p>We also support ASEAN against climate change. We want youth in ASEAN to be informed about climate change and its impacts. We want to raise awareness among young people about climate change events that have occurred.</p>
             </div>
           </div>
