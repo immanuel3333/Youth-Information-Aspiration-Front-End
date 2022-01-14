@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, NavDropdown, Form, FormControl } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Button, NavDropdown, Form, FormControl, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { logout } from "../../actions/auth-action";
@@ -9,6 +9,7 @@ import "../search/search_aspirasi/SearchBar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import SearchOffIcon from "@mui/icons-material/SearchOff";
 import Swal from "sweetalert2";
+import { getCategory } from "../../actions/category-action";
 
 function Header() {
   const navigate = useNavigate();
@@ -92,6 +93,14 @@ function Header() {
     setWordEntered("");
   };
 
+  const categoryData = useSelector((state) => state.category);
+  const { category } = categoryData;
+
+  useEffect(() => {
+    dispatch(getCategory());
+  }, [dispatch]);
+  // console.log(category);
+
   return (
     <header id="header" class="fixed-top">
       <div class="container-fluid d-flex align-items-center justify-content-between">
@@ -117,7 +126,7 @@ function Header() {
           <a href="/">Youth Information Aspiration</a>
         </h1> */}
 
-        <nav id="navbar" class="navbar">
+        <Nav id="navbar" class="navbar">
           <ul>
             <li>
               <Link
@@ -155,43 +164,22 @@ function Header() {
             )}
 
             <li class="dropdown">
-              <Link to="#">
-                <span>Article Category</span> <i class="bi bi-chevron-down"></i>
-              </Link>
-              <ul>
-                <li>
-                  <Link to="/search/humanright">Human Right</Link>
-                </li>
-                {/* <li class="dropdown">
-                    <a to="#">
-                      <span>Deep Drop Down</span>{" "}
-                      <i class="bi bi-chevron-right"></i>
-                    </a>
-                    <ul>
-                      <li>
-                        <a to="#">Deep Drop Down 1</a>
-                      </li>
-                      <li>
-                        <a to="#">Deep Drop Down 2</a>
-                      </li>
-                      <li>
-                        <a to="#">Deep Drop Down 3</a>
-                      </li>
-                      <li>
-                        <a to="#">Deep Drop Down 4</a>
-                      </li>
-                      <li>
-                        <a to="#">Deep Drop Down 5</a>
-                      </li>
-                    </ul>
-                  </li> */}
-                <li>
-                  <Link to="/search/mentalhealth">Mental Health</Link>
-                </li>
-                <li>
-                  <Link to="/search/jobs">Jobs</Link>
-                </li>
-              </ul>
+              <NavDropdown
+                title="Article Category"
+                id="collasible-nav-dropdown"
+              >
+                {category.map((e) => {
+                  return (
+                    <NavDropdown.Item
+                      onClick={() => {
+                        window.location.href = `/search/${e._id}`;
+                      }}
+                    >
+                      {e.category_name}
+                    </NavDropdown.Item>
+                  );
+                })}
+              </NavDropdown>
             </li>
             <li>
               <Link class="nav-link scrollto" to="/about">
@@ -306,7 +294,7 @@ function Header() {
             </Form>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
+        </Nav>
       </div>
     </header>
   );

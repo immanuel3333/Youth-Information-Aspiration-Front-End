@@ -72,7 +72,7 @@ export default function AspirationDiscussion() {
 
   return (
     <Card className="container" style={{ width: "50rem" }}>
-      <Card.Title>Discussion(4)</Card.Title>
+      <Card.Title>Discussion({discussion.length})</Card.Title>
       {isLoggedIn ? (
         <Form onSubmit={handlePostDiscussion}>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">

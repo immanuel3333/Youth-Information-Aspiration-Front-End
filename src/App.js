@@ -40,7 +40,7 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/admin/news" element={<CRUD_Admin_News />} />
         <Route path="/search" element={<SearchResult />}>
-          <Route path="/search/:search" element={<SearchResult />} />
+          <Route path="/search/:category_id" element={<SearchResult />} />
         </Route>
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>

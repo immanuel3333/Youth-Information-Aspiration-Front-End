@@ -1,5 +1,13 @@
 import axios from "axios";
-import { GET_NEWS, NEWS_ERROR, GET_NEWS_BY_ID, UPDATE_NEWS,DELETE_NEWS_BY_ID, CREATE_NEWS } from "./news-type";
+import {
+  GET_NEWS,
+  NEWS_ERROR,
+  GET_NEWS_BY_ID,
+  UPDATE_NEWS,
+  DELETE_NEWS_BY_ID,
+  CREATE_NEWS,
+  GET_NEWS_BY_CATEGORY_ID,
+} from "./news-type";
 const user = JSON.parse(localStorage.getItem("user"));
 
 export const getNews = () => async (dispatch) => {
@@ -48,6 +56,28 @@ export const getNewsById = (id) => async (dispatch) => {
   }
 };
 
+export const getNewsByCategoryId = (category_id) => async (dispatch) => {
+  try {
+    const res = await axios.get(
+      `https://youth-information-aspiration.herokuapp.com/news/category/${category_id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    );
+    dispatch({
+      type: GET_NEWS_BY_CATEGORY_ID,
+      payload: res.data.data.News,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_NEWS_BY_CATEGORY_ID,
+      payload: console.log(error.message),
+    });
+  }
+};
 
 export const DeleteNewsById = (id) => async (dispatch) => {
   try {
