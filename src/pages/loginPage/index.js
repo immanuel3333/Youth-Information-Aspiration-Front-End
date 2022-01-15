@@ -2,7 +2,7 @@ import { login } from "../../actions/auth-action";
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { Container, Form as Form2, Row, Col, Button } from "react-bootstrap";
+import { Container, Form as Form2, Button } from "react-bootstrap";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -71,7 +71,11 @@ function LoginPage(props) {
   return (
     <Container className="background-image" fluid={true}>
       <div className="d-flex justify-content-center align-content-end">
-        <Form onSubmit={handleLogin} className="form-rounded p-4 mt-5" ref={form}>
+        <Form
+          onSubmit={handleLogin}
+          className="form-rounded p-4 mt-5"
+          ref={form}
+        >
           <div className="form-group mb-3">
             <h2 className="text-center sign-in-text">Welcome!</h2>
             <h7 className="text-center">
