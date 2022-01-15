@@ -1,6 +1,9 @@
 import React from "react";
+import { Row } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 function Hero() {
+  const navigate = useNavigate();
   const style = {
     "object-fit": "cover",
     "height": "55vh", 
@@ -23,6 +26,38 @@ function Hero() {
               }
               style={style}
             />
+            <div className="text-carousel-centered">
+              <h1 className="h2-text">Youth Information Aspiration</h1>
+
+              <h3 className="h3-text">Our Service :</h3> 
+
+              <div className="feature-carousel d-flex flex-column">
+          
+              <Row>
+              <i className="fas fa-check-circle"> Valid Information
+              </i>
+              </Row>
+              <br />
+              <Row>
+              <i className="fas fa-check-circle"> Express Aspiration
+              </i>
+              </Row>
+              <br />
+              <Row>
+               
+              <i className="fas fa-check-circle"> Discuss an issue   
+              </i>
+             
+              
+              </Row>
+           
+            </div>
+            <br />
+              <button type="button" class="btn btn-primary button-read-more"  onClick={() => {
+              navigate(`/about`)}}>Read More</button>
+
+
+            </div>
           </div>
         </div>
       </div>

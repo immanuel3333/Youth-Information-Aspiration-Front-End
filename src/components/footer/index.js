@@ -5,7 +5,7 @@ import {
   NavLink,
   Link,
 } from "react-router-dom";
-
+import logo from "../../assets/image/yia-logo.png";
 import "../../assets/css/style.css";
 
 function Footer() {
@@ -13,7 +13,22 @@ function Footer() {
     <footer className="site-footer">
       <div className="container d-flex">
         <div className="row">
-          <div className="col-sm-12 col-md-6">
+
+        <div className="col-sm-12 col-md-4">
+        <img
+            src={logo}
+            alt=""
+            className="img-fluid"
+            style={{
+              height: "150px",
+              width: "250px",
+              
+            }}
+          />
+          </div>
+
+
+          <div className="col-sm-12 col-md-4">
             <h6>About</h6>
             <p className="text-justify">
               The Youth Information Aspiration (YIA) is an educational platform
@@ -26,30 +41,34 @@ function Footer() {
             </p>
           </div>
 
-          <div className="col-xs-6 col-md-6">
+          <div className="col-xs-6 col-md-4">
             <h6>Categories</h6>
             <ul class="footer-links">
               <li>
-                <Link to="/search/ham">Human Right</Link>
+                <h7>Human Right</h7>
               </li>
               <li>
-                <Link to="/search/jobs">Jobs</Link>
-              </li>
-              {/* <li>
-                <Link to="/search/jobs">Mental Health</Link>
+                <h7>Jobs</h7>
               </li>
               <li>
-                <Link to="/search/jobs">Climate</Link>
-              </li> */}
-              {/* f */}
+                <h7>Mental Health</h7>
+              </li>
+              <li>
+                <h7>Climate</h7>
+              </li>
+              
             </ul>
           </div>
+
+          
+
+
 
           <div class="container">
             <div class="row">
               <div class="col-md-8 col-sm-6 col-xs-12">
                 <p class="copyright-text">
-                  Copyright &copy; 2022 All Rights Reserved by YIA
+                  Copyright &copy; 2022 All Rights Reserved by Assassin's Code
                 </p>
               </div>
 
@@ -66,8 +85,8 @@ function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link class="dribbble" to="https://aseanyouthforum.org/">
-                      <i class="fa fa-dribbble"></i>
+                    <Link class="dribbble" to="https://www.instagram.com/asean.youth.forum/">
+                      <i class="fa fa-instagram"></i>
                     </Link>
                   </li>
                   <li>
