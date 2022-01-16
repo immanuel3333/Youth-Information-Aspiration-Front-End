@@ -392,8 +392,8 @@ export default function DetailNewsPage() {
             <Col>
               <div className="article icon-sosmed mx-auto justify-content-around d-flex">
                 <FacebookShareButton
-                 url= "https://www.google.com"
-                quote={"Hey share this to your friend"}
+                 url= "https://yia-immanuel3333.vercel.app/"
+                quote={"Discover more about Youth Information Aspiration(YIA), and share this to your friend"}
                 hashtag="#YIA"                
                 >
                 <FacebookIcon logoFillColor="white" round={true} size={35}></FacebookIcon>
@@ -401,8 +401,8 @@ export default function DetailNewsPage() {
 
 
                 <TwitterShareButton
-                url="https://www.google.com/"
-                quote={"Hey share this to your friend"}
+                url="https://yia-immanuel3333.vercel.app/"
+                quote={"Discover more about Youth Information Aspiration(YIA), and share this to your friend"}
                 hashtag="#YIA"
                 >
                 <TwitterIcon logoFillColor="white" round={true} size={35}>                 
@@ -410,8 +410,8 @@ export default function DetailNewsPage() {
                 </TwitterShareButton>
 
                 <WhatsappShareButton
-                url="https://www.google.com/"
-                quote={"Hey share this to your friend"}
+                url="https://yia-immanuel3333.vercel.app/"
+                quote={"Discover more about Youth Information Aspiration(YIA), and share this to your friend"}
                 hashtag="#YIA"
                 >
                   <WhatsappIcon logoFillColor="white" round={true} size={35}>
@@ -419,8 +419,8 @@ export default function DetailNewsPage() {
                 </WhatsappShareButton>        
                 
                 <LinkedinShareButton
-                url="https://www.google.com/"
-                quote={"Hey share this to your friend"}
+                url="https://yia-immanuel3333.vercel.app/"
+                quote={"Discover more about Youth Information Aspiration(YIA), and share this to your friend"}
                 hashtag="#YIA"
                 >
                   <LinkedinIcon logoFillColor="white" round={true} size={35}>
@@ -428,8 +428,8 @@ export default function DetailNewsPage() {
                 </LinkedinShareButton> 
 
                 <TelegramShareButton
-                url="https://www.google.com/"
-                quote={"Hey share this to your friend"}
+                url="https://yia-immanuel3333.vercel.app/"
+                quote={"Discover more about Youth Information Aspiration(YIA), and share this to your friend"}
                 hashtag="#YIA"
                 >
                   <TelegramIcon logoFillColor="white" round={true} size={35}>
@@ -437,8 +437,8 @@ export default function DetailNewsPage() {
                 </TelegramShareButton> 
 
                 <EmailShareButton
-                url="https://www.google.com/"
-                quote={"Hey share this to your friend"}
+                url="https://yia-immanuel3333.vercel.app/"
+                quote={"Discover more about Youth Information Aspiration(YIA), and share this to your friend"}
                 hashtag="#YIA"
                 >
                   <EmailIcon logoFillColor="white" round={true} size={35}>

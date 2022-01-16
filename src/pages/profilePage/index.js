@@ -131,7 +131,7 @@ console.log(formData);
                 alignItems: "center",
               }}
             >
-              <img src="https://i.ibb.co/FhYKnrP/shawn.png" alt="shawn" />
+              <img src="https://i.ibb.co/Jy90Qh5/user.png" alt="user" className="user-logo" />
             </div>
 
             <div

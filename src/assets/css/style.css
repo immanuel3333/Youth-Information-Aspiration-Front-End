@@ -13,6 +13,24 @@ body {
   background-position: center;
 }
 
+/* Login Section */
+.logo-login {
+
+  height: 200px;
+  width: 270px;
+  text-shadow: #000000;
+}
+
+.form-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Login Section */
+
+
+
 /* About Us Section */
 .yia-logo-about {
   display: block;
@@ -343,6 +361,11 @@ body {
   height: 100%; 
   width: 100%;
   /* background-position: center;  */
+}
+
+.user-logo {
+  height: 250px;
+  width: 250px;
 }
 
 .text-center-profile {
