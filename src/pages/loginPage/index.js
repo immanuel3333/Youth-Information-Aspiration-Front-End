@@ -2,13 +2,15 @@ import { login } from "../../actions/auth-action";
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { Container, Form as Form2, Button } from "react-bootstrap";
+import { Row, Col, Container, Form as Form2, Button } from "react-bootstrap";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
+
 
 function LoginPage(props) {
+  const navigate = useNavigate();
   const required = (value) => {
     if (!value) {
       return (
@@ -71,15 +73,20 @@ function LoginPage(props) {
 
   return (
     <Container className="background-image" fluid={true}>
-      <div className="d-flex justify-content-center align-content-end">
+      <div className="d-flex justify-content-center align-content-end my-auto">
+
+    
+
+         <div className='d-flex justify-content-center align-items-center col-6'>
         <Form
           onSubmit={handleLogin}
-          className="form-rounded p-4 mt-5"
+          className="form-rounded p-4 form-login"
           ref={form}
         >
           <div className="form-group mb-3">
+          <img src='https://i.ibb.co/K0v0jrr/yia-logo.png' className='img-fluid shadow-4 logo-login' alt='YIA-Logo' />
             <h2 className="text-center sign-in-text">Welcome!</h2>
-            <h7 className="text-center text-email">
+            <h7 className="text-center text-email d-flex justify-content-center align-content-center">
               Please Login First, to Use Our Service
             </h7>
 
@@ -112,7 +119,7 @@ function LoginPage(props) {
 
           <div className="form-group">
             <div className="d-grid gap-2">
-              <Button
+            <Button
                 className="btn btn-primary btn-block"
                 type="submit"
                 disabled={loading}
@@ -122,6 +129,8 @@ function LoginPage(props) {
                 )}
                 <span>Login</span>
               </Button>
+              <Button type="submit" variant="success" size="md" onClick={() => {
+              navigate(`/register`)}}>Create an Account</Button>
             </div>
           </div>
 
@@ -142,6 +151,8 @@ function LoginPage(props) {
             </p>
           </div>
         </Form>
+        </div>
+        
       </div>
     </Container>
   );
