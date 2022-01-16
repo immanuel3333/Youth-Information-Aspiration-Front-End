@@ -6,13 +6,20 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case UPDATE_USER:
-      return {
-        ...state,
-        user: action.payload,
-        loading: false,
-      };
+      return state.map((state) => {
+        if (state.id === payload.id) {
+          return {
+            ...state,
+            ...payload,
+          };
+        } else {
+          return state;
+        }
+      });
 
     default:
       return state;

@@ -8,6 +8,7 @@ import Form2 from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
+import { useNavigate } from "react-router-dom";
 
 import { register } from "../../actions/auth-action";
 const required = (value) => {
@@ -51,6 +52,7 @@ const vpassword = (value) => {
 };
 
 function SignUpPage() {
+  const navigate = useNavigate();
   const form = useRef();
   const checkBtn = useRef();
 
@@ -116,6 +118,7 @@ function SignUpPage() {
       )
         .then(() => {
           setSuccessful(true);
+          navigate("/login");
         })
         .catch(() => {
           setSuccessful(false);
@@ -126,75 +129,86 @@ function SignUpPage() {
   return (
     <Container className="p-0 background-image" fluid={true}>
       <div className="color-overlay d-flex justify-content-center align-items-center">
-        <Form2 onSubmit={handleRegister} ref={form} className="form-rounded p-4">
+        <Form2
+          onSubmit={handleRegister}
+          ref={form}
+          className="form-rounded p-4"
+        >
           {!successful && (
             <div>
-              <img src='https://i.ibb.co/K0v0jrr/yia-logo.png' className='img-fluid shadow-4 logo-register' style={{width: 400, height: 200}} alt='YIA-Logo' />
+              <img
+                src="https://i.ibb.co/K0v0jrr/yia-logo.png"
+                className="img-fluid shadow-4 logo-register"
+                style={{ width: 400, height: 200 }}
+                alt="YIA-Logo"
+              />
               <h2 className="text-center sign-in-text">Welcome!</h2>
-              <h7 className="text-center sign-in-text2">Please register your account first before use our service</h7>
-             
+              <h7 className="text-center sign-in-text2">
+                Please register your account first before use our service
+              </h7>
+
               <br></br>
               <Row>
                 <Col>
-              <div className="form-group text-email">
-                <label htmlFor="fullname">Fullname</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter your name"
-                  name="fullname"
-                  value={fullname}
-                  onChange={onChangeFullname}
-                  validations={[required]}
-                />
-              </div>
-              </Col>
-              <Col>
-              <div className="form-group text-email">
-                <label htmlFor="username">Username</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter your username"
-                  name="username"
-                  value={username}
-                  onChange={onChangeUsername}
-                  validations={[required]}
-                />
-              </div>
-              </Col>
+                  <div className="form-group text-email">
+                    <label htmlFor="fullname">Fullname</label>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter your name"
+                      name="fullname"
+                      value={fullname}
+                      onChange={onChangeFullname}
+                      validations={[required]}
+                    />
+                  </div>
+                </Col>
+                <Col>
+                  <div className="form-group text-email">
+                    <label htmlFor="username">Username</label>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter your username"
+                      name="username"
+                      value={username}
+                      onChange={onChangeUsername}
+                      validations={[required]}
+                    />
+                  </div>
+                </Col>
               </Row>
 
               <Row>
-              <Col>
-              <div className="form-group text-email">
-                <label htmlFor="country">Country</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter your country"
-                  name="country"
-                  value={country}
-                  onChange={onChangeCountry}
-                  validations={[required]}
-                />
-              </div>
-              </Col>
+                <Col>
+                  <div className="form-group text-email">
+                    <label htmlFor="country">Country</label>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter your country"
+                      name="country"
+                      value={country}
+                      onChange={onChangeCountry}
+                      validations={[required]}
+                    />
+                  </div>
+                </Col>
 
-              <Col>
-              <div className="form-group text-email">
-                <label htmlFor="organitation">Organization</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter your organization"
-                  name="organitation"
-                  value={organitation}
-                  onChange={onChangeOrganitation}
-                  validations={[required]}
-                />
-              </div>
-              </Col>
+                <Col>
+                  <div className="form-group text-email">
+                    <label htmlFor="organitation">Organization</label>
+                    <Input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter your organization"
+                      name="organitation"
+                      value={organitation}
+                      onChange={onChangeOrganitation}
+                      validations={[required]}
+                    />
+                  </div>
+                </Col>
               </Row>
 
               <div className="form-group text-email">
@@ -207,12 +221,9 @@ function SignUpPage() {
                   value={email}
                   onChange={onChangeEmail}
                   validations={[required, validEmail]}
-                  style={{width: "100%"}}
+                  style={{ width: "100%" }}
                 />
               </div>
-
-              
-
 
               <div className="form-group text-password">
                 <label htmlFor="password">Password</label>
@@ -227,15 +238,15 @@ function SignUpPage() {
                 />
               </div>
 
-              
-
               <br></br>
               <div className="form-group d-grid gap-4">
-                <Button type="submit" variant="success" size="lg">Create an Account</Button>
+                <Button type="submit" variant="success" size="lg">
+                  Create an Account
+                </Button>
                 <div className="text-center text-email">
-              <h6>Already Have an Account?</h6>
-              <Link to="/login">Sign In</Link>
-            </div>
+                  <h6>Already Have an Account?</h6>
+                  <Link to="/login">Sign In</Link>
+                </div>
               </div>
             </div>
           )}

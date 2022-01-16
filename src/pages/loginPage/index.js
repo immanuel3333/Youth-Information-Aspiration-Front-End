@@ -6,8 +6,7 @@ import { Row, Col, Container, Form as Form2, Button } from "react-bootstrap";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { useNavigate } from "react-router";
-
+import { useNavigate } from "react-router-dom";
 
 function LoginPage(props) {
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ function LoginPage(props) {
       );
     }
   };
-
+  const navigate = useNavigate();
   const form = useRef();
   const checkBtn = useRef();
 
@@ -119,7 +118,7 @@ function LoginPage(props) {
 
           <div className="form-group">
             <div className="d-grid gap-2">
-            <Button
+              <Button
                 className="btn btn-primary btn-block"
                 type="submit"
                 disabled={loading}
@@ -142,6 +141,14 @@ function LoginPage(props) {
             </div>
           )}
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          <div className="form-group d-grid pt-4">
+            <p className="text-email">
+              Dont have account?{" "}
+              <a href="/register" style={{ textDecoration: "none" }}>
+                Create an Account{" "}
+              </a>
+            </p>
+          </div>
         </Form>
         </div>
         
