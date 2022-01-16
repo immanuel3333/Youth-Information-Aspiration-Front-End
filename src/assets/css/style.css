@@ -363,6 +363,11 @@ body {
   /* background-position: center;  */
 }
 
+.user-logo {
+  height: 250px;
+  width: 250px;
+}
+
 .text-center-profile {
   color: #000000;
   font-family: Arial, Helvetica, sans-serif;
