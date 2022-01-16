@@ -10,6 +10,7 @@ export default function ListAspiration() {
   const dispatch = useDispatch();
   const aspirationData = useSelector((state) => state.aspiration);
   const { aspiration } = aspirationData;
+  // console.log(aspirationData);
 
   const [pageNumber, setPageNumber] = useState(0);
   const aspirationPerPage = 3;
