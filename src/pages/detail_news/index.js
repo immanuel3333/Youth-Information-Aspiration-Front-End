@@ -455,12 +455,12 @@ export default function DetailNewsPage() {
                   className="justify-content-between"
                 >
                   <Tab eventKey="popular" title="Popular">
-                    {news.data != undefined ? (
-                      news.data.News.map((e) => {
+                    {news.length != undefined ? (
+                      news.map((e) => {
                         return <CardNewsRecomend key={e._v} {...e} />;
                       })
                     ) : (
-                      <div></div>
+                      <div><h1>sad</h1></div>
                     )}
                   </Tab>
                   <Tab eventKey="recomended" title="Recomended">
