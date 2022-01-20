@@ -5,6 +5,9 @@
 
 https://yia-immanuel3333.vercel.app/
 
+# Secondary Option Link Deploy Application (Fixed Domain Name)
+https://youthinformationaspiration.vercel.app/
+
 # Back End Repository
 
 https://github.com/raframput/Youth-Information-Aspiration-
